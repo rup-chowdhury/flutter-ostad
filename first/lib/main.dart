@@ -15,13 +15,16 @@ class IntroApp extends StatelessWidget{
           backgroundColor: Colors.blueAccent,
         ),
         body: Center(
-          child: Text("Hello There", style: TextStyle(
+          child: Text("Hello There. You are too short for your reputation",
+            textAlign: TextAlign.start,
+            style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w900,
             decoration: TextDecoration.overline,
             letterSpacing: 1,
             wordSpacing: 10
-          ),),
+          ),
+          ),
         ),
       ),
     );
