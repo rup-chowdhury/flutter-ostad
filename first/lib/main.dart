@@ -17,13 +17,14 @@ class IntroApp extends StatelessWidget{
         body: Center(
           child: Text("Hello There. You are too short for your reputation",
             textAlign: TextAlign.start,
+            maxLines: 1,
             style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w900,
             decoration: TextDecoration.overline,
             letterSpacing: 1,
-            wordSpacing: 10,
-              overflow: TextOverflow.ellipsis
+            wordSpacing: 1,
+              overflow: TextOverflow.fade
           ),
           ),
         ),
