@@ -15,7 +15,9 @@ class IntroApp extends StatelessWidget{
           backgroundColor: Colors.blueAccent,
         ),
         body: Center(
-          child: Text("Hello Ostad Rup"),
+          child: Text("Hello There", style: TextStyle(
+            fontSize: 24
+          ),),
         ),
       ),
     );
