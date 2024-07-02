@@ -18,7 +18,7 @@ class IntroApp extends StatelessWidget{
           child: Text("Hello There", style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w900,
-            decoration: TextDecoration.lineThrough
+            decoration: TextDecoration.overline
           ),),
         ),
       ),
