@@ -19,7 +19,8 @@ class IntroApp extends StatelessWidget{
             fontSize: 24,
             fontWeight: FontWeight.w900,
             decoration: TextDecoration.overline,
-            letterSpacing: 1
+            letterSpacing: 1,
+            wordSpacing: 10
           ),),
         ),
       ),
