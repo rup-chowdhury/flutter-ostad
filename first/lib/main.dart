@@ -16,7 +16,7 @@ class IntroApp extends StatelessWidget{
         ),
         body: Center(
           child: Text("Hello There", style: TextStyle(
-            fontSize: 24
+            fontSize: 24.5
           ),),
         ),
       ),
