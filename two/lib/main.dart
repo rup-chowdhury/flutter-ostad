@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.cyan,
       ),
       body: Center(
-        child: Icon(Icons.android, size: 80,),
+        child: Icon(Icons.tablet_android, size: 80,),
       ),
     );
   }
