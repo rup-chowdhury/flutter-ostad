@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
       ),
       body: Center(
         // child: Icon(Icons.tablet_android, size: 80, color: Colors.white),
-      child: Image.network('src'),
+      child: Image.network('https://unsplash.com/photos/programming-code-abstract-technology-background-of-software-developer-and-computer-script-ltpb_WinC3Y'),
       ),
     );
   }
