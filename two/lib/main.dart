@@ -24,13 +24,18 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green,
-      appBar: AppBar(
+      appBar: AppBar( 
         title: Text('Home'),
         backgroundColor: Colors.cyan,
       ),
       body: Center(
         // child: Icon(Icons.tablet_android, size: 80, color: Colors.white),
-      child: Image.network('https://unsplash.com/photos/programming-code-abstract-technology-background-of-software-developer-and-computer-script-ltpb_WinC3Y'),
+      child: Image.asset(
+        'assets/img.png',
+        width: 250,
+        height: 200,
+        fit: BoxFit.cover,
+      ),
       ),
     );
   }
