@@ -20,6 +20,7 @@ class IntroApp extends StatelessWidget{
             maxLines: 1,
             style: TextStyle(
               color: Colors.blueAccent,
+            shadows: Shadow(offset: Offset(dx, dy)),
             fontSize: 24,
             fontWeight: FontWeight.w900,
             decoration: TextDecoration.overline,
