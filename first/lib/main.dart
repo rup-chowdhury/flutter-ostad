@@ -19,7 +19,7 @@ class IntroApp extends StatelessWidget{
             textAlign: TextAlign.start,
             maxLines: 1,
             style: TextStyle(
-              color: ,
+              color: Colors.blueAccent,
             fontSize: 24,
             fontWeight: FontWeight.w900,
             decoration: TextDecoration.overline,
