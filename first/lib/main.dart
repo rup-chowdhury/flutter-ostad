@@ -16,6 +16,7 @@ class IntroApp extends StatelessWidget{
         ),
         body: Center(
           child: Text("Hello There. You are too short for your reputation",
+            selectionColor: Colors.blue,
             textAlign: TextAlign.start,
             maxLines: 1,
             style: TextStyle(
