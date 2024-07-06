@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,10 +22,9 @@ class IntroApp extends StatelessWidget{
             maxLines: 1,
             style: TextStyle(
               color: Colors.blueAccent,
-            shadows: Shadow(offset: Offset(dx, dy)),
             fontSize: 24,
             fontWeight: FontWeight.w900,
-            decoration: TextDecoration.overline,
+            decoration: TextDecoration.lineThrough,
             letterSpacing: 1,
             wordSpacing: 1,
               overflow: TextOverflow.fade
