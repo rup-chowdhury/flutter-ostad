@@ -25,6 +25,9 @@ class Home extends StatelessWidget {
         title: Text("Home"),
         backgroundColor: Colors.amberAccent,
       ),
+      body: Center(
+        child: Text(" Display "),
+      ),
     );
   }
 }
