@@ -27,11 +27,13 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.amberAccent,
       ),
       body: Center(
-        child: Icon(
-          Icons.android_sharp,
-          size: 70,
-          color: Colors.red,
-        ),
+        // child: Icon(
+        //   Icons.android_sharp,
+        //   size: 90,
+        //   color: Colors.red,
+        // ),
+        
+        child: Image.asset('assets/images/messi.jpg'),
       ),
     );
   }
