@@ -4,8 +4,8 @@ void main(){
 
 }
 
-class  extends StatelessWidget {
-  const ({super.key});
+class IntroApp extends StatelessWidget {
+  const IntroApp({super.key});
 
   @override
   Widget build(BuildContext context) {
