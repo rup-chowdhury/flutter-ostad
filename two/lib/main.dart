@@ -26,7 +26,11 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.amberAccent,
       ),
       body: Center(
-        child: Text(" Display "),
+        child: Icon(
+          Icons.android_sharp,
+          size: 70,
+          color: Colors.black,
+        ),
       ),
     );
   }
