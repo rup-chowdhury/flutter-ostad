@@ -21,6 +21,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text("Home"),
         backgroundColor: Colors.amberAccent,
@@ -29,7 +30,7 @@ class Home extends StatelessWidget {
         child: Icon(
           Icons.android_sharp,
           size: 70,
-          color: Colors.black,
+          color: Colors.red,
         ),
       ),
     );
