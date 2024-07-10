@@ -33,7 +33,9 @@ class Home extends StatelessWidget {
         //   color: Colors.red,
         // ),
         
-        child: Image.asset('assets/images/messi.jpg'),
+        child: Image.asset('assets/img.png',
+        width: 300,
+        height: 240,),
       ),
     );
   }
