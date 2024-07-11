@@ -35,7 +35,8 @@ class Home extends StatelessWidget {
         
         child: Image.asset('assets/img_1.png',
         width: 300,
-        height: 240,),
+        height: 240,
+        fit: BoxFit.fill,),
       ),
     );
   }
