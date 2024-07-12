@@ -35,15 +35,15 @@ class Home extends StatelessWidget {
         //   color: Colors.red,
         // ),
         
-        child: GestureDetector(
-          onTap: () {
-            print("Bangladesh Flag");
-          },
-          child: Image.asset('assets/img_1.png',
-          width: 300,
-          height: 240,
-          fit: BoxFit.cover,),
-        ),
+        // child: GestureDetector(
+        //   onTap: () {
+        //     print("Bangladesh Flag");
+        //   },
+        //   child: Image.asset('assets/img_1.png',
+        //   width: 300,
+        //   height: 240,
+        //   fit: BoxFit.cover,),
+        // ),
         // child: ElevatedButton(
         //   onPressed: () {
         //     print("Button Pressed");
@@ -63,6 +63,13 @@ class Home extends StatelessWidget {
         // },
         //   child: Text("Enter"),
         // ),
+
+        child: InkWell(
+            onTap: () {
+              print("Text tapped");
+            },
+            child: Text("Just Text")
+        ),
       ),
     );
   }
