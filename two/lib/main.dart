@@ -39,6 +39,12 @@ class Home extends StatelessWidget {
         // width: 300,
         // height: 240,
         // fit: BoxFit.cover,),
+        child: ElevatedButton(
+          onPressed: () {
+            print("Button Pressed");},
+          child: Text("Notification"),
+        ),
+
       ),
     );
   }
