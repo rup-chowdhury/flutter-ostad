@@ -35,10 +35,10 @@ class Home extends StatelessWidget {
         //   color: Colors.red,
         // ),
         
-        child: Image.asset('assets/img_1.png',
-        width: 300,
-        height: 240,
-        fit: BoxFit.cover,),
+        // child: Image.asset('assets/img_1.png',
+        // width: 300,
+        // height: 240,
+        // fit: BoxFit.cover,),
       ),
     );
   }
