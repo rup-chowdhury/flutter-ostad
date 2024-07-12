@@ -12,6 +12,7 @@ class IntroApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,      // Debug banner removed
       home: Home(),
+      title: "Intro App",
     );
   }
 }
