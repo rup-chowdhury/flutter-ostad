@@ -39,12 +39,25 @@ class Home extends StatelessWidget {
         // width: 300,
         // height: 240,
         // fit: BoxFit.cover,),
-        child: ElevatedButton(
-          onPressed: () {
-            print("Button Pressed");},
-          child: Text("Notification"),
-        ),
+        // child: ElevatedButton(
+        //   onPressed: () {
+        //     print("Button Pressed");
+        //     },
+        //   child: Text("Notification"),
+        // ),
 
+        // child: IconButton(
+        //   onPressed: () {
+        //     print("Added");
+        //   }, icon: Icon(Icons.add_a_photo,
+        //   size: 80,),
+        // ),
+
+        child: TextButton(onPressed: () {
+          print("Entered");
+        },
+          child: Text("Enter"),
+        ),
       ),
     );
   }
