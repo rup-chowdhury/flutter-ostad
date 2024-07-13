@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Single child, Multiple children
 
-//Column, row 
+//Column, row
 
 void main() {
   runApp(homeApp());
@@ -18,8 +18,8 @@ class homeApp extends StatelessWidget{
               backgroundColor: Colors.blueGrey,
               title: Text("Home Page"),
             ),
-            body: Center(
-              child: Text("Hello World"),
+            body: Column(
+              child: ,
             )
         )
     );
