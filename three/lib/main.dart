@@ -22,6 +22,7 @@ class homeApp extends StatelessWidget{
               children: [
               Text("Hello"),
               Text("There"),
+                Text("Everyone"),
             ]
             )
         )
