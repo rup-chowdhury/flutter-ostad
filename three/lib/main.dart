@@ -19,7 +19,10 @@ class homeApp extends StatelessWidget{
               title: Text("Home Page"),
             ),
             body: Column(
-              child: ,
+              children: [
+              Text("Hello"),
+              Text("There"),
+            ]
             )
         )
     );
