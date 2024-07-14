@@ -19,6 +19,7 @@ class homeApp extends StatelessWidget{
               title: Text("Home Page"),
             ),
             body: Column(
+              //vertically
               children: [
               Text("Hello"),
               Text("There"),
