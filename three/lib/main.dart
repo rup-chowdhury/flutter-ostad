@@ -19,6 +19,7 @@ class homeApp extends StatelessWidget{
               title: Text("Home Page"),
             ),
             body: Column(
+              mainAxisSize: MainAxisSize.max,
               //vertically
               children: [
               Text("Hello"),
