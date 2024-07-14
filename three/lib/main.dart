@@ -25,7 +25,10 @@ class homeApp extends StatelessWidget{
                 Text("Everyone"),
                 ElevatedButton(onPressed: (){
                 Text("Button Pressed");},
-                    child: Text("Sign In"))
+                    child: Text("Sign In")),
+                IconButton(onPressed: () {
+                  Text("Alarm");},
+                    icon: Icon(Icons.alarm_add_sharp))
             ]
             )
         )
