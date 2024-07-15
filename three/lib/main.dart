@@ -19,14 +19,14 @@ class homeApp extends StatelessWidget{
               title: Text("Home Page"),
             ),
             body: Row(
-              // mainAxisSize: MainAxisSize.max,
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               // crossAxisAlignment: CrossAxisAlignment.center,
               //vertically
               children: [
               Text("Hello "),
               Text("There "),
-                Text("Everyone "),
+                Text("Everyone \n is losing \n their \n path"),
                 ElevatedButton(onPressed: (){
                 Text("Button Pressed");},
                     child: Text("Sign In")),
