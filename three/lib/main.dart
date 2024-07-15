@@ -20,7 +20,7 @@ class homeApp extends StatelessWidget{
             ),
             body: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               //vertically
               children: [
               Text("Hello"),
