@@ -18,22 +18,28 @@ class homeApp extends StatelessWidget{
               backgroundColor: Colors.blueGrey,
               title: Text("Home Page"),
             ),
-            body: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              //vertically
-              children: [
-              Text("Hello "),
-              Text("There "),
-                Text("Everyone \n is losing \n their \n path"),
-                ElevatedButton(onPressed: (){
-                Text("Button Pressed");},
-                    child: Text("Sign In")),
-                IconButton(onPressed: () {
-                  Text("Alarm");},
-                    icon: Icon(Icons.alarm_add_sharp))
-            ]
+            body: SingleChildScrollView(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                //vertically
+                children: [
+                Text("Hello "),
+                Text("There "),
+                  Text("Hello "),
+                  Text("There "),
+                  Text("Hello "),
+                  Text("There "),
+                  Text("Everyone \n is losing \n their \n path"),
+                  ElevatedButton(onPressed: (){
+                  Text("Button Pressed");},
+                      child: Text("Sign In")),
+                  IconButton(onPressed: () {
+                    Text("Alarm");},
+                      icon: Icon(Icons.alarm_add_sharp))
+              ]
+              ),
             )
         )
     );
