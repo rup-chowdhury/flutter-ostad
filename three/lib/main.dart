@@ -18,60 +18,67 @@ class homeApp extends StatelessWidget{
               backgroundColor: Colors.blueGrey,
               title: Text("Home Page"),
             ),
-            body: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                //vertically
-                children: [
-                Text("Hello "),
-                Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Hello "),
-                  Text("There "),
-                  Text("Everyone \n is losing \n their \n path"),
-                  ElevatedButton(onPressed: (){
-                  Text("Button Pressed");},
-                      child: Text("Sign In")),
-                  IconButton(onPressed: () {
-                    Text("Alarm");},
-                      icon: Icon(Icons.alarm_add_sharp))
-              ]
-              ),
-            )
+            body: Row(
+              children: [
+                Column(),
+                Column(),
+                Column(),
+              ],
+            ),
+            // body: SingleChildScrollView(
+            //   scrollDirection: Axis.vertical,
+            //   child: Column(
+            //     mainAxisSize: MainAxisSize.max,
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     // crossAxisAlignment: CrossAxisAlignment.center,
+            //     //vertically
+            //     children: [
+            //     Text("Hello "),
+            //     Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Hello "),
+            //       Text("There "),
+            //       Text("Everyone \n is losing \n their \n path"),
+            //       ElevatedButton(onPressed: (){
+            //       Text("Button Pressed");},
+            //           child: Text("Sign In")),
+            //       IconButton(onPressed: () {
+            //         Text("Alarm");},
+            //           icon: Icon(Icons.alarm_add_sharp))
+            //   ]
+            //   ),
+            // )
         )
     );
   }
