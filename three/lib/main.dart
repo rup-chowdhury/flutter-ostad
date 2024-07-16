@@ -20,9 +20,21 @@ class homeApp extends StatelessWidget{
             ),
             body: Row(
               children: [
-                Column(),
-                Column(),
-                Column(),
+                Column(
+                  children: [
+                    Text('Column 1')
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text('Column 2')
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text('Column 3')
+                  ],
+                ),
               ],
             ),
             // body: SingleChildScrollView(
