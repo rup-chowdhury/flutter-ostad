@@ -36,7 +36,15 @@ class homeApp extends StatelessWidget{
                     Text('Column 2'),
                     Text('Column 2'),
                     Text('Column 2'),
-                    Text('Column 2')
+                    Text('Column 2'),
+                    Row(
+                      children: [
+                        Text('Column 2 Row 1'),
+                        Text('Column 2 Row 2'),
+                        Text('Column 2 Row 3'),
+                        Text('Column 2 Row 4')
+                      ],
+                    )
                   ],
                 ),
                 Column(
