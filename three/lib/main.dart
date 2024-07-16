@@ -19,6 +19,7 @@ class homeApp extends StatelessWidget{
               title: Text("Home Page"),
             ),
             body: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   children: [
