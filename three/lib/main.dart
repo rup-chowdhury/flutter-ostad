@@ -22,7 +22,7 @@ class homeApp extends StatelessWidget{
               scrollDirection: Axis.vertical,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 //vertically
                 children: [
