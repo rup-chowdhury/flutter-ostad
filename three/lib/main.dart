@@ -19,7 +19,7 @@ class homeApp extends StatelessWidget{
               title: Text("Home Page"),
             ),
             body: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.vertical,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
