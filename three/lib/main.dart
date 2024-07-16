@@ -22,16 +22,27 @@ class homeApp extends StatelessWidget{
               children: [
                 Column(
                   children: [
+                    Text('Column 1'),
+                    Text('Column 1'),
+                    Text('Column 1'),
                     Text('Column 1')
                   ],
                 ),
                 Column(
                   children: [
+                    Text('Column 2'),
+                    Text('Column 2'),
+                    Text('Column 2'),
+                    Text('Column 2'),
+                    Text('Column 2'),
                     Text('Column 2')
                   ],
                 ),
                 Column(
                   children: [
+                    Text('Column 3'),
+                    Text('Column 3'),
+                    Text('Column 3'),
                     Text('Column 3')
                   ],
                 ),
