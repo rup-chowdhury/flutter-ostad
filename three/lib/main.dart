@@ -18,44 +18,47 @@ class homeApp extends StatelessWidget{
               backgroundColor: Colors.blueGrey,
               title: Text("Home Page"),
             ),
-            body: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Text('Column 1'),
-                    Text('Column 1'),
-                    Text('Column 1'),
-                    Text('Column 1')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text('Column 2'),
-                    Text('Column 2'),
-                    Text('Column 2'),
-                    Text('Column 2'),
-                    Text('Column 2'),
-                    Text('Column 2'),
-                    Row(
-                      children: [
-                        Text('Column 2 Row 1'),
-                        Text('Column 2 Row 2'),
-                        Text('Column 2 Row 3'),
-                        Text('Column 2 Row 4')
-                      ],
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text('Column 3'),
-                    Text('Column 3'),
-                    Text('Column 3'),
-                    Text('Column 3')
-                  ],
-                ),
-              ],
+            body: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Text('Column 1'),
+                      Text('Column 1'),
+                      Text('Column 1'),
+                      Text('Column 1')
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text('Column 2'),
+                      Text('Column 2'),
+                      Text('Column 2'),
+                      Text('Column 2'),
+                      Text('Column 2'),
+                      Text('Column 2'),
+                      Row(
+                        children: [
+                          Text('Column 2 Row 1'),
+                          Text('Column 2 Row 2'),
+                          Text('Column 2 Row 3'),
+                          Text('Column 2 Row 4')
+                        ],
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text('Column 3'),
+                      Text('Column 3'),
+                      Text('Column 3'),
+                      Text('Column 3')
+                    ],
+                  ),
+                ],
+              ),
             ),
             // body: SingleChildScrollView(
             //   scrollDirection: Axis.vertical,
