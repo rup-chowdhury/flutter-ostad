@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
             width: 100,
             height: 100,
             child: Center(
-                child: Text(index.toString())),
+                child: Text((index+1).toString())),
           );
         },
       )
