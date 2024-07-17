@@ -31,65 +31,7 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
       ),
 
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 1")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 2")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 3")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 1")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 2")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 3")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 1")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 2")),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Center(
-                child: Text("Box 3")),
-          )
-        ],
-      ),
+      body: 
     );
   }
 }
