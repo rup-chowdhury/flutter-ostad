@@ -36,12 +36,12 @@ class _HomeState extends State<Home> {
           title: Text('Home'),
           backgroundColor: Colors.blueAccent,
         ),
-
-        body: ListView.builder(
-            itemCount: friendList.length,
-            itemBuilder: (context, index) {
-              return Text(friendList[index]);
-            }),
+        
+        // body: ListView.builder(
+        //     itemCount: friendList.length,
+        //     itemBuilder: (context, index) {
+        //       return Text(friendList[index]);
+        //     }),
 
         // body: ListView.builder(
         //   itemCount: 1000,
@@ -54,6 +54,8 @@ class _HomeState extends State<Home> {
         //     );
         //   },
         // )
+      
+        body: GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder),
     );;
   }
 }
