@@ -33,6 +33,9 @@ class Home extends StatelessWidget {
 
       body: ListView.builder(
         itemCount: 1000,
+        itemBuilder: (context, index) {
+          
+        },
       )
     );
   }
