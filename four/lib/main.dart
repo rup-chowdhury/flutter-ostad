@@ -31,7 +31,9 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
       ),
 
-      body: ListView.builder(itemBuilder: itemBuilder)
+      body: ListView.builder(
+        itemCount: 1000,
+      )
     );
   }
 }
