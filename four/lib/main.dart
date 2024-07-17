@@ -55,7 +55,12 @@ class _HomeState extends State<Home> {
         //   },
         // )
       
-        body: GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder),
+        body: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemCount: friendList.length,
+            itemBuilder: (context, index){
+               return Text(friendList[index]);
+            }),
     );;
   }
 }
