@@ -28,6 +28,30 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Home'),
+        backgroundColor: Colors.blueAccent,
+      ),
+
+      body: Column(
+        children: [
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+                child: Text("Box 1")),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+                child: Text("Box 2")),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+                child: Text("Box 3")),
+          )
+        ],
       ),
     );
   }
