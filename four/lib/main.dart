@@ -31,10 +31,45 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
       ),
 
-      body: SizedBox(
-        width: 130,
-        child: Row(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                  child: Text("Box 1")),
+            ),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                  child: Text("Box 2")),
+            ),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                  child: Text("Box 3")),
+            ),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                  child: Text("Box 1")),
+            ),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                  child: Text("Box 2")),
+            ),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                  child: Text("Box 3")),
+            ),
             SizedBox(
               height: 100,
               width: 100,
