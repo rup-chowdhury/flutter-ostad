@@ -27,6 +27,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<String> friendList = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,17 +37,17 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.blueAccent,
         ),
 
-        body: ListView.builder(
-          itemCount: 1000,
-          itemBuilder: (context, index) {
-            return SizedBox(
-              width: 100,
-              height: 100,
-              child: Center(
-                  child: Text((index+1).toString())),
-            );
-          },
-        )
+        // body: ListView.builder(
+        //   itemCount: 1000,
+        //   itemBuilder: (context, index) {
+        //     return SizedBox(
+        //       width: 100,
+        //       height: 100,
+        //       child: Center(
+        //           child: Text((index+1).toString())),
+        //     );
+        //   },
+        // )
     );;
   }
 }
