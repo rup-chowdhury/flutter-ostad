@@ -27,7 +27,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> friendList = [];
+  List<String> friendList = ["Jonayet", "Prapty", "Alim", "Tasin", "Promita"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
