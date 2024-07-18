@@ -45,7 +45,16 @@ class _HomeState extends State<Home> {
                   title: Text(friendList[index]),
                   subtitle: Text("Close Friend"),
                   leading: Text((index+1).toString()),
-                  trailing: Icon(Icons.person),
+                  trailing: Column(
+                    
+                    children: [
+                      Icon(
+                          Icons.circle_rounded,
+                          size: 15,
+                          color: Colors.greenAccent,),
+                      Text("Active")
+                    ],
+                  ),
                   onTap: () {
                     print(friendList[index]);
                     },
