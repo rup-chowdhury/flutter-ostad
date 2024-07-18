@@ -47,6 +47,7 @@ class _HomeState extends State<Home> {
                 height: 30,
                 color: Colors.blue,
                 thickness: 3,
+                indent: 8,
               );
         },),
 
