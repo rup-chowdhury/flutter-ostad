@@ -40,7 +40,8 @@ class _HomeState extends State<Home> {
         body: ListView.separated(
             itemCount: friendList.length,
             itemBuilder: (context, index) {
-              return Center(child: Text(friendList[index]));
+              return Center(
+                  child: Text(friendList[index]));
             }, separatorBuilder: (BuildContext context, int index) {
               return Divider(
                 height: 30,
