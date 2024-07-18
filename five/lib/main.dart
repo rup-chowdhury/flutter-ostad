@@ -42,6 +42,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blueAccent,
       ),
 
+      body: Container(),
     );
     ;
   }
