@@ -41,12 +41,22 @@ class _HomeState extends State<Home> {
             itemCount: friendList.length,
             itemBuilder: (context, index) {
               return ListTile(
+                  tileColor: Colors.white70,
                   title: Text(friendList[index]),
                   subtitle: Text("Close Friend"),
                   leading: Text((index+1).toString()),
                   trailing: Icon(Icons.person),
-                  onTap: () {print(friendList[index]);
+                  onTap: () {
+                    print(friendList[index]);
                     },
+                titleTextStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18
+                ),
+                subtitleTextStyle: TextStyle(
+                  color: Colors.black45,
+                  fontSize: 12
+                ),
               );
             }, separatorBuilder: (BuildContext context, int index) {
               return Divider(
