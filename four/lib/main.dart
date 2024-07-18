@@ -37,11 +37,11 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.blueAccent,
         ),
         
-        // body: ListView.builder(
-        //     itemCount: friendList.length,
-        //     itemBuilder: (context, index) {
-        //       return Text(friendList[index]);
-        //     }),
+        body: ListView.builder(
+            itemCount: friendList.length,
+            itemBuilder: (context, index) {
+              return Text(friendList[index]);
+            }),
 
         // body: ListView.builder(
         //   itemCount: 1000,
@@ -55,21 +55,21 @@ class _HomeState extends State<Home> {
         //   },
         // )
       
-        body: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-                childAspectRatio: 0.5),
-            itemCount: friendList.length,
-            itemBuilder: (context, index){
-               return Column(
-                 children: [
-                   Text(index.toString()),
-                   Text(friendList[index]),
-                 ],
-               );
-            }),
+        // body: GridView.builder(
+        //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //         crossAxisCount: 3,
+        //         crossAxisSpacing: 8,
+        //         mainAxisSpacing: 8,
+        //         childAspectRatio: 0.5),
+        //     itemCount: friendList.length,
+        //     itemBuilder: (context, index){
+        //        return Column(
+        //          children: [
+        //            Text(index.toString()),
+        //            Text(friendList[index]),
+        //          ],
+        //        );
+        //     }),
     );;
   }
 }
