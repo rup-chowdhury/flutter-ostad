@@ -43,10 +43,16 @@ class _HomeState extends State<Home> {
       ),
 
       body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.blueGrey.shade300,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.blueGrey.shade300,
+              child: Icon(Icons.add, size: 60,),
+            ),
+          ],
         ),
       ),
     );
