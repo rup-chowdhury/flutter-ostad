@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
             }, separatorBuilder: (BuildContext context, int index) {
               return Divider(
                 height: 30,
+                color: Colors.blue,
               );
         },),
 
