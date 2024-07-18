@@ -41,7 +41,9 @@ class _HomeState extends State<Home> {
             itemCount: friendList.length,
             itemBuilder: (context, index) {
               return Text(friendList[index]);
-            }, separatorBuilder: (BuildContext context, int index) {  },),
+            }, separatorBuilder: (BuildContext context, int index) {
+              return Divider();
+        },),
 
         // body: ListView.builder(
         //   itemCount: 1000,
