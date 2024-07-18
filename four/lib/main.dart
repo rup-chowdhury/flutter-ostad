@@ -40,7 +40,12 @@ class _HomeState extends State<Home> {
         body: ListView.builder(
             itemCount: friendList.length,
             itemBuilder: (context, index) {
-              return Text(friendList[index]);
+              return Column(
+                children: [
+                  Text(friendList[index]),
+                  Divider()
+                ],
+              );
             }),
 
         // body: ListView.builder(
