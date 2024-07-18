@@ -56,7 +56,11 @@ class _HomeState extends State<Home> {
         // )
       
         body: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                childAspectRatio: 0.5),
             itemCount: friendList.length,
             itemBuilder: (context, index){
                return Column(
