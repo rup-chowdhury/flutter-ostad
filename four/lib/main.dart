@@ -44,14 +44,15 @@ class _HomeState extends State<Home> {
                   title: Text(friendList[index]),
                   subtitle: Text("Close Friend"),
                   leading: Text((index+1).toString()),
-                  trailing: Icon(Icons.person),);
+                  trailing: Icon(Icons.person),
                   onTap: () {print(friendList[index]);
                     },
+              );
             }, separatorBuilder: (BuildContext context, int index) {
               return Divider(
                 height: 30,
-                color: Colors.blue,
-                thickness: 3,
+                color: Colors.grey.shade200,
+                thickness: 2,
                 indent: 8,
                 endIndent: 17,
               );
