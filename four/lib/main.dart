@@ -56,10 +56,15 @@ class _HomeState extends State<Home> {
         // )
       
         body: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
             itemCount: friendList.length,
             itemBuilder: (context, index){
-               return Text(friendList[index]);
+               return Column(
+                 children: [
+                   Text(index.toString()),
+                   Text(friendList[index]),
+                 ],
+               );
             }),
     );;
   }
