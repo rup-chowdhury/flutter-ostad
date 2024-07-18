@@ -42,7 +42,9 @@ class _HomeState extends State<Home> {
             itemBuilder: (context, index) {
               return Text(friendList[index]);
             }, separatorBuilder: (BuildContext context, int index) {
-              return Divider();
+              return Divider(
+                height: 30,
+              );
         },),
 
         // body: ListView.builder(
