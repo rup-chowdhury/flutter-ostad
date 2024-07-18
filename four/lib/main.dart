@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
                   subtitle: Text("Close Friend"),
                   leading: Text((index+1).toString()),
                   trailing: Column(
-                    
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                           Icons.circle_rounded,
