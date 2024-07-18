@@ -37,16 +37,11 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.blueAccent,
         ),
         
-        body: ListView.builder(
+        body: ListView.separated(
             itemCount: friendList.length,
             itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Text(friendList[index]),
-                  Divider()
-                ],
-              );
-            }),
+              return Text(friendList[index]);
+            }, separatorBuilder: (BuildContext context, int index) {  },),
 
         // body: ListView.builder(
         //   itemCount: 1000,
