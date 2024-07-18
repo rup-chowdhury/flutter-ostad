@@ -41,7 +41,10 @@ class _HomeState extends State<Home> {
             itemCount: friendList.length,
             itemBuilder: (context, index) {
               return ListTile(
-                  title: Text(friendList[index]));
+                  title: Text(friendList[index]),
+                  subtitle: Text("Close Friend"),
+                  leading: Text((index+1).toString()),
+                  trailing: Icon(Icons.person),);
             }, separatorBuilder: (BuildContext context, int index) {
               return Divider(
                 height: 30,
