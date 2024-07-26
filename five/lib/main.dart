@@ -50,7 +50,8 @@ class _HomeState extends State<Home> {
               color: Colors.greenAccent,
                 border: Border.all(
                 color: Colors.blueGrey,
-                width: 5)
+                width: 5),
+                borderRadius: BorderRadius.circular(8)
               ),
               alignment: Alignment.center,
               child: Text("Container 1"),
