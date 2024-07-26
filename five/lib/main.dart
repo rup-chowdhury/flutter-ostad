@@ -35,14 +35,18 @@ class _HomeState extends State<Home> {
         title: Text("Day after fredom"),
         backgroundColor: Colors.blueAccent,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 100,
-            width: 100,
-            color: Colors.greenAccent,
-          ),
-        ],
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.greenAccent,
+            ),
+          ],
+        ),
       ),
     );
   }
