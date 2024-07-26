@@ -32,6 +32,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
       
       appBar: AppBar(
+        title: Text("Day after fredom"),
+      ),
     );
   }
 }
