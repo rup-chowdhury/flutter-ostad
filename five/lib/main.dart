@@ -17,12 +17,20 @@ class IntroApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<String> friendList = ["Rahim", "Karim", "Alu", "Tasin", "Alim", "Tomato"];
 
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
   }
 }
+
 
