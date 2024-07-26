@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
               height: 100,
               width: 100,
               color: Colors.greenAccent,
+              margin: EdgeInsets.all(14),
             ),
           ],
         ),
