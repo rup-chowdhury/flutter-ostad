@@ -69,10 +69,11 @@ class _HomeState extends State<Home> {
                   color: Colors.blueGrey,
                   width: 5,
                 ),
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(25),
-                  bottomLeft: Radius.circular(25)
-                )
+                // borderRadius: BorderRadius.only(
+                //   topRight: Radius.circular(25),
+                //   bottomLeft: Radius.circular(25)
+                // )
+                shape: BoxShape.circle
               ),
               alignment: Alignment.center,
               child: Text("Container 2"),
