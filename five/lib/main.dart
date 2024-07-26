@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//margin, padding
+//margin, padding, decoration
 
 void main(){
   runApp(IntroApp());
@@ -45,8 +45,13 @@ class _HomeState extends State<Home> {
             Container(
               height: 100,
               width: 100,
-              color: Colors.greenAccent,
               margin: EdgeInsets.all(14),
+              decoration: BoxDecoration(
+              color: Colors.greenAccent,
+                border: Border.all(
+                color: Colors.blueGrey,
+                width: 5)
+              ),
               alignment: Alignment.center,
               child: Text("Container 1"),
             ),
