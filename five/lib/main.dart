@@ -51,7 +51,10 @@ class _HomeState extends State<Home> {
                 border: Border.all(
                 color: Colors.blueGrey,
                 width: 5),
-                borderRadius: BorderRadius.circular(8)
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25)
+                )
               ),
               alignment: Alignment.center,
               child: Text("Container 1"),
