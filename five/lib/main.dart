@@ -30,9 +30,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white30,
       appBar: AppBar(
         title: Text("Day after fredom"),
         backgroundColor: Colors.blueAccent,
+      ),
+      body: Container(
+        height: 100,
+        width: 100,
       ),
     );
   }
