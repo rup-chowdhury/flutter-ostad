@@ -56,7 +56,8 @@ class _HomeState extends State<Home> {
                     bottomRight: Radius.circular(25)
                 ),
                 image: DecorationImage(
-                    image: AssetImage('assets/images/R.jpeg')
+                    image: AssetImage('assets/images/R.jpeg'),
+                  fit: BoxFit.fill
                 )
               ),
               alignment: Alignment.center,
