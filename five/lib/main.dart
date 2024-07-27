@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.white70,
       appBar: AppBar(
-        title: Text("Day after fredom"),
+        title: Text("Day after freedom"),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
@@ -50,8 +50,8 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 100,
-              width: 100,
+              height: 200,
+              width: 300,
               margin: EdgeInsets.all(14),
               decoration: BoxDecoration(
                   color: Colors.greenAccent,
@@ -75,8 +75,9 @@ class _HomeState extends State<Home> {
               child: Text(
                 "Container 1",
                 style: TextStyle(
+                  fontSize: 38,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                  color: Colors.blueGrey,
                 ),
               ),
             ),
