@@ -109,7 +109,8 @@ class _HomeState extends State<Home> {
                   showAboutDialog(
                     context: context,
                     applicationName: "App Dialog",
-                    applicationVersion: "1.0.0"
+                    applicationVersion: "1.0.0",
+                    applicationIcon: Icon(Icons.book_outlined)
                   );
                 },
                 child: Text("Dialog Button"))
