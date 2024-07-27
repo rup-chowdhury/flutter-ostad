@@ -137,6 +137,10 @@ class _HomeState extends State<Home> {
                           child: Text("Cancel")
                       )
                     ],
+                    shape: RoundedRectangleBorder(
+                      // borderRadius: BorderRadius.zero,
+                      borderRadius: BorderRadius.circular(0.0)
+                    ),
                   );
                 });
                 },
