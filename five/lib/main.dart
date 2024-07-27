@@ -162,26 +162,34 @@ class _HomeState extends State<Home> {
                           height: 270,
                           width: double.infinity,
                           child: Column(
-                            children: [Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text("Title", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                            ),
-                            Divider(),
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("This is a demo text for the bottom sheet. The everyday elements we use in our life - "),
-                                  Text("1. Paper"),
-                                  Text("2. Pen"),
-                                  Text("3. Water"),
-                                  Text("4. Bottle"),
-                                  Text("5. Laptop"),
-                                  Text("6. Android Studio")
-                                ],
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  "Title",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500),
+                                ),
                               ),
-                            )],
+                              Divider(),
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                        "This is a demo text for the bottom sheet. The everyday elements we use in our life - "),
+                                    Text("1. Paper"),
+                                    Text("2. Pen"),
+                                    Text("3. Water"),
+                                    Text("4. Bottle"),
+                                    Text("5. Laptop"),
+                                    Text("6. Android Studio")
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         );
                       });
