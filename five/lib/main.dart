@@ -164,7 +164,7 @@ class _HomeState extends State<Home> {
                           child: Column(
                             children: [Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text("Title"),
+                              child: Text("Title", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
                             ),
                             Divider(),
                             Padding(
