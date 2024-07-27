@@ -129,6 +129,10 @@ class _HomeState extends State<Home> {
                         Text("3. Rocket"),
                       ],
                     ),
+                    actions: [
+                      TextButton(onPressed: () {}, child: Text("Send")),
+                      TextButton(onPressed: () {}, child: Text("Cancel"))
+                    ],
                   );
                 });
                 },
