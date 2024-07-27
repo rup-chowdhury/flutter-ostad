@@ -119,6 +119,7 @@ class _HomeState extends State<Home> {
                 showDialog(
                     context: context,
                     barrierDismissible: false,
+                    barrierColor: Colors.grey.withOpacity(0.7),
                     builder: (ctx) {
                   return AlertDialog(
                     title: Text("This is our custom dialog. Adding some extra text to make it larger."),
