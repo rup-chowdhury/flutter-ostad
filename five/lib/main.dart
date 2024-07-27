@@ -131,7 +131,11 @@ class _HomeState extends State<Home> {
                     ),
                     actions: [
                       TextButton(onPressed: () {}, child: Text("Send")),
-                      TextButton(onPressed: () {}, child: Text("Cancel"))
+                      TextButton(onPressed: () {
+                        Navigator.pop(context);
+                        },
+                          child: Text("Cancel")
+                      )
                     ],
                   );
                 });
