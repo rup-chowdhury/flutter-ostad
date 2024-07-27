@@ -57,7 +57,8 @@ class _HomeState extends State<Home> {
                 ),
                 image: DecorationImage(
                     image: AssetImage('assets/images/R.jpeg'),
-                  fit: BoxFit.fill
+                  fit: BoxFit.fill,
+                  opacity: 1
                 )
               ),
               alignment: Alignment.center,
