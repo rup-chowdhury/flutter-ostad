@@ -59,7 +59,15 @@ class _HomeState extends State<Home> {
                     image: AssetImage('assets/images/R.jpeg'),
                   fit: BoxFit.fill,
                   opacity: 1,
-                )
+                ),
+                boxShadow: <BoxShadow> [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.8),
+                    spreadRadius: 5,
+                    blurRadius: 10,
+                    offset: Offset(4, 6)
+                  )
+                ]
               ),
               alignment: Alignment.center,
               child: Text("Container 1",
