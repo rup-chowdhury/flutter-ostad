@@ -149,7 +149,9 @@ class _HomeState extends State<Home> {
                   );
                 });
                 },
-                child: Text("Dialog Button"))
+                child: Text("Dialog Button")),
+            SizedBox(height: 40,),
+            ElevatedButton(onPressed: () {}, child: Text("Show bottom sheet"))
           ],
         ),
       ),
