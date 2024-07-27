@@ -119,6 +119,14 @@ class _HomeState extends State<Home> {
                 showDialog(context: context, builder: (ctx) {
                   return AlertDialog(
                     title: Text("This is our custom dialog. Adding some extra text to make it larger."),
+                    content: Column(
+                      children: [
+                        Text("You can complete your payment in 3 different methods :"),
+                        Text("1. Bkash"),
+                        Text("2. Nagad"),
+                        Text("3. Rocket"),
+                      ],
+                    ),
                   );
                 });
                 },
