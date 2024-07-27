@@ -106,7 +106,10 @@ class _HomeState extends State<Home> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  showAboutDialog(context: context);
+                  showAboutDialog(
+                    context: context,
+                    applicationName: "App Dialog"
+                  );
                 },
                 child: Text("Dialog Button"))
           ],
