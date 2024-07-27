@@ -159,6 +159,7 @@ class _HomeState extends State<Home> {
                   showModalBottomSheet(
                       context: context,
                       barrierColor: Colors.black.withOpacity(0.7),
+                      enableDrag: false,
                       builder: (ctx) {
                         return SizedBox(
                           height: 270,
