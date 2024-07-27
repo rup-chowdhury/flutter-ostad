@@ -110,7 +110,11 @@ class _HomeState extends State<Home> {
                     context: context,
                     applicationName: "App Dialog",
                     applicationVersion: "1.0.0",
-                    applicationIcon: Icon(Icons.book_outlined)
+                    applicationIcon: Icon(Icons.book_outlined),
+                    children: [
+                      Text("This text is shown in the dialog bar. It is a demo text.")
+                    ]
+
                   );
                 },
                 child: Text("Dialog Button"))
