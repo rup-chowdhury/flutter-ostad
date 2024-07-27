@@ -59,7 +59,6 @@ class _HomeState extends State<Home> {
                     image: AssetImage('assets/images/R.jpeg'),
                   fit: BoxFit.fill,
                   opacity: 1,
-
                 )
               ),
               alignment: Alignment.center,
@@ -73,6 +72,9 @@ class _HomeState extends State<Home> {
             Container(
               height: 100,
               width: 100,
+              padding: EdgeInsets.only(
+                bottom: 15
+              ),
               margin: EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: Colors.greenAccent,
