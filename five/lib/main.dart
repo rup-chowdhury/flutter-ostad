@@ -116,7 +116,10 @@ class _HomeState extends State<Home> {
                   //   ]
                   // );
 
-                showDialog(context: context, builder: (ctx) {
+                showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (ctx) {
                   return AlertDialog(
                     title: Text("This is our custom dialog. Adding some extra text to make it larger."),
                     content: Column(
