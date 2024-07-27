@@ -120,6 +120,7 @@ class _HomeState extends State<Home> {
                   return AlertDialog(
                     title: Text("This is our custom dialog. Adding some extra text to make it larger."),
                     content: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Text("You can complete your payment in 3 different methods :"),
                         Text("1. Bkash"),
