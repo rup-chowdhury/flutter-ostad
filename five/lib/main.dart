@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white30,
+      backgroundColor: Colors.white70,
       appBar: AppBar(
         title: Text("Day after fredom"),
         backgroundColor: Colors.blueAccent,
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   showAboutDialog(context: context);
                 },
-                child: Text("Dialog"))
+                child: Text("Dialog Button"))
           ],
         ),
       ),
