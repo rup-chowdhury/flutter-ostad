@@ -121,8 +121,9 @@ class _HomeState extends State<Home> {
                     title: Text("This is our custom dialog. Adding some extra text to make it larger."),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("You can complete your payment in 3 different methods :"),
+                        Text("[Demo text for Column] You can complete your payment in 3 different methods :"),
                         Text("1. Bkash"),
                         Text("2. Nagad"),
                         Text("3. Rocket"),
