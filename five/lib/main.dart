@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//margin, padding, decoration
+//margin, padding, decoration, boxShadow
 
 void main(){
   runApp(IntroApp());
@@ -103,7 +103,12 @@ class _HomeState extends State<Home> {
             Padding(
                 padding: EdgeInsets.all(24.0),
                 child: Text("Hello World"),
-            )
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  showAboutDialog(context: context);
+                },
+                child: Text("Dialog"))
           ],
         ),
       ),
