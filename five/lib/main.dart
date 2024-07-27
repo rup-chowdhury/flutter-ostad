@@ -141,6 +141,7 @@ class _HomeState extends State<Home> {
                       // borderRadius: BorderRadius.zero,
                       borderRadius: BorderRadius.circular(8.0)
                     ),
+                    backgroundColor: Colors.white,
                   );
                 });
                 },
