@@ -151,7 +151,18 @@ class _HomeState extends State<Home> {
                 },
                 child: Text("Dialog Button")),
             SizedBox(height: 40,),
-            ElevatedButton(onPressed: () {}, child: Text("Show bottom sheet"))
+            ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (ctx) {
+                        return SizedBox(
+                          height: 100,
+                          width: double.infinity,
+                        );
+                      });
+                },
+                child: Text("Show bottom sheet"))
           ],
         ),
       ),
