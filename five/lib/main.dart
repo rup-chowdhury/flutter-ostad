@@ -108,7 +108,8 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   showAboutDialog(
                     context: context,
-                    applicationName: "App Dialog"
+                    applicationName: "App Dialog",
+                    applicationVersion: "1.0.0"
                   );
                 },
                 child: Text("Dialog Button"))
