@@ -106,16 +106,21 @@ class _HomeState extends State<Home> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  showAboutDialog(
-                    context: context,
-                    applicationName: "App Dialog",
-                    applicationVersion: "1.0.0",
-                    applicationIcon: Icon(Icons.book_outlined),
-                    children: [
-                      Text("This text is shown in the dialog bar. It is a demo text.")
-                    ]
+                  // showAboutDialog(
+                  //   context: context,
+                  //   applicationName: "App Dialog",
+                  //   applicationVersion: "1.0.0",
+                  //   applicationIcon: Icon(Icons.book_outlined),
+                  //   children: [
+                  //     Text("This text is shown in the dialog bar. It is a demo text.")
+                  //   ]
+                  // );
 
+                showDialog(context: context, builder: (ctx) {
+                  return AlertDialog(
+                    title: Text("This is our custom dialog. Adding some extra text to make it larger."),
                   );
+                });
                 },
                 child: Text("Dialog Button"))
           ],
