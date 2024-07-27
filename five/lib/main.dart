@@ -58,11 +58,17 @@ class _HomeState extends State<Home> {
                 image: DecorationImage(
                     image: AssetImage('assets/images/R.jpeg'),
                   fit: BoxFit.fill,
-                  opacity: 1
+                  opacity: 1,
+
                 )
               ),
               alignment: Alignment.center,
-              child: Text("Container 1"),
+              child: Text("Container 1",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+              ),
             ),
             Container(
               height: 100,
