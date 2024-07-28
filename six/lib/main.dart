@@ -35,14 +35,16 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              enabled: true,
+              enabled: false,
               decoration: InputDecoration(
                 hintText: "Enter your name",
                 hintStyle: TextStyle(
                   color: Colors.grey.withOpacity(0.7)
                 ),
                 border: OutlineInputBorder(),
-                disabledBorder: OutlineInputBorder()
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16)
+                )
               ),
             )
           ],
