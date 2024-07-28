@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              enabled: false,
+              enabled: true,
               decoration: InputDecoration(
                 hintText: "Enter your name",
                 hintStyle: TextStyle(
@@ -45,10 +45,17 @@ class Home extends StatelessWidget {
                 disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide(
-                    color: Colors.blue,
+                    color: Colors.red,
                     width: 2
                   )
-                )
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide(
+                        color: Colors.blue,
+                        width: 2
+                    )
+                ),
               ),
             )
           ],
