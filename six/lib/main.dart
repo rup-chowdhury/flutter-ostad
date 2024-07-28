@@ -30,11 +30,16 @@ class Home extends StatelessWidget {
         title: Text("Home"),
         backgroundColor: Colors.blueGrey,
       ),
-      body: Column(
-        children: [
-          TextField()
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              
+            )
+          ],
 
+        ),
       ),
     );
   }
