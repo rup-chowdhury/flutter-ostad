@@ -39,6 +39,7 @@ class Home extends StatelessWidget {
               decoration: InputDecoration(
                 icon: Icon(Icons.account_circle, size: 45, color: Colors.blueGrey[800],),
                 prefixIcon: Icon(Icons.arrow_drop_down_circle_outlined),
+                suffixIcon: TextButton(onPressed: () {}, child: Text("Search")),
                 hintText: "Enter your name",
                 hintStyle: TextStyle(
                   color: Colors.grey.withOpacity(0.7)
