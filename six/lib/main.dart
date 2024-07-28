@@ -36,7 +36,10 @@ class Home extends StatelessWidget {
           children: [
             TextField(
               decoration: InputDecoration(
-                hintText: "Enter your name"
+                hintText: "Enter your name",
+                hintStyle: TextStyle(
+                  color: Colors.grey.withOpacity(0.7)
+                )
               ),
             )
           ],
