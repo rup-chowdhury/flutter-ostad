@@ -40,7 +40,8 @@ class Home extends StatelessWidget {
                 hintText: "Enter your name",
                 hintStyle: TextStyle(
                   color: Colors.grey.withOpacity(0.7)
-                )
+                ),
+                border: OutlineInputBorder()
               ),
             )
           ],
