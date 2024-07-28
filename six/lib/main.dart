@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              enabled: false,
+              enabled: true,
               decoration: InputDecoration(
                 hintText: "Enter your name",
                 hintStyle: TextStyle(
