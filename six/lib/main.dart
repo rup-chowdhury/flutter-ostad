@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              
+              decoration: InputDecoration(),
             )
           ],
 
