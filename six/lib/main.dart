@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//Module 9 Class 1 
+//Module 9 Class 1
 
 void main(){
   runApp(six());
@@ -11,6 +11,27 @@ class six extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return MaterialApp(
+      home: Home(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Column(
+        
+      ),
+    );
+  }
+}
+
