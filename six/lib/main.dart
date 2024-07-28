@@ -41,7 +41,8 @@ class Home extends StatelessWidget {
                 hintStyle: TextStyle(
                   color: Colors.grey.withOpacity(0.7)
                 ),
-                border: OutlineInputBorder()
+                border: OutlineInputBorder(),
+                disabledBorder: OutlineInputBorder()
               ),
             )
           ],
