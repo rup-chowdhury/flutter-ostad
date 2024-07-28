@@ -43,7 +43,10 @@ class Home extends StatelessWidget {
                 ),
                 border: OutlineInputBorder(),
                 disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16)
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(
+                    color: Colors.blue,
+                  )
                 )
               ),
             )
