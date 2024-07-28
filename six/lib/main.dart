@@ -37,6 +37,7 @@ class Home extends StatelessWidget {
             TextField(
               enabled: true,
               decoration: InputDecoration(
+                icon: Icon(Icons.account_circle, size: 45, color: Colors.blueGrey[800],),
                 hintText: "Enter your name",
                 hintStyle: TextStyle(
                   color: Colors.grey.withOpacity(0.7)
