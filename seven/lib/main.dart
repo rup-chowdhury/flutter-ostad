@@ -13,7 +13,7 @@ class IntroApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Home(),
       title: 'Intro app',
       theme: ThemeData(
