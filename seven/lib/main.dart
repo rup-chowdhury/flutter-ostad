@@ -119,7 +119,24 @@ class IntroApp extends StatelessWidget {
             hintStyle: TextStyle(
                 color: Colors.purple.shade200
             ),
+          ),
+        textTheme: TextTheme(
+          bodySmall: TextStyle(
+            fontSize: 16
+          ),
+          titleLarge: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.w700
+          ),
+          titleMedium: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w600
+          ),
+          titleSmall: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500
           )
+        )
       ),
       themeMode: ThemeMode.system,
     );
