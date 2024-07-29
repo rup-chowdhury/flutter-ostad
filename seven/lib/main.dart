@@ -65,7 +65,11 @@ class IntroApp extends StatelessWidget {
             hintStyle: TextStyle(
                 color: Colors.purple.shade200
             ),
-          )
+          ),
+        textTheme: TextTheme(
+            bodySmall: TextStyle(
+              fontSize: 18
+            ))
       ),
       darkTheme: ThemeData(
           brightness: Brightness.dark,
@@ -136,7 +140,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Home', style: Theme.of(context).textTheme.bodySmall,),
         // backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
