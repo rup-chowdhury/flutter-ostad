@@ -135,7 +135,7 @@ class IntroApp extends StatelessWidget {
           titleSmall: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500
-          )
+          ),
         )
       ),
       themeMode: ThemeMode.system,
@@ -174,7 +174,9 @@ class _HomeState extends State<Home> {
                   ),
                   hintText: 'Enter your name',
                   hintStyle: TextStyle(
-                      color: Colors.green.shade200
+                      color: Colors.green.shade200,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400
                   ),
                   icon: Icon(Icons.add),
                   prefixIcon: Icon(Icons.search),
@@ -245,7 +247,11 @@ class _HomeState extends State<Home> {
               TextButton(onPressed: () {
                 // _descriptionTEController.text = 'clear';
                 _descriptionTEController.clear();
-              }, child: Text('Clear description'))
+              }, child: Text('Clear description', style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.w400,
+                color: Colors.green,
+                letterSpacing: 4
+              ),))
             ],
           ),
         ),
