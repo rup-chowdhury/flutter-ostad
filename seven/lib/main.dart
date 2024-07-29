@@ -44,6 +44,7 @@ class IntroApp extends StatelessWidget {
                     width: 2
                 )
             ),
+            alignLabelWithHint: true,
             disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
@@ -198,7 +199,7 @@ class _HomeState extends State<Home> {
                 decoration: InputDecoration(
                   label: Text('Description'),
                   labelStyle: TextStyle(
-                      fontSize: 16
+                      fontSize: 16,
                   ),
                   hintText: 'Enter your description',
                 ),
@@ -220,7 +221,6 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: 16),
-              TextField(),
               TextButton(onPressed: () {
                 // _descriptionTEController.text = 'clear';
                 _descriptionTEController.clear();
