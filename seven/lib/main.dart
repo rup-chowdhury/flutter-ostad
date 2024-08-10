@@ -13,7 +13,7 @@ class IntroApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Home(),
       title: 'Intro app',
       theme: ThemeData(
@@ -44,6 +44,7 @@ class IntroApp extends StatelessWidget {
                     width: 2
                 )
             ),
+            alignLabelWithHint: true,
             disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
@@ -64,7 +65,11 @@ class IntroApp extends StatelessWidget {
             hintStyle: TextStyle(
                 color: Colors.purple.shade200
             ),
-          )
+          ),
+        textTheme: TextTheme(
+            bodySmall: TextStyle(
+              fontSize: 18
+            ))
       ),
       darkTheme: ThemeData(
           brightness: Brightness.dark,
@@ -114,7 +119,24 @@ class IntroApp extends StatelessWidget {
             hintStyle: TextStyle(
                 color: Colors.purple.shade200
             ),
-          )
+          ),
+        textTheme: TextTheme(
+          bodySmall: TextStyle(
+            fontSize: 16
+          ),
+          titleLarge: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.w700
+          ),
+          titleMedium: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w600
+          ),
+          titleSmall: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500
+          ),
+        )
       ),
       themeMode: ThemeMode.system,
     );
@@ -135,7 +157,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Home', style: Theme.of(context).textTheme.bodySmall,),
         // backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
@@ -152,7 +174,9 @@ class _HomeState extends State<Home> {
                   ),
                   hintText: 'Enter your name',
                   hintStyle: TextStyle(
-                      color: Colors.green.shade200
+                      color: Colors.green.shade200,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400
                   ),
                   icon: Icon(Icons.add),
                   prefixIcon: Icon(Icons.search),
@@ -198,7 +222,7 @@ class _HomeState extends State<Home> {
                 decoration: InputDecoration(
                   label: Text('Description'),
                   labelStyle: TextStyle(
-                      fontSize: 16
+                      fontSize: 16,
                   ),
                   hintText: 'Enter your description',
                 ),
@@ -220,11 +244,14 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: 16),
-              TextField(),
               TextButton(onPressed: () {
                 // _descriptionTEController.text = 'clear';
                 _descriptionTEController.clear();
-              }, child: Text('Clear description'))
+              }, child: Text('Clear description', style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.w400,
+                color: Colors.green,
+                letterSpacing: 4
+              ),))
             ],
           ),
         ),
