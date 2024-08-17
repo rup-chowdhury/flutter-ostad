@@ -17,7 +17,7 @@ class IntroApp extends StatelessWidget {
       home: Home(),
       title: 'Intro app',
       theme: ThemeData(
-          brightness: Brightness.light,
+          brightness: Brightness.dark ,
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.pink,
               titleTextStyle: TextStyle(
@@ -95,7 +95,7 @@ class IntroApp extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
-                    color: Colors.green,
+                    color: Colors.white,
                     width: 2
                 )
             ),
