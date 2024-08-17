@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seven/home.dart';
+import 'package:seven/profile_page.dart';
 
 // TextField
 
@@ -16,7 +17,7 @@ class IntroApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: ProfilePage(),
       title: 'Intro app',
     );
   }
