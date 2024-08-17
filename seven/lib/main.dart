@@ -1,4 +1,5 @@
 // Current SDK version: 3.22.1
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seven/home.dart';
 
@@ -13,7 +14,7 @@ class IntroApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
       title: 'Intro app',
