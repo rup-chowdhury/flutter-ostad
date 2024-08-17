@@ -10,8 +10,17 @@ class ProfilePage extends StatelessWidget {
         middle: Text("Profile"),
         leading: Icon(CupertinoIcons.back),
       ),
-        child: Column(
-          children: [],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("This is Cupertino design"),
+              SizedBox(
+                height: 20,
+              ),
+              CupertinoButton(child: Text("Press"), onPressed: (){})
+            ],
+          ),
         ));
   }
 }
