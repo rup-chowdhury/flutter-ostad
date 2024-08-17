@@ -6,6 +6,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text("Profile"),
+      ),
         child: Column(
           children: [],
         ));
