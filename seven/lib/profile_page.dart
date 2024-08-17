@@ -18,7 +18,7 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              CupertinoButton(child: Text("Press"), onPressed: (){})
+              CupertinoButton.filled(child: Text("Press"), onPressed: (){})
             ],
           ),
         ));
