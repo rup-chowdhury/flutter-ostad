@@ -8,6 +8,7 @@ class ProfilePage extends StatelessWidget {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text("Profile"),
+        leading: Icon(CupertinoIcons.back),
       ),
         child: Column(
           children: [],
