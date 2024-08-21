@@ -23,6 +23,19 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Text("hello you"),
+              Text("hello uioweydw erasfds"),
+              Text("hello wue edfasdf"),
+              Text("hello asydga erwadfa")
+            ],
+          )
+        ],
       ),
     );
   }
