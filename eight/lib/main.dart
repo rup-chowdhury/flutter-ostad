@@ -28,16 +28,13 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Text("hello you"),
-                Text("hello uioweydw erasfds"),
-                Text("hello wue edfasdf"),
-                Text("hello asydga erwadfa")
-              ],
-            ),
+          Wrap(
+            children: [
+              Text("hello you"),
+              Text("hello uioweydw erasfds"),
+              Text("hello wue edfasdf"),
+              Text("hello asydga erwadfa")
+            ],
           )
         ],
       ),
