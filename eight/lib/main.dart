@@ -31,6 +31,7 @@ class Home extends StatelessWidget {
           Wrap(
             alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.start,
+            spacing: 20,
             children: [
               Text("hello you"),
               Text("hello uioweydw erasfds"),
