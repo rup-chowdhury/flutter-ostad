@@ -29,6 +29,7 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           Wrap(
+            alignment: WrapAlignment.center,
             children: [
               Text("hello you"),
               Text("hello uioweydw erasfds"),
