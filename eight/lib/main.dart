@@ -25,7 +25,16 @@ class Home extends StatelessWidget {
     // MediaQuery
 
     MediaQueryData mediaQueryData = MediaQuery.of(context);
-    
+
+    print(mediaQueryData);
+    print(mediaQueryData.size);
+    print(mediaQueryData.size.width);
+    print(mediaQueryData.size.height);
+    print(mediaQueryData.size.aspectRatio);
+    print(mediaQueryData.size.longestSide);
+    print(mediaQueryData.size.flipped.width);
+
+
 
     return Scaffold(
       appBar: AppBar(
