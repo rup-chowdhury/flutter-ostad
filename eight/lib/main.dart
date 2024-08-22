@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 void main(){
   runApp(MyApp());
 }
@@ -27,13 +28,16 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Row(
-            children: [
-              Text("hello you"),
-              Text("hello uioweydw erasfds"),
-              Text("hello wue edfasdf"),
-              Text("hello asydga erwadfa")
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Text("hello you"),
+                Text("hello uioweydw erasfds"),
+                Text("hello wue edfasdf"),
+                Text("hello asydga erwadfa")
+              ],
+            ),
           )
         ],
       ),
