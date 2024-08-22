@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-// Actual topic: Wrap, Mediaquery, 
+// Actual topic: Wrap, Mediaquery,
 void main(){
   runApp(MyApp());
 }
@@ -22,6 +22,11 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MediaQuery
+
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
