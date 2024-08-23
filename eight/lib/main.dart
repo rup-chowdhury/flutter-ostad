@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Class name: MediaQuery | Wrap | LayoutBuilder | WidgetBuilder  ( 15 August, 2024)
 
 // Actual topic: Wrap, Mediaquery,
 void main(){
@@ -33,6 +34,14 @@ class Home extends StatelessWidget {
     print(mediaQueryData.size.aspectRatio);
     print(mediaQueryData.size.longestSide);
     print(mediaQueryData.size.flipped.width);
+
+    if(mediaQueryData.size.width < 640){
+      print("This device is a phone.");
+    } else if(mediaQueryData.size.width > 640 && mediaQueryData.size.width < 1008){
+      print("This device is a tablet");
+    } else {
+      print("This is a Laptop or Desktop");
+    }
 
 
 
