@@ -50,25 +50,29 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
       ),
       body: OrientationBuilder(builder: (context, Orientation orientation) {
-        return Column(
-          children: [
-            Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.start,
-              spacing: 20,
-              children: [
-                Text("hello you"),
-                Text("hello uioweydw erasfds"),
-                Text("hello wue edfasdf"),
-                Text("hello asydga erwadfa")
-              ],
-            ),
-            Text(
-              orientation.name,
-              style: TextStyle(fontSize: 20),
-            )
-          ],
-        );
+
+        if (orientation == Orientation.portrait) {
+          return Column(
+            children: [
+              Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.start,
+                spacing: 20,
+                children: [
+                  Text("hello you"),
+                  Text("hello uioweydw erasfds"),
+                  Text("hello wue edfasdf"),
+                  Text("hello asydga erwadfa")
+                ],
+              ),
+              Text(
+                orientation.name,
+                style: TextStyle(fontSize: 20),
+              )
+            ],
+          );
+        }
+
       }),
     );
   }
