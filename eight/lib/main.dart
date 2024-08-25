@@ -49,7 +49,9 @@ class Home extends StatelessWidget {
         title: Text("Home"),
         backgroundColor: Colors.blueGrey,
       ),
-      body: OrientationBuilder(builder: (context, Orientation orientation) {
+      body: OrientationBuilder(
+          builder: (context, Orientation orientation) {
+        print(orientation);
 
         if (orientation == Orientation.portrait) {
           return Column(
@@ -72,8 +74,14 @@ class Home extends StatelessWidget {
             ],
           );
         }
+        else {
+          return Center(
+            child: Text("Too Big Screen"),
+          );
 
-      }),
+        }
+      }
+      ),
     );
   }
 }
