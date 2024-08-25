@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Class name: MediaQuery | Wrap | LayoutBuilder | WidgetBuilder  ( 15 August, 2024)
 
 // Actual topic: Wrap, Mediaquery,
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -35,37 +35,41 @@ class Home extends StatelessWidget {
     print(mediaQueryData.size.longestSide);
     print(mediaQueryData.size.flipped.width);
 
-    if(mediaQueryData.size.width < 640){
+    if (mediaQueryData.size.width < 640) {
       print("This device is a phone.");
-    } else if(mediaQueryData.size.width > 640 && mediaQueryData.size.width < 1008){
+    } else if (mediaQueryData.size.width > 640 &&
+        mediaQueryData.size.width < 1008) {
       print("This device is a tablet");
     } else {
       print("This is a Laptop or Desktop");
     }
-
-
 
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
         backgroundColor: Colors.blueGrey,
       ),
-      body: Column(
-        children: [
-          Wrap(
-            alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.start,
-            spacing: 20,
-            children: [
-              Text("hello you"),
-              Text("hello uioweydw erasfds"),
-              Text("hello wue edfasdf"),
-              Text("hello asydga erwadfa")
-            ],
-          )
-        ],
-      ),
+      body: OrientationBuilder(builder: (context, Orientation orientation) {
+        return Column(
+          children: [
+            Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.start,
+              spacing: 20,
+              children: [
+                Text("hello you"),
+                Text("hello uioweydw erasfds"),
+                Text("hello wue edfasdf"),
+                Text("hello asydga erwadfa")
+              ],
+            ),
+            Text(
+              orientation.toString(),
+              style: TextStyle(fontSize: 20),
+            )
+          ],
+        );
+      }),
     );
   }
 }
-
