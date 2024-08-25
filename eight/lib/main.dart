@@ -64,7 +64,7 @@ class Home extends StatelessWidget {
               ],
             ),
             Text(
-              orientation.toString(),
+              orientation.name,
               style: TextStyle(fontSize: 20),
             )
           ],
