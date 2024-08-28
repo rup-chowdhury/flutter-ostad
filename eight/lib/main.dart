@@ -42,52 +42,57 @@ class Home extends StatelessWidget {
     print(mediaQueryData.size.longestSide);
     print(mediaQueryData.size.flipped.width);
 
-    if (mediaQueryData.size.width < 640) {
-      print("This device is a phone.");
-    } else if (mediaQueryData.size.width > 640 &&
-        mediaQueryData.size.width < 1008) {
-      print("This device is a tablet");
-    } else {
-      print("This is a Laptop or Desktop");
-    }
+
 
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
         backgroundColor: Colors.blueGrey,
       ),
-      body: OrientationBuilder(
-          builder: (context, Orientation orientation) {
-        print(orientation.name);
-
-        if (orientation == Orientation.portrait) {
-          return Column(
-            children: [
-              Wrap(
-                alignment: WrapAlignment.center,
-                crossAxisAlignment: WrapCrossAlignment.start,
-                spacing: 20,
-                children: [
-                  Text("hello you"),
-                  Text("hello uioweydw erasfds"),
-                  Text("hello wue edfasdf"),
-                  Text("hello asydga erwadfa")
-                ],
-              ),
-              Text(
-                orientation.name,
-                style: TextStyle(fontSize: 20),
-              )
-            ],
-          );
-        }
-        else {
-          return Center(
-            child: Text("Too Big Screen"),
-          );
-        }
-      }
+      body: LayoutBuilder(
+        builder: (context, BoxConstraints constraints) {
+          if (constraints.maxWidth < 640) {
+            return Text("This device is a phone.");
+          } else if (constraints.maxWidth > 640 &&
+              constraints.maxWidth < 1008) {
+            return Text("This device is a tablet");
+          } else {
+            return Text("This is a Laptop or Desktop");
+          }
+        },
       ),
+      // body: OrientationBuilder(
+      //     builder: (context, Orientation orientation) {
+      //   print(orientation.name);
+      //
+      //   if (orientation == Orientation.portrait) {
+      //     return Column(
+      //       children: [
+      //         Wrap(
+      //           alignment: WrapAlignment.center,
+      //           crossAxisAlignment: WrapCrossAlignment.start,
+      //           spacing: 20,
+      //           children: [
+      //             Text("hello you"),
+      //             Text("hello uioweydw erasfds"),
+      //             Text("hello wue edfasdf"),
+      //             Text("hello asydga erwadfa")
+      //           ],
+      //         ),
+      //         Text(
+      //           orientation.name,
+      //           style: TextStyle(fontSize: 20),
+      //         )
+      //       ],
+      //     );
+      //   }
+      //   else {
+      //     return Center(
+      //       child: Text("Too Big Screen"),
+      //     );
+      //   }
+      // }
+      // ),
     );
   }
 }
