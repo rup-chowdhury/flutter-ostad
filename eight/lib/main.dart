@@ -57,7 +57,7 @@ class Home extends StatelessWidget {
               constraints.maxWidth < 1008) {
             return Text("This device is a tablet");
           } else {
-            return Text("This is a Laptop or Desktop");
+            return Text("This is a Laptop or Desktop", style: TextStyle(fontSize: 100),);
           }
         },
       ),
