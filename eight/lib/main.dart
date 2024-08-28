@@ -78,7 +78,6 @@ class Home extends StatelessWidget {
           return Center(
             child: Text("Too Big Screen"),
           );
-
         }
       }
       ),
