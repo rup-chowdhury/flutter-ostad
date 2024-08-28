@@ -5,7 +5,10 @@ import 'package:device_preview/device_preview.dart';
 
 // Actual topic: Wrap, Mediaquery,
 void main() {
-  runApp(MyApp());
+  runApp(DevicePreview(
+    enabled: true,
+    builder: (context) => MyApp(), // Wrap your app
+  ));
 }
 
 class MyApp extends StatelessWidget {
