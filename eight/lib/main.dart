@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
 
     MediaQueryData mediaQueryData = MediaQuery.of(context);
 
-    print(mediaQueryData);
+    // print(mediaQueryData);
     print(mediaQueryData.size);
     print(mediaQueryData.size.width);
     print(mediaQueryData.size.height);
@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
       ),
       body: OrientationBuilder(
           builder: (context, Orientation orientation) {
-        print(orientation);
+        print(orientation.name);
 
         if (orientation == Orientation.portrait) {
           return Column(
