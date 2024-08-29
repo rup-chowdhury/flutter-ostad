@@ -39,6 +39,13 @@ class HomeApp extends StatelessWidget {
         height: MediaQuery.of(context).size.width,
         width: MediaQuery.of(context).size.width,
         color: Colors.yellowAccent,
+        child: FractionallySizedBox(
+          widthFactor: 0.5,
+          heightFactor: 0.3,
+          child: Container(
+            color: Colors.green,
+          ),
+        ),
       ),
     );
   }
