@@ -35,10 +35,10 @@ class HomeApp extends StatelessWidget {
         title: Text("Home"),
         backgroundColor: Colors.blueGrey,
       ),
-      body: Column(
-        children: [
-          
-        ],
+      body: Container(
+        height: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width,
+        color: Colors.yellowAccent,
       ),
     );
   }
