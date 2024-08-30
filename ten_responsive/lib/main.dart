@@ -28,6 +28,15 @@ class Home extends StatelessWidget {
         ),
         backgroundColor: Colors.pinkAccent,
       ),
+      body: Column(
+        children: [
+          Container(
+            color: Colors.blue,
+            height: 100,
+            width: 100,
+          )
+        ],
+      ),
     );
   }
 }
