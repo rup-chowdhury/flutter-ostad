@@ -44,7 +44,11 @@ class HomeApp extends StatelessWidget {
           widthFactor: 0.5,
           heightFactor: 0.3,
           child: Container(
-            color: Colors.green,
+
+            decoration: BoxDecoration(
+                color: Colors.green,
+              borderRadius: BorderRadius.circular(40)
+            ),
           ),
         ),
       ),
