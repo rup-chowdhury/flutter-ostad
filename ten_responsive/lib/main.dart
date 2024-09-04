@@ -30,10 +30,11 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
-            color: Colors.blue,
-            height: MediaQuery.of(context).size.height,
-            width: 100,
+          Flexible(
+            child: Container(
+              color: Colors.blue,
+              width: 100,
+            ),
           ),
           Container(
             color: Colors.greenAccent,
