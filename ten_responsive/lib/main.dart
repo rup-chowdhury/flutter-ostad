@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
         children: [
           Container(
             color: Colors.blue,
-            height: 100,
+            height: MediaQuery.of(context).size.height,
             width: 100,
           ),
           Container(
