@@ -30,24 +30,24 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Flexible(
-            flex: 2,
-            child: Container(
-              color: Colors.blue,
-              width: 100,
-            ),
-          ),
-          Flexible(
-            flex: 3,
-            child: Container(
-              color: Colors.greenAccent,
-              width: 200,
-            ),
-          ),
-          Flexible(
-            flex: 1,
+          // Flexible(
+          //   flex: 2,
+          //   child: Container(
+          //     color: Colors.blue,
+          //     width: 100,
+          //   ),
+          // ),
+          // Flexible(
+          //   flex: 3,
+          //   child: Container(
+          //     color: Colors.greenAccent,
+          //     width: 200,
+          //   ),
+          // ),
+          Expanded(
             child: Container(
               color: Colors.yellow,
+              height: 100,
               width: 100,
             ),
           )
