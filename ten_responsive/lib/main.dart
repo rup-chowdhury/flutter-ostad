@@ -31,15 +31,25 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           Flexible(
+            flex: 2,
             child: Container(
               color: Colors.blue,
               width: 100,
             ),
           ),
-          Container(
-            color: Colors.greenAccent,
-            height: 200,
-            width: 200,
+          Flexible(
+            flex: 3,
+            child: Container(
+              color: Colors.greenAccent,
+              width: 200,
+            ),
+          ),
+          Flexible(
+            flex: 1,
+            child: Container(
+              color: Colors.yellow,
+              width: 100,
+            ),
           )
         ],
       ),
