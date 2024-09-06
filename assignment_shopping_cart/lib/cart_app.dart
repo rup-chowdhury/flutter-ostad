@@ -8,22 +8,38 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
+
+  int _pullOverCounter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white.withOpacity(0.95),
       appBar: AppBar(
         title: Text(
           "My Bag",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
         ),
+        backgroundColor: Colors.white.withOpacity(0.9),
       ),
       body: Column(
         children: [
           Container(
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.only(top: 10),
             height: 100,
             width: MediaQuery.of(context).size.width,
-            color: Colors.white,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  blurRadius: 5,
+                  spreadRadius: 2,
+                  offset: Offset(0, 3)
+                )
+              ]
+            ),
             child: Row(
               children: [
                 SizedBox(
@@ -31,8 +47,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 ),
                 Image.asset(
                   'assets/images/img_pull_over.png',
-                  height: 80,
-                  width: 80,
+                  height: 85,
+                  width: 85,
                 ),
                 SizedBox(
                   width: 15,
@@ -76,9 +92,21 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        IconButton(onPressed: (){}, icon: Icon(Icons.remove_circle_outline)),
-                        Text("Quantity", style: TextStyle(fontSize: 12),textAlign: TextAlign.start,),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.add_circle_outline))
+                        IconButton(onPressed: (){
+                          if(_pullOverCounter >= 1 ){
+                             _pullOverCounter--;
+                          }
+                          setState(() {
+
+                          });
+                        }, icon: Icon(Icons.remove_circle_outline)),
+                        Text("$_pullOverCounter", style: TextStyle(fontSize: 12),textAlign: TextAlign.start,),
+                        IconButton(onPressed: (){
+                          _pullOverCounter++;
+                          setState(() {
+
+                          });
+                        }, icon: Icon(Icons.add_circle_outline))
                       ],
                     )
                   ],
@@ -87,7 +115,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 SizedBox(width: 80,),
 
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(bottom: 10, left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [Icon(Icons.more_vert),
