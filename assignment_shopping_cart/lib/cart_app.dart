@@ -11,6 +11,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       appBar: AppBar(
         title: Text(
           "My Bag",
@@ -70,11 +71,20 @@ class _ShoppingCartState extends State<ShoppingCart> {
                               fontWeight: FontWeight.w400, fontSize: 11),
                         )
                       ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        IconButton(onPressed: (){}, icon: Icon(Icons.remove_circle_outline)),
+                        Text("Quantity", style: TextStyle(fontSize: 12),textAlign: TextAlign.start,),
+                        IconButton(onPressed: (){}, icon: Icon(Icons.add_circle_outline))
+                      ],
                     )
                   ],
                 ),
 
-                SizedBox(width: 130,),
+                SizedBox(width: 80,),
 
                 Padding(
                   padding: const EdgeInsets.all(8.0),
