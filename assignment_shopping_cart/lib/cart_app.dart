@@ -8,7 +8,6 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
-
   int _pullOverCounter = 0;
   @override
   Widget build(BuildContext context) {
@@ -29,17 +28,15 @@ class _ShoppingCartState extends State<ShoppingCart> {
             height: 100,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  blurRadius: 5,
-                  spreadRadius: 2,
-                  offset: Offset(0, 3)
-                )
-              ]
-            ),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      blurRadius: 5,
+                      spreadRadius: 2,
+                      offset: Offset(0, 3))
+                ]),
             child: Row(
               children: [
                 SizedBox(
@@ -92,34 +89,43 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        IconButton(onPressed: (){
-                          if(_pullOverCounter >= 1 ){
-                             _pullOverCounter--;
-                          }
-                          setState(() {
-
-                          });
-                        }, icon: Icon(Icons.remove_circle_outline)),
-                        Text("$_pullOverCounter", style: TextStyle(fontSize: 12),textAlign: TextAlign.start,),
-                        IconButton(onPressed: (){
-                          _pullOverCounter++;
-                          setState(() {
-
-                          });
-                        }, icon: Icon(Icons.add_circle_outline))
+                        IconButton(
+                            onPressed: () {
+                              if (_pullOverCounter >= 1) {
+                                _pullOverCounter--;
+                              }
+                              setState(() {});
+                            },
+                            icon: Icon(Icons.remove_circle_outline)),
+                        Text(
+                          "$_pullOverCounter",
+                          style: TextStyle(fontSize: 12),
+                          textAlign: TextAlign.start,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              _pullOverCounter++;
+                              setState(() {});
+                            },
+                            icon: Icon(Icons.add_circle_outline))
                       ],
                     )
                   ],
                 ),
-
-                SizedBox(width: 80,),
-
+                SizedBox(
+                  width: 80,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Icon(Icons.more_vert),
-                    Text("51\$", style: TextStyle(fontWeight: FontWeight.bold),)],
+                    children: [
+                      Icon(Icons.more_vert),
+                      Text(
+                        "51\$",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )
+                    ],
                   ),
                 )
               ],
