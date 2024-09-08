@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
           //   ),
           // )
           AspectRatio(
-            aspectRatio: 1.25,
+            aspectRatio: 2,
             child: Container(
               color: Colors.yellow,
             ),
