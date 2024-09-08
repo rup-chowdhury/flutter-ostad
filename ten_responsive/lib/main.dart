@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),
     );
   }
@@ -44,11 +45,16 @@ class Home extends StatelessWidget {
           //     width: 200,
           //   ),
           // ),
-          Expanded(
+          // Expanded(
+          //   child: Container(
+          //     color: Colors.yellow,
+          //     height: 100,
+          //     width: 100,
+          //   ),
+          // )
+          AspectRatio(
             child: Container(
               color: Colors.yellow,
-              height: 100,
-              width: 100,
             ),
           )
         ],
