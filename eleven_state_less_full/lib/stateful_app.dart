@@ -12,7 +12,24 @@ class StatefulApp extends StatelessWidget {
           letterSpacing: 2,
           fontSize: 27
         ),),
-      )
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            Text("The button was tapped \$x times", style: TextStyle(
+              fontSize: 21
+            ),),
+            
+            FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: (){})
+          ],
+        ),
+      ),
+
     );
   }
 }
