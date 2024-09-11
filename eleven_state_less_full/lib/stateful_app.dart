@@ -5,6 +5,14 @@ class StatefulApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Stateless and Stateful", style: TextStyle(
+          fontWeight: FontWeight.w900,
+          letterSpacing: 2,
+          fontSize: 27
+        ),),
+      )
+    );
   }
 }
