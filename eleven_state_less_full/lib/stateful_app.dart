@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class StatefulApp extends StatelessWidget {
-  const StatefulApp({super.key});
+class StatefulApp extends StatefulWidget {
+  StatefulApp({super.key});
+
+  @override
+  State<StatefulApp> createState() => _StatefulAppState();
+}
+
+class _StatefulAppState extends State<StatefulApp> {
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +26,19 @@ class StatefulApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Text("The button was tapped \$x times", style: TextStyle(
+            Text("The button was tapped $counter times", style: TextStyle(
               fontSize: 21
             ),),
-            
+
             FloatingActionButton(
             child: Icon(Icons.add),
-            onPressed: (){})
+            onPressed: (){
+              setState(() {
+              counter++;
+              print(counter);
+
+              });
+            })
           ],
         ),
       ),
