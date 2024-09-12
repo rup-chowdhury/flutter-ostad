@@ -36,7 +36,6 @@ class _StatefulAppState extends State<StatefulApp> {
               setState(() {
               counter++;
               print(counter);
-
               });
             })
           ],
