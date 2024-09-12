@@ -21,25 +21,28 @@ class _StatefulAppState extends State<StatefulApp> {
         ),),
         backgroundColor: Colors.blueGrey,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: Column(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
 
-            Text("The button was tapped $counter times", style: TextStyle(
-              fontSize: 21
-            ),),
-
-            FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: (){
-              setState(() {
-              counter++;
-              print(counter);
-              });
-            })
-          ],
-        ),
+                Text("The button was tapped $counter times", style: TextStyle(
+                  fontSize: 21
+                ),),
+              ],
+            ),
+          ),
+          FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: (){
+                setState(() {
+                  counter++;
+                  print(counter);
+                });
+              })
+        ],
       ),
 
     );
