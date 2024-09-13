@@ -53,9 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 IconButton(onPressed: () {
                   _onTapAddButton();
                 }, icon: Icon(Icons.add)),
-                IconButton(onPressed: () {}, icon: Icon(Icons.remove)),
+                IconButton(onPressed: () {
+                  _onTapSubtractButton();
+                }, icon: Icon(Icons.remove)),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _onTapMultiplyButton();
+                    },
                     child: Text(
                       "x",
                       style: TextStyle(
@@ -64,7 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontSize: 20),
                     )),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _onTapDivideButton();
+                  },
                   child: Text(
                     "/",
                     style: TextStyle(
@@ -93,4 +99,26 @@ class _HomeScreenState extends State<HomeScreen> {
     _result = firstNum + secondNum;
     setState(() {});
   }
+
+  void _onTapSubtractButton(){
+    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+    _result = firstNum - secondNum;
+    setState(() {});
+  }
+
+  void _onTapMultiplyButton(){
+    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+    _result = firstNum * secondNum;
+    setState(() {});
+  }
+
+  void _onTapDivideButton(){
+    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+    _result = firstNum / secondNum;
+    setState(() {});
+  }
+
 }
