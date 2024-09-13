@@ -47,10 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   labelText: "Second Number"),
             ),
             SizedBox(height: 32),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                IconButton(onPressed: () {
+                  _onTapAddButton();
+                }, icon: Icon(Icons.add)),
                 IconButton(onPressed: () {}, icon: Icon(Icons.remove)),
                 TextButton(
                     onPressed: () {},
@@ -76,12 +78,19 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 24,
             ),
-            Text(" Result : $_result", style: TextStyle(
+            Text(" Result : ${_result.toStringAsFixed(2)}", style: TextStyle(
               fontSize: 18
             ),)
           ],
         ),
       ),
     );
+  }
+
+  void _onTapAddButton(){
+    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+    _result = firstNum + secondNum;
+    setState(() {});
   }
 }
