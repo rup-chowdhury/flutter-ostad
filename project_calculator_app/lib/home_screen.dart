@@ -49,12 +49,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   labelText: "Second Number"
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton.filled(onPressed: (){
+                IconButton(onPressed: (){
 
-                }, icon: Icon(Icons.add))
+                }, icon: Icon(Icons.add)),
+                IconButton(onPressed: (){
+
+                }, icon: Icon(Icons.remove)),
+                TextButton(onPressed: (){
+
+                }, child: Text("x",
+                  style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black.withOpacity(0.8),
+                  fontSize: 20
+                ),)),
+                TextButton(onPressed: (){
+
+                }, child: Text("/",
+                    style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black.withOpacity(0.8),
+                    fontSize: 18
+                ),),),
+
               ],
             )
 
@@ -63,4 +84,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 }
