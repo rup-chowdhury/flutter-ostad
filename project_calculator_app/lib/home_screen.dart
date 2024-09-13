@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             TextField(
               controller: _firstNumTEController,
+              keyboardType: TextInputType.number,
             )
           ],
         ),
