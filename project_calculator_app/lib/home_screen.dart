@@ -47,40 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   labelText: "Second Number"),
             ),
             SizedBox(height: 32),
-            ButtonBar(
-              alignment: MainAxisAlignment.center,
-              children: [
-                IconButton(onPressed: () {
-                  _onTapAddButton();
-                }, icon: Icon(Icons.add)),
-                IconButton(onPressed: () {
-                  _onTapSubtractButton();
-                }, icon: Icon(Icons.remove)),
-                TextButton(
-                    onPressed: () {
-                      _onTapMultiplyButton();
-                    },
-                    child: Text(
-                      "x",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black.withOpacity(0.8),
-                          fontSize: 20),
-                    )),
-                TextButton(
-                  onPressed: () {
-                    _onTapDivideButton();
-                  },
-                  child: Text(
-                    "/",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black.withOpacity(0.8),
-                        fontSize: 18),
-                  ),
-                ),
-              ],
-            ),
+            _buildButtonBar(),
             SizedBox(
               height: 24,
             ),
@@ -90,6 +57,46 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+
+  // Method Extraction or Widget Extraction
+
+  Widget _buildButtonBar(){
+    return ButtonBar(
+      alignment: MainAxisAlignment.center,
+      children: [
+        IconButton(onPressed: () {
+          _onTapAddButton();
+        }, icon: Icon(Icons.add)),
+        IconButton(onPressed: () {
+          _onTapSubtractButton();
+        }, icon: Icon(Icons.remove)),
+        TextButton(
+            onPressed: () {
+              _onTapMultiplyButton();
+            },
+            child: Text(
+              "x",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black.withOpacity(0.8),
+                  fontSize: 20),
+            )),
+        TextButton(
+          onPressed: () {
+            _onTapDivideButton();
+          },
+          child: Text(
+            "/",
+            style: TextStyle(
+                fontWeight: FontWeight.w500,
+                color: Colors.black.withOpacity(0.8),
+                fontSize: 18),
+          ),
+        ),
+      ],
     );
   }
 
