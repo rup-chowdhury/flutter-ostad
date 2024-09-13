@@ -14,7 +14,7 @@ class _StatefulAppState extends State<StatefulApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Stateless and Stateful", style: TextStyle(
+        title: const Text("Stateless and Stateful", style: TextStyle(
           fontWeight: FontWeight.w900,
           letterSpacing: 2,
           fontSize: 27
@@ -26,7 +26,7 @@ class _StatefulAppState extends State<StatefulApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Text("The button was tapped $counter times", style: TextStyle(
+            Text("The button was tapped $counter times", style: const TextStyle(
               fontSize: 21
             ),),
           ],
@@ -37,18 +37,18 @@ class _StatefulAppState extends State<StatefulApp> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton(
-              child: Icon(Icons.remove),
+              child: const Icon(Icons.remove),
               onPressed: (){
                 setState(() {
                   counter--;
                   print(counter);
                 });
               }),
-          SizedBox(
+          const SizedBox(
             width: 25,
           ),
           FloatingActionButton(
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
               onPressed: (){
                 setState(() {
                   counter++;
