@@ -11,6 +11,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _firstNumTEController = TextEditingController();
   final TextEditingController _secondNumTEController = TextEditingController();
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   double _result = 0;
 
   @override
@@ -21,40 +23,57 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _firstNumTEController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  hintText: "First Number",
-                  hintStyle: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.transparent.withOpacity(0.7)),
-                  labelText: "First Number"),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _secondNumTEController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  hintText: "Second Number",
-                  hintStyle: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.transparent.withOpacity(0.7)),
-                  labelText: "Second Number"),
-            ),
-            SizedBox(height: 32),
-            _buildButtonBar(),
-            SizedBox(
-              height: 24,
-            ),
-            Text(" Result : ${_result.toStringAsFixed(2)}", style: TextStyle(
-              fontSize: 18
-            ),)
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _firstNumTEController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    hintText: "First Number",
+                    hintStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.transparent.withOpacity(0.7)),
+                    labelText: "First Number"),
+                validator: (String? value){
+                  if(value == null || value.isEmpty ){
+                    return "Enter a value";
+                  }else{
+                    return null;
+                  }
+                },
+              ),
+              SizedBox(height: 16),
+              TextFormField(
+                controller: _secondNumTEController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    hintText: "Second Number",
+                    hintStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.transparent.withOpacity(0.7)),
+                    labelText: "Second Number"),
+                  validator: (String? value){
+                    if(value == null || value.isEmpty ){
+                      return "Enter a value";
+                    }else{
+                      return null;
+                    }
+                  }
+              ),
+              SizedBox(height: 32),
+              _buildButtonBar(),
+              SizedBox(
+                height: 24,
+              ),
+              Text(" Result : ${_result.toStringAsFixed(2)}", style: TextStyle(
+                fontSize: 18
+              ),)
+            ],
+          ),
         ),
       ),
     );
@@ -101,31 +120,41 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onTapAddButton(){
-    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
-    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
-    _result = firstNum + secondNum;
-    setState(() {});
+    if(_formKey.currentState!.validate()){
+      double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+      double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+      _result = firstNum + secondNum;
+      setState(() {});
+    }
+
   }
 
   void _onTapSubtractButton(){
+    if(_formKey.currentState!.validate()){
     double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
     double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
     _result = firstNum - secondNum;
     setState(() {});
+
+    }
   }
 
   void _onTapMultiplyButton(){
+    if(_formKey.currentState!.validate()){
     double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
     double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
     _result = firstNum * secondNum;
     setState(() {});
+    }
   }
 
   void _onTapDivideButton(){
+    if(_formKey.currentState!.validate()){
     double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
     double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
     _result = firstNum / secondNum;
     setState(() {});
+    }
   }
 
 }
