@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 labelText: "First Number"
               ),
             ),
+            SizedBox(height: 16),
             TextField(
               controller: _secondNumTEController,
               keyboardType: TextInputType.number,
@@ -48,6 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   labelText: "Second Number"
               ),
             ),
+            SizedBox(height: 16),
+            Row(
+              children: [
+                IconButton.filled(onPressed: (){
+
+                }, icon: Icon(Icons.add))
+              ],
+            )
+
           ],
         ),
       ),
