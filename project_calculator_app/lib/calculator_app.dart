@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:project_calculator_app/home_screen.dart';
 
-class CalculatorApp extends StatefulWidget {
+class CalculatorApp extends StatelessWidget {
   const CalculatorApp({super.key});
 
   @override
-  State<CalculatorApp> createState() => _CalculatorAppState();
-}
-
-class _CalculatorAppState extends State<CalculatorApp> {
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: ,
+    return const MaterialApp(
+      home: HomeScreen(),
+
     );
   }
 }
