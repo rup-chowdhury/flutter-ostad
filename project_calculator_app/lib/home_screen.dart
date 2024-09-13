@@ -25,7 +25,29 @@ class _HomeScreenState extends State<HomeScreen> {
             TextField(
               controller: _firstNumTEController,
               keyboardType: TextInputType.number,
-            )
+              decoration: InputDecoration(
+                hintText: "First Number",
+                hintStyle: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.transparent.withOpacity(0.7)
+                ),
+                labelText: "First Number"
+              ),
+            ),
+            TextField(
+              controller: _secondNumTEController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  hintText: "Second Number",
+                  hintStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.transparent.withOpacity(0.7)
+                  ),
+                  labelText: "Second Number"
+              ),
+            ),
           ],
         ),
       ),
