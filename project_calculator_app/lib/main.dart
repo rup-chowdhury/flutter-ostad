@@ -2,21 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_calculator_app/calculator_app.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const CalculatorApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CalculatorApp(),
-    );
-  }
-}
