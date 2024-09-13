@@ -33,14 +33,26 @@ class _StatefulAppState extends State<StatefulApp> {
         ),
       ),
 
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: (){
-            setState(() {
-              counter++;
-              print(counter);
-            });
-      }),
+      floatingActionButton: Row(
+        children: [
+          FloatingActionButton(
+              child: Icon(Icons.remove),
+              onPressed: (){
+                setState(() {
+                  counter--;
+                  print(counter);
+                });
+              }),
+          FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: (){
+                setState(() {
+                  counter++;
+                  print(counter);
+                });
+          }),
+        ],
+      ),
 
     );
   }
