@@ -9,6 +9,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  final TextEditingController _firstNumTEController = TextEditingController();
+  final TextEditingController _secondNumTEController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             TextField(
+              controller: _firstNumTEController,
             )
           ],
         ),
