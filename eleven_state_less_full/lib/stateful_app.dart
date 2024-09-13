@@ -34,6 +34,7 @@ class _StatefulAppState extends State<StatefulApp> {
       ),
 
       floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton(
               child: Icon(Icons.remove),
