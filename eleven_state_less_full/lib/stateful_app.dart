@@ -17,7 +17,8 @@ class _StatefulAppState extends State<StatefulApp> {
         title: const Text("Stateless and Stateful", style: TextStyle(
           fontWeight: FontWeight.w900,
           letterSpacing: 2,
-          fontSize: 27
+          fontSize: 27,
+          color: Colors.white
         ),),
         backgroundColor: Colors.blueGrey,
       ),
