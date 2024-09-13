@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Cheap Calculator")),
+        title: const Center(child: Text("Cheap Calculator")),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: _secondNumTEController,
                 keyboardType: TextInputType.number,
@@ -64,12 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                   }
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               _buildButtonBar(),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
-              Text(" Result : ${_result.toStringAsFixed(2)}", style: TextStyle(
+              Text(" Result : ${_result.toStringAsFixed(2)}", style: const TextStyle(
                 fontSize: 18
               ),)
             ],
@@ -88,10 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         IconButton(onPressed: () {
           _onTapAddButton();
-        }, icon: Icon(Icons.add)),
+        }, icon: const Icon(Icons.add)),
         IconButton(onPressed: () {
           _onTapSubtractButton();
-        }, icon: Icon(Icons.remove)),
+        }, icon: const Icon(Icons.remove)),
         TextButton(
             onPressed: () {
               _onTapMultiplyButton();
