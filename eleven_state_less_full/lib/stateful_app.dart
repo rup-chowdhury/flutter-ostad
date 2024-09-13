@@ -44,6 +44,9 @@ class _StatefulAppState extends State<StatefulApp> {
                   print(counter);
                 });
               }),
+          SizedBox(
+            width: 25,
+          ),
           FloatingActionButton(
               child: Icon(Icons.add),
               onPressed: (){
