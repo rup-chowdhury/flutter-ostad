@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_water_tracker_app/watar_tracker_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+    home: WatarTrackerApp(),
+    );
   }
 }
