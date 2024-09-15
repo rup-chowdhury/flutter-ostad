@@ -11,6 +11,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _glassNoTEController = TextEditingController(
     text: "1"
   );
+
+  List<WaterTracker> waterTrackerList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
