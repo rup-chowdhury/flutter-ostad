@@ -11,6 +11,9 @@ class WatarTrackerApp extends StatefulWidget {
 class _WatarTrackerAppState extends State<WatarTrackerApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen());
+    return MaterialApp(
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
