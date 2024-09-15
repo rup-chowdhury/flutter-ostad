@@ -57,7 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10))),
                 ),
               ),
-              TextButton(onPressed: () {}, child: Text("Add")),
+              TextButton(onPressed: () {
+                _addNewWaterTrack();
+              }, child: Text("Add")),
             ],
           ),
           Expanded(
@@ -83,6 +85,15 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  int _getTotalGlassCount() {
+    int counter = 0;
+    for(WaterTracker wt in waterTrackerList){
+      counter += wt.noOfGlasses;
+    }
+    return counter;
+  }
+
 
   void _addNewWaterTrack() {
     if(_glassNoTEController.text.isEmpty){
