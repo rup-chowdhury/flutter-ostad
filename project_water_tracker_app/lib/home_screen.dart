@@ -7,10 +7,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  final TextEditingController _glassNoTEController = TextEditingController(
-    text: "1"
-  );
+  final TextEditingController _glassNoTEController =
+      TextEditingController(text: "1");
 
   List<WaterTracker> waterTrackerList = [];
 
@@ -53,8 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 2)),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2)
-                      ),
+                          borderSide: BorderSide(color: Colors.blue, width: 2)),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 5),
                           borderRadius: BorderRadius.circular(10))),
@@ -86,6 +83,19 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  void _addNewWaterTrack() {
+    if(_glassNoTEController.text.isEmpty){
+      _glassNoTEController.text = "1";
+    }
+    final int noOfGlasses = int.tryParse(_glassNoTEController.text) ?? 1;
+    WaterTracker waterTracker =
+        WaterTracker(
+            noOfGlasses: noOfGlasses,
+            dateTime: DateTime.now(),
+        );
+    waterTrackerList.add(waterTracker);
+  }
 }
 
 class WaterTracker {
@@ -93,5 +103,4 @@ class WaterTracker {
   final DateTime dateTime;
 
   WaterTracker({required this.noOfGlasses, required this.dateTime});
-
 }
