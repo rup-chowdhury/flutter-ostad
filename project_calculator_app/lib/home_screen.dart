@@ -37,41 +37,41 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w400,
                         color: Colors.transparent.withOpacity(0.7)),
                     labelText: "First Number"),
-                validator: (String? value){
-                  if(value == null || value.isEmpty ){
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
                     return "Enter a value";
-                  }else{
+                  } else {
                     return null;
                   }
                 },
               ),
               const SizedBox(height: 16),
               TextFormField(
-                controller: _secondNumTEController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    hintText: "Second Number",
-                    hintStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.transparent.withOpacity(0.7)),
-                    labelText: "Second Number"),
-                  validator: (String? value){
-                    if(value == null || value.isEmpty ){
+                  controller: _secondNumTEController,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      hintText: "Second Number",
+                      hintStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.transparent.withOpacity(0.7)),
+                      labelText: "Second Number"),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
                       return "Enter a value";
-                    }else{
+                    } else {
                       return null;
                     }
-                  }
-              ),
+                  }),
               const SizedBox(height: 32),
               _buildButtonBar(),
               const SizedBox(
                 height: 24,
               ),
-              Text(" Result : ${_result.toStringAsFixed(2)}", style: const TextStyle(
-                fontSize: 18
-              ),)
+              Text(
+                " Result : ${_result.toStringAsFixed(2)}",
+                style: const TextStyle(fontSize: 18),
+              )
             ],
           ),
         ),
@@ -79,19 +79,22 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
   // Method Extraction or Widget Extraction
 
-  Widget _buildButtonBar(){
+  Widget _buildButtonBar() {
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: [
-        IconButton.filled(onPressed: () {
-          _onTapAddButton();
-        }, icon: const Icon(Icons.add)),
-        IconButton.filled(                                                          onPressed: () {
-          _onTapSubtractButton();
-        }, icon: const Icon(Icons.remove)),
+        IconButton.filled(
+            onPressed: () {
+              _onTapAddButton();
+            },
+            icon: const Icon(Icons.add)),
+        IconButton.filled(
+            onPressed: () {
+              _onTapSubtractButton();
+            },
+            icon: const Icon(Icons.remove)),
         TextButton(
             onPressed: () {
               _onTapMultiplyButton();
@@ -119,42 +122,39 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _onTapAddButton(){
-    if(_formKey.currentState!.validate()){
+  void _onTapAddButton() {
+    if (_formKey.currentState!.validate()) {
       double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
       double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
       _result = firstNum + secondNum;
       setState(() {});
     }
-
   }
 
-  void _onTapSubtractButton(){
-    if(_formKey.currentState!.validate()){
-    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
-    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
-    _result = firstNum - secondNum;
-    setState(() {});
-
+  void _onTapSubtractButton() {
+    if (_formKey.currentState!.validate()) {
+      double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+      double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+      _result = firstNum - secondNum;
+      setState(() {});
     }
   }
 
-  void _onTapMultiplyButton(){
-    if(_formKey.currentState!.validate()){
-    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
-    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
-    _result = firstNum * secondNum;
-    setState(() {});
+  void _onTapMultiplyButton() {
+    if (_formKey.currentState!.validate()) {
+      double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+      double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+      _result = firstNum * secondNum;
+      setState(() {});
     }
   }
 
-  void _onTapDivideButton(){
-    if(_formKey.currentState!.validate()){
-    double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
-    double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
-    _result = firstNum / secondNum;
-    setState(() {});
+  void _onTapDivideButton() {
+    if (_formKey.currentState!.validate()) {
+      double firstNum = double.tryParse(_firstNumTEController.text) ?? 0;
+      double secondNum = double.tryParse(_secondNumTEController.text) ?? 0;
+      _result = firstNum / secondNum;
+      setState(() {});
     }
   }
-
 }
