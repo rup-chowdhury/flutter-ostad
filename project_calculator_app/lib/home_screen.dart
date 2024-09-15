@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _onTapAddButton();
             },
             icon: const Icon(Icons.add)),
-        IconButton.filled(
+        IconButton(
             onPressed: () {
               _onTapSubtractButton();
             },
