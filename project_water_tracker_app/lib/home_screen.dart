@@ -85,3 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+class WaterTracker {
+  final int noOfGlasses;
+  final DateTime dateTime;
+
+  WaterTracker({required this.noOfGlasses, required this.dateTime});
+
+}
