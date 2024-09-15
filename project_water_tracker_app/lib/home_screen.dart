@@ -95,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             dateTime: DateTime.now(),
         );
     waterTrackerList.add(waterTracker);
+    setState(() {});
   }
 }
 
