@@ -156,10 +156,11 @@ class _HomeScreenState extends State<HomeScreen> {
       _result = firstNum / secondNum;
       setState(() {});
     }
-
-    dispose(){
-      _firstNumTEController.dispose();
-      _secondNumTEController.dispose();
-    }
+  }
+  @override
+  void dispose() {
+    _firstNumTEController.dispose();
+    _secondNumTEController.dispose();
+    super.dispose();
   }
 }
