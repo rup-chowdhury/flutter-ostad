@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: [
-        IconButton.filled(
+        IconButton(
             onPressed: () {
               _onTapAddButton();
             },
