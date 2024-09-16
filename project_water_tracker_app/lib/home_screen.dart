@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return Divider();
+                    return Divider(height: ,);
                   },
                   itemCount: 4))
         ],
