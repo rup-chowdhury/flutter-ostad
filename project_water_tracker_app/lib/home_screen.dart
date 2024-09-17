@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return ListView.separated(
       itemCount: waterTrackerList.length,
       itemBuilder: (context, index) {
+        final WaterTracker waterTracker = waterTrackerList[index];
         return ListTile(
           title: Text("Time"),
           subtitle: Text("Date"),
