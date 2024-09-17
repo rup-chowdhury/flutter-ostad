@@ -39,8 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return ListView.separated(
       itemCount: waterTrackerList.length,
       itemBuilder: (context, index) {
-        final WaterTracker waterTracker = waterTrackerList[index];
-        return _buildWaterTrackListTile(waterTracker, index);
+        return _buildWaterTrackListTile(index);
       },
       separatorBuilder: (context, index) {
         return Divider(
@@ -51,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  ListTile _buildWaterTrackListTile(WaterTracker waterTracker, int index) {
+  ListTile _buildWaterTrackListTile(int index) {
+    WaterTracker waterTracker = waterTrackerList[index];
     return ListTile(
         title: Text("${waterTracker.dateTime.hour}:${waterTracker.dateTime.minute}:${waterTracker.dateTime.second}"),
         subtitle: Text("${waterTracker.dateTime.day}/${waterTracker.dateTime.month}/${waterTracker.dateTime.year}"),
