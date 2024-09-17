@@ -25,46 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              Text(
-                getTotalGlassCount().toString(),
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
-              const Text("Glass/s"),
-              const SizedBox(
-                height: 16,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 40,
-                    width: 50,
-                    child: TextField(
-                      controller: _glassNoTEController,
-                      textAlignVertical: TextAlignVertical(y: -1),
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue, width: 2)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue, width: 2)),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue, width: 5),
-                              borderRadius: BorderRadius.circular(10))),
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        _addNewWaterTrack();
-                      },
-                      child: Text("Add")),
-                ],
-              ),
-            ],
-          ),
+          _buildWaterTrackCounter(),
           SizedBox(
             height: 24,
           ),
@@ -93,6 +54,52 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  Column _buildWaterTrackCounter() {
+    return Column(
+          children: [
+            Text(
+              getTotalGlassCount().toString(),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+            ),
+            const Text("Glass/s"),
+            const SizedBox(
+              height: 16,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 40,
+                  width: 50,
+                  child: TextField(
+                    controller: _glassNoTEController,
+                    textAlignVertical: TextAlignVertical(y: -1),
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2)),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2)),
+                        border: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 5),
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {
+                      _addNewWaterTrack();
+                    },
+                    child: Text("Add")),
+              ],
+            ),
+          ],
+        );
   }
 
   int getTotalGlassCount() {
