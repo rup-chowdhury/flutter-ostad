@@ -33,9 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 16,
           ),
-          SizedBox(
-            height: 24,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -61,6 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 _addNewWaterTrack();
               }, child: Text("Add")),
             ],
+          ),
+          SizedBox(
+            height: 24,
           ),
           Expanded(
               child: ListView.separated(
