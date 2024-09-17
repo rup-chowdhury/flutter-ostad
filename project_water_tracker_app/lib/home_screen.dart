@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TextButton(
                 onPressed: () {
-                  _addNewWaterTrack();
+                  _onTapAddWaterTrack();
                 },
                 child: Text("Add")),
           ],
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return counter;
   }
 
-  void _addNewWaterTrack() {
+  void _onTapAddWaterTrack() {
     if (_glassNoTEController.text.isEmpty) {
       _glassNoTEController.text = "1";
     }
