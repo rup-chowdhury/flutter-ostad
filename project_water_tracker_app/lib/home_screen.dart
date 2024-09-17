@@ -41,8 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
       itemBuilder: (context, index) {
         final WaterTracker waterTracker = waterTrackerList[index];
         return ListTile(
-          title: Text("Time"),
-          subtitle: Text("Date"),
+          title: Text("${waterTracker.dateTime.hour}:${waterTracker.dateTime.minute}:${waterTracker.dateTime.second}"),
+          subtitle: Text("${waterTracker.dateTime.day}/${waterTracker.dateTime.month}/${waterTracker.dateTime.year}"),
           leading: Text("1"),
           trailing: IconButton(
               onPressed: () {},
