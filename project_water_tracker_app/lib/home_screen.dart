@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_water_tracker_app/water_tracker.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -137,9 +138,4 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class WaterTracker {
-  final int noOfGlasses;
-  final DateTime dateTime;
 
-  WaterTracker({required this.noOfGlasses, required this.dateTime});
-}
