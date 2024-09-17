@@ -40,19 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
       itemCount: waterTrackerList.length,
       itemBuilder: (context, index) {
         final WaterTracker waterTracker = waterTrackerList[index];
-        return ListTile(
-          title: Text("${waterTracker.dateTime.hour}:${waterTracker.dateTime.minute}:${waterTracker.dateTime.second}"),
-          subtitle: Text("${waterTracker.dateTime.day}/${waterTracker.dateTime.month}/${waterTracker.dateTime.year}"),
-          leading: CircleAvatar(child: Text("${waterTracker.noOfGlasses}")),
-          trailing: IconButton(
-              onPressed: () {
-                _onTapDeleteWaterTrack(index);
-              },
-              icon: Icon(
-                Icons.delete_forever_rounded,
-                color: Colors.red,
-              )),
-        );
+        return _buildWaterTrackListTile(waterTracker, index);
       },
       separatorBuilder: (context, index) {
         return Divider(
@@ -61,6 +49,22 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       },
     );
+  }
+
+  ListTile _buildWaterTrackListTile(WaterTracker waterTracker, int index) {
+    return ListTile(
+        title: Text("${waterTracker.dateTime.hour}:${waterTracker.dateTime.minute}:${waterTracker.dateTime.second}"),
+        subtitle: Text("${waterTracker.dateTime.day}/${waterTracker.dateTime.month}/${waterTracker.dateTime.year}"),
+        leading: CircleAvatar(child: Text("${waterTracker.noOfGlasses}")),
+        trailing: IconButton(
+            onPressed: () {
+              _onTapDeleteWaterTrack(index);
+            },
+            icon: Icon(
+              Icons.delete_forever_rounded,
+              color: Colors.red,
+            )),
+      );
   }
 
   Widget _buildWaterTrackCounter() {
