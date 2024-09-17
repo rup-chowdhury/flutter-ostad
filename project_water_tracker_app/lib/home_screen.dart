@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "12",
+            getTotalGlassCount().toString(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
           ),
           Text("Glass/s"),
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  int _getTotalGlassCount() {
+  int getTotalGlassCount() {
     int counter = 0;
     for(WaterTracker wt in waterTrackerList){
       counter += wt.noOfGlasses;
