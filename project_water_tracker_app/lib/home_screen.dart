@@ -30,30 +30,34 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 24,
           ),
           Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text("Time"),
-                      subtitle: Text("Date"),
-                      leading: Text("1"),
-                      trailing: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.delete_forever_rounded,
-                            color: Colors.red,
-                          )),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return Divider(
-                      height: 2,
-                      thickness: 2,
-                    );
-                  },
-                  itemCount: 4))
+              child: _buildWaterTrackListView())
         ],
       ),
     );
+  }
+
+  Widget _buildWaterTrackListView() {
+    return ListView.separated(
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text("Time"),
+                    subtitle: Text("Date"),
+                    leading: Text("1"),
+                    trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.delete_forever_rounded,
+                          color: Colors.red,
+                        )),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return Divider(
+                    height: 2,
+                    thickness: 2,
+                  );
+                },
+                itemCount: 4);
   }
 
   Widget _buildWaterTrackCounter() {
