@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Column _buildWaterTrackCounter() {
+  Widget _buildWaterTrackCounter() {
     return Column(
           children: [
             Text(
