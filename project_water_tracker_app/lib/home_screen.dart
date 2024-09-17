@@ -45,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
           subtitle: Text("${waterTracker.dateTime.day}/${waterTracker.dateTime.month}/${waterTracker.dateTime.year}"),
           leading: CircleAvatar(child: Text("${waterTracker.noOfGlasses}")),
           trailing: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                _onTapDeleteWaterTrack(index);
+              },
               icon: Icon(
                 Icons.delete_forever_rounded,
                 color: Colors.red,
