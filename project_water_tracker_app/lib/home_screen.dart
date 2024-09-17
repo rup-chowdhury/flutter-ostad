@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
             getTotalGlassCount().toString(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
           ),
-          Text("Glass/s"),
-          SizedBox(
+          const Text("Glass/s"),
+          const SizedBox(
             height: 16,
           ),
           Row(
@@ -54,9 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10))),
                 ),
               ),
-              TextButton(onPressed: () {
-                _addNewWaterTrack();
-              }, child: Text("Add")),
+              TextButton(
+                  onPressed: () {
+                    _addNewWaterTrack();
+                  },
+                  child: Text("Add")),
             ],
           ),
           SizedBox(
@@ -78,8 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return Divider(height: 2,
-                    thickness: 2,);
+                    return Divider(
+                      height: 2,
+                      thickness: 2,
+                    );
                   },
                   itemCount: 4))
         ],
@@ -89,23 +93,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int getTotalGlassCount() {
     int counter = 0;
-    for(WaterTracker wt in waterTrackerList){
+    for (WaterTracker wt in waterTrackerList) {
       counter += wt.noOfGlasses;
     }
     return counter;
   }
 
-
   void _addNewWaterTrack() {
-    if(_glassNoTEController.text.isEmpty){
+    if (_glassNoTEController.text.isEmpty) {
       _glassNoTEController.text = "1";
     }
     final int noOfGlasses = int.tryParse(_glassNoTEController.text) ?? 1;
-    WaterTracker waterTracker =
-        WaterTracker(
-            noOfGlasses: noOfGlasses,
-            dateTime: DateTime.now(),
-        );
+    WaterTracker waterTracker = WaterTracker(
+      noOfGlasses: noOfGlasses,
+      dateTime: DateTime.now(),
+    );
     waterTrackerList.add(waterTracker);
     setState(() {});
   }
