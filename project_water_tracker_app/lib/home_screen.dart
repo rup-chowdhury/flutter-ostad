@@ -136,6 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
     waterTrackerList.removeAt(index);
     setState(() {});
   }
+
+  @override
+  void dispose() {
+    _glassNoTEController.dispose();
+    super.dispose();
+  }
 }
 
 
