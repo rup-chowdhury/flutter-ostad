@@ -29,8 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 24,
           ),
-          Expanded(
-              child: _buildWaterTrackListView())
+          Expanded(child: _buildWaterTrackListView())
         ],
       ),
     );
@@ -38,72 +37,70 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildWaterTrackListView() {
     return ListView.separated(
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text("Time"),
-                    subtitle: Text("Date"),
-                    leading: Text("1"),
-                    trailing: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.delete_forever_rounded,
-                          color: Colors.red,
-                        )),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return Divider(
-                    height: 2,
-                    thickness: 2,
-                  );
-                },
-                itemCount: 4);
+      itemCount: waterTrackerList.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text("Time"),
+          subtitle: Text("Date"),
+          leading: Text("1"),
+          trailing: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.delete_forever_rounded,
+                color: Colors.red,
+              )),
+        );
+      },
+      separatorBuilder: (context, index) {
+        return Divider(
+          height: 2,
+          thickness: 2,
+        );
+      },
+    );
   }
 
   Widget _buildWaterTrackCounter() {
     return Column(
+      children: [
+        Text(
+          getTotalGlassCount().toString(),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+        ),
+        const Text("Glass/s"),
+        const SizedBox(
+          height: 16,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              getTotalGlassCount().toString(),
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+            SizedBox(
+              height: 40,
+              width: 50,
+              child: TextField(
+                controller: _glassNoTEController,
+                textAlignVertical: TextAlignVertical(y: -1),
+                textAlign: TextAlign.center,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 2)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 2)),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 5),
+                        borderRadius: BorderRadius.circular(10))),
+              ),
             ),
-            const Text("Glass/s"),
-            const SizedBox(
-              height: 16,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 40,
-                  width: 50,
-                  child: TextField(
-                    controller: _glassNoTEController,
-                    textAlignVertical: TextAlignVertical(y: -1),
-                    textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 2)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 2)),
-                        border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 5),
-                            borderRadius: BorderRadius.circular(10))),
-                  ),
-                ),
-                TextButton(
-                    onPressed: () {
-                      _addNewWaterTrack();
-                    },
-                    child: Text("Add")),
-              ],
-            ),
+            TextButton(
+                onPressed: () {
+                  _addNewWaterTrack();
+                },
+                child: Text("Add")),
           ],
-        );
+        ),
+      ],
+    );
   }
 
   int getTotalGlassCount() {
