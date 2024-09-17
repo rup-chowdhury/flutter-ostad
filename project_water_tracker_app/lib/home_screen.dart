@@ -124,6 +124,11 @@ class _HomeScreenState extends State<HomeScreen> {
     waterTrackerList.add(waterTracker);
     setState(() {});
   }
+
+  void _onTapDeleteWaterTrack(int index){
+    waterTrackerList.removeAt(index);
+    setState(() {});
+  }
 }
 
 class WaterTracker {
