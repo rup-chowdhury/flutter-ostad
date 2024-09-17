@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return ListTile(
           title: Text("${waterTracker.dateTime.hour}:${waterTracker.dateTime.minute}:${waterTracker.dateTime.second}"),
           subtitle: Text("${waterTracker.dateTime.day}/${waterTracker.dateTime.month}/${waterTracker.dateTime.year}"),
-          leading: Text("${waterTracker.noOfGlasses}"),
+          leading: CircleAvatar(child: Text("${waterTracker.noOfGlasses}")),
           trailing: IconButton(
               onPressed: () {},
               icon: Icon(
