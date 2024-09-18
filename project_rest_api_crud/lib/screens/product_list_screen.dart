@@ -10,6 +10,17 @@ class ProductListScreen extends StatefulWidget {
 class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Product List"),
+      ),
+      body: Column(
+        children: [
+          ListTile(
+            tileColor: Colors.white,
+          )
+        ],
+      ),
+    );
   }
 }
