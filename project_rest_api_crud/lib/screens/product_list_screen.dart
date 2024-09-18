@@ -26,13 +26,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 Text("Price: \$120"),
                 Text("Quantity: 2"),
                 Text("Total Price: \$240"),
+                Divider(),
                 ButtonBar(
                   children: [
                     TextButton.icon(
                       onPressed: () {},
-                      style: TextButton.styleFrom(
-                        padding: 
-                      ),
                       label: Text("Edit", style: TextStyle(
                         color: Colors.blue
                       ),),
