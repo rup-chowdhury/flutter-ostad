@@ -18,6 +18,17 @@ class _ProductListScreenState extends State<ProductListScreen> {
         children: [
           ListTile(
             tileColor: Colors.white,
+            title: Text("Product Name"),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Product Code: code"),
+                Text("Price: \$120"),
+                Text("Quantity: 2"),
+                Text("Total Price: \$240"),
+              ],
+            ),
+            
           )
         ],
       ),
