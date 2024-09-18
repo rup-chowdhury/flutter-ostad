@@ -26,9 +26,29 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 Text("Price: \$120"),
                 Text("Quantity: 2"),
                 Text("Total Price: \$240"),
+                ButtonBar(
+                  children: [
+                    TextButton.icon(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        padding: 
+                      ),
+                      label: Text("Edit", style: TextStyle(
+                        color: Colors.blue
+                      ),),
+                      icon: Icon(Icons.edit, color: Colors.blue,),
+                    ),
+                    TextButton.icon(
+                      onPressed: () {},
+                      label: Text("Delete", style: TextStyle(
+                        color: Colors.red
+                      ),),
+                      icon: Icon(Icons.delete, color: Colors.red,),
+                    )
+                  ],
+                )
               ],
             ),
-            
           )
         ],
       ),
