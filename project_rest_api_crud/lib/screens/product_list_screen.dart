@@ -23,7 +23,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("Product Code: code"),
-                Text("Price: \$120"),
+                const Text("Price: \$120"),
                 Text("Quantity: 2"),
                 Text("Total Price: \$240"),
                 Divider(),
