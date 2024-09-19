@@ -22,7 +22,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Product Code: code"),
+                const Text("Product Code: code"),
                 Text("Price: \$120"),
                 Text("Quantity: 2"),
                 Text("Total Price: \$240"),
