@@ -26,7 +26,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 const Text("Price: \$120"),
                 const Text("Quantity: 2"),
                 const Text("Total Price: \$240"),
-                Divider(),
+                const Divider(),
                 ButtonBar(
                   children: [
                     TextButton.icon(
