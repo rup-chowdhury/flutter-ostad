@@ -18,7 +18,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
         children: [
           ListTile(
             tileColor: Colors.white,
-            title: Text("Product Name"),
+            title: const Text("Product Name"),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
