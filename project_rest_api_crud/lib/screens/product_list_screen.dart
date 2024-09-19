@@ -19,6 +19,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
           ListTile(
             tileColor: Colors.white,
             title: const Text("Product Name"),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -31,7 +32,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   children: [
                     TextButton.icon(
                       onPressed: () {},
-                      label: Text("Edit", style: TextStyle(
+                      label: const Text("Edit", style: TextStyle(
                         color: Colors.blue
                       ),),
                       icon: Icon(Icons.edit, color: Colors.blue,),
