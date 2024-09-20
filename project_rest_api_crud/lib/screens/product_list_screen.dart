@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_rest_api_crud/screens/add_new_product_screen.dart';
 import 'package:project_rest_api_crud/widgets/product_item.dart';
 
 class ProductListScreen extends StatefulWidget {
@@ -26,9 +27,15 @@ class _ProductListScreenState extends State<ProductListScreen> {
             );
           }),
       floatingActionButton: FloatingActionButton(onPressed: (){
-
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return const AddNewProductScreen();
+        },
+        ),
+        );
       },
-      child: const Icon(Icons.add),backgroundColor: Colors.blueGrey[200],),
+        backgroundColor: Colors.blueGrey[200],
+      child: const Icon(Icons.add),
+      ),
     );
   }
 }
