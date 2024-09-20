@@ -14,14 +14,14 @@ class _ProductListScreenState extends State<ProductListScreen> {
       appBar: AppBar(
         title: const Text("Product List"),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-            child: ProductItem(),
-          )
-        ],
-      ),
+      body: ListView.builder(
+          itemCount: 20,
+          itemBuilder: (context, index){
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ProductItem(),
+            );
+          }),
     );
   }
 }
