@@ -32,54 +32,58 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                TextFormField(
-                  controller: _productNameTEController,
-                  decoration: InputDecoration(
-                      hintText: "Name", labelText: "Product Name"),
-                ),
-                TextFormField(
-                  controller: _unitPriceTEController,
-                  decoration:
-                      InputDecoration(hintText: "Price", labelText: "Unit Price"),
-                ),
-                TextFormField(
-                  controller: _quantityTEController,
-                  decoration: InputDecoration(
-                      hintText: "Quantity", labelText: "Quantity"),
-                ),
-                TextFormField(
-                  controller: _totalPriceTEController,
-                  decoration: InputDecoration(
-                      hintText: "Total Price", labelText: "Total Price"),
-                ),
-                TextFormField(
-                  controller: _productImageTEController,
-                  decoration: InputDecoration(
-                      hintText: "Image", labelText: "Product Image"),
-                ),
-                TextFormField(
-                  controller: _productCodeTEController,
-                  decoration: InputDecoration(
-                      hintText: "Code", labelText: "Product Code"),
-                ),
-                SizedBox(
-                  height: 48,
-                ),
-                CupertinoButton(child: Text("Add"), onPressed: (){
-          
-                },
-                color: Colors.blue,
-                padding: EdgeInsets.symmetric(horizontal: 140),)
-              ],
-            ),
-          ),
+          child: _buildNewProductForm(),
         ),
       ),
     );
+  }
+
+  Widget _buildNewProductForm() {
+    return Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _productNameTEController,
+                decoration: InputDecoration(
+                    hintText: "Name", labelText: "Product Name"),
+              ),
+              TextFormField(
+                controller: _unitPriceTEController,
+                decoration:
+                    InputDecoration(hintText: "Price", labelText: "Unit Price"),
+              ),
+              TextFormField(
+                controller: _quantityTEController,
+                decoration: InputDecoration(
+                    hintText: "Quantity", labelText: "Quantity"),
+              ),
+              TextFormField(
+                controller: _totalPriceTEController,
+                decoration: InputDecoration(
+                    hintText: "Total Price", labelText: "Total Price"),
+              ),
+              TextFormField(
+                controller: _productImageTEController,
+                decoration: InputDecoration(
+                    hintText: "Image", labelText: "Product Image"),
+              ),
+              TextFormField(
+                controller: _productCodeTEController,
+                decoration: InputDecoration(
+                    hintText: "Code", labelText: "Product Code"),
+              ),
+              SizedBox(
+                height: 48,
+              ),
+              CupertinoButton(child: Text("Add"), onPressed: (){
+
+              },
+              color: Colors.blue,
+              padding: EdgeInsets.symmetric(horizontal: 140),)
+            ],
+          ),
+        );
   }
   @override
   void dispose() {
