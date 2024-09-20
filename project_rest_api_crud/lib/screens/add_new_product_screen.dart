@@ -38,6 +38,10 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
     );
   }
 
+  void _onTapAddProductButton(){
+
+  }
+
   Widget _buildNewProductForm() {
     return Form(
           key: _formKey,
@@ -77,7 +81,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                 height: 48,
               ),
               CupertinoButton(child: Text("Add"), onPressed: (){
-
+                _onTapAddProductButton();
               },
               color: Colors.blue,
               padding: EdgeInsets.symmetric(horizontal: 140),)
