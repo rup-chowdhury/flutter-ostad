@@ -12,8 +12,10 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         title: const Text("Product List"),
+        backgroundColor: Colors.blueGrey[100],
       ),
       body: ListView.builder(
           itemCount: 20,
@@ -23,6 +25,10 @@ class _ProductListScreenState extends State<ProductListScreen> {
               child: ProductItem(),
             );
           }),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+
+      },
+      child: const Icon(Icons.add),backgroundColor: Colors.blueGrey[200],),
     );
   }
 }
