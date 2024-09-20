@@ -21,6 +21,8 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
   final TextEditingController _productCodeTEController =
       TextEditingController();
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
