@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class AddNewProductScreen extends StatefulWidget {
-  const AddNewProductScreen({super.key});
+class UpdateProductScreen extends StatefulWidget {
+  const UpdateProductScreen({super.key});
 
   @override
-  State<AddNewProductScreen> createState() => _AddNewProductScreenState();
+  State<UpdateProductScreen> createState() => _UpdateProductScreenState();
 }
 
-class _AddNewProductScreenState extends State<AddNewProductScreen> {
+class _UpdateProductScreenState extends State<UpdateProductScreen> {
   final TextEditingController _productNameTEController =
       TextEditingController();
   final TextEditingController _unitPriceTEController = TextEditingController();
