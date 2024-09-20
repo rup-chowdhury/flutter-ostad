@@ -33,6 +33,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 TextFormField(
