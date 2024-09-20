@@ -81,4 +81,14 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
       ),
     );
   }
+  @override
+  void dispose() {
+    _productNameTEController.dispose();
+    _unitPriceTEController.dispose();
+    _quantityTEController.dispose();
+    _totalPriceTEController.dispose();
+    _productImageTEController.dispose();
+    _productCodeTEController.dispose();
+    super.dispose();
+  }
 }
