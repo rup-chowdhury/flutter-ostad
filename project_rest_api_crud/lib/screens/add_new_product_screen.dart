@@ -64,7 +64,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                       hintText: "Code", labelText: "Product Code"),
                 ),
                 SizedBox(
-                  height: 32,
+                  height: 48,
                 ),
                 CupertinoButton(child: Text("Add"), onPressed: (){
           
