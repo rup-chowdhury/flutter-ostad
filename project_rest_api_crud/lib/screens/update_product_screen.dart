@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:project_rest_api_crud/models/product.dart';
+import 'package:project_rest_api_crud/screens/product_list_screen.dart';
 
 class UpdateProductScreen extends StatefulWidget {
   const UpdateProductScreen({super.key, required this.name, required this.code, required this.price, required this.quantity, required this.img, required this.totalPrice, required this.id});
@@ -90,6 +91,9 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
 
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product Updated Successfully !")));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+        return ProductListScreen();
+      }));
     }
     _inProgress = false;
     setState(() {});
@@ -104,36 +108,76 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                 controller: _productNameTEController,
                 decoration: InputDecoration(
                     hintText: "Name", labelText: "Product Name"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _unitPriceTEController,
                 decoration:
                     InputDecoration(hintText: "Price", labelText: "Unit Price"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _quantityTEController,
                 decoration: InputDecoration(
                     hintText: "Quantity", labelText: "Quantity"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _totalPriceTEController,
                 decoration: InputDecoration(
                     hintText: "Total Price", labelText: "Total Price"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _productImageTEController,
                 decoration: InputDecoration(
                     hintText: "Image", labelText: "Product Image"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _productCodeTEController,
                 decoration: InputDecoration(
                     hintText: "Code", labelText: "Product Code"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               SizedBox(
                 height: 48,
               ),
-              CupertinoButton(child: Text("Update"), onPressed: (){
+              _inProgress
+                  ? const Center(
+                child: CircularProgressIndicator(),
+              )
+                  : CupertinoButton(child: Text("Update"), onPressed: (){
                 _onTapUpdateProductButton();
               },
               color: Colors.blue,
@@ -141,11 +185,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
             ],
           ),
         );
-
-
   }
-
-
   
   @override
   void dispose() {
