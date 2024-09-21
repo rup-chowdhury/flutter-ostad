@@ -27,7 +27,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add New Product"),
+        title: Text("Update Product"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
