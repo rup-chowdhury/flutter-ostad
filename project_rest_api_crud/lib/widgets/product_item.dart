@@ -77,7 +77,9 @@ class _ProductItemState extends State<ProductItem> {
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product has been Deleted !")));
       setState(() {
-      ProductListScreen();
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+          return ProductListScreen();
+        }));
 
       });
     }
