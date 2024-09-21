@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart';
 
 class AddNewProductScreen extends StatefulWidget {
   const AddNewProductScreen({super.key});
@@ -22,6 +24,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
       TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _inProgress = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,37 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
   }
 
   void _onTapAddProductButton(){
+    if (_formKey.currentState!.validate()){
+      addNewProduct();
+    }
+  }
 
+  Future<void> addNewProduct() async {
+    _inProgress = true;
+    setState(() {});
+    Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/CreateProduct");
+    Map<String, dynamic> requestBody = {
+      "Img":"Random 21",
+      "ProductCode":"hhh",
+      "ProductName":"Now then and later",
+      "Qty":"23",
+      "TotalPrice":"3456",
+      "UnitPrice":"53"
+    };
+    Response response = await post(uri,
+        headers:{
+      "Content-Type": "application/json"
+    },
+      body: jsonEncode(requestBody));
+
+    print(response.statusCode);
+    print(response.body);
+
+    if(response.statusCode == 200){
+
+    }
+    _inProgress = false;
+    setState(() {});
   }
 
   Widget _buildNewProductForm() {
