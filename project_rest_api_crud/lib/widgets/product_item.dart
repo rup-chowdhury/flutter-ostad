@@ -69,6 +69,7 @@ class _ProductItemState extends State<ProductItem> {
   }
   Future<void> deleteData(String id) async{
     _isDeleted = true;
+    setState(() {});
     Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/DeleteProduct/${id}");
     Response response = await get(uri);
 
@@ -81,6 +82,7 @@ class _ProductItemState extends State<ProductItem> {
     }
 
     _isDeleted = false;
+    setState(() {});
 
   }
 }
