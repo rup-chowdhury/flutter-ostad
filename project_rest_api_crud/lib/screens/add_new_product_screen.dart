@@ -66,7 +66,10 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
     print(response.statusCode);
     print(response.body);
 
-    if (response.statusCode == 200) {}
+    if (response.statusCode == 200) {
+      _clearTextFields();
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product added Successfully !")));
+    }
     _inProgress = false;
     setState(() {});
   }
@@ -160,6 +163,15 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
         ],
       ),
     );
+  }
+
+  void _clearTextFields() {
+    _productNameTEController.clear();
+    _unitPriceTEController.clear();
+    _quantityTEController.clear();
+    _totalPriceTEController.clear();
+    _productImageTEController.clear();
+    _productCodeTEController.clear();
   }
 
   @override
