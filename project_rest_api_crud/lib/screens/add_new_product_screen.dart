@@ -52,12 +52,12 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
     setState(() {});
     Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/CreateProduct");
     Map<String, dynamic> requestBody = {
-      "Img":"Random 21",
-      "ProductCode":"hhh",
-      "ProductName":"Now then and later",
-      "Qty":"23",
-      "TotalPrice":"3456",
-      "UnitPrice":"53"
+      "Img": _productImageTEController.text,
+      "ProductCode": _productCodeTEController.text,
+      "ProductName": _productNameTEController.text,
+      "Qty": _quantityTEController.text,
+      "TotalPrice": _totalPriceTEController.text,
+      "UnitPrice": _unitPriceTEController.text
     };
     Response response = await post(uri,
         headers:{
@@ -84,31 +84,67 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                 controller: _productNameTEController,
                 decoration: InputDecoration(
                     hintText: "Name", labelText: "Product Name"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty){
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _unitPriceTEController,
                 decoration:
                     InputDecoration(hintText: "Price", labelText: "Unit Price"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty){
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _quantityTEController,
                 decoration: InputDecoration(
                     hintText: "Quantity", labelText: "Quantity"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty){
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _totalPriceTEController,
                 decoration: InputDecoration(
                     hintText: "Total Price", labelText: "Total Price"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty){
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _productImageTEController,
                 decoration: InputDecoration(
                     hintText: "Image", labelText: "Product Image"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty){
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _productCodeTEController,
                 decoration: InputDecoration(
                     hintText: "Code", labelText: "Product Code"),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty){
+                    return "Enter a valid value";
+                  }
+                  return null;
+                },
               ),
               SizedBox(
                 height: 48,
