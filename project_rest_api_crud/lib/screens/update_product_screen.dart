@@ -9,6 +9,13 @@ import 'package:project_rest_api_crud/models/product.dart';
 class UpdateProductScreen extends StatefulWidget {
   const UpdateProductScreen({super.key});
 
+  final String name;
+  final String code;
+  final String price;
+  final String quantity;
+  final String img;
+  final String totalPrice;
+
   @override
   State<UpdateProductScreen> createState() => _UpdateProductScreenState();
 }
