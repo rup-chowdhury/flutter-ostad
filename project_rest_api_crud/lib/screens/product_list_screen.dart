@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:project_rest_api_crud/models/product.dart';
@@ -13,7 +15,6 @@ class ProductListScreen extends StatefulWidget {
 
 class _ProductListScreenState extends State<ProductListScreen> {
   List<Product> productList = [];
-
 
   @override
   void initState() {
@@ -31,22 +32,28 @@ class _ProductListScreenState extends State<ProductListScreen> {
         backgroundColor: Colors.blueGrey[100],
       ),
       body: ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index){
-            return const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: ProductItem(),
+          itemCount: productList.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ProductItem(
+                product: productList[index],
+              ),
             );
           }),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context){
-          return const AddNewProductScreen();
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return const AddNewProductScreen();
+              },
+            ),
+          );
         },
-        ),
-        );
-      },
         backgroundColor: Colors.blueGrey[200],
-      child: const Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -57,13 +64,27 @@ class _ProductListScreenState extends State<ProductListScreen> {
     //API calling part
 
     Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/ReadProduct");
-    Response response = await get(uri);                          // receiving the response from the API
-
+    Response response = await get(uri); // receiving the response from the API
 
     print(response);
     print(response.statusCode);
     print(response.body);
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      for (var item in jsonResponse['data']) {
+        Product product = Product(
+            id: item['_id'],
+            productName: item['ProductName'],
+            productCode: item['ProductCode'],
+            productImage: item['Img'],
+            unitPrice: item['UnitPrice'],
+            quantity: item['Qty'],
+            totalPrice: item['TotalPrice'],
+            createdAt: item['CreatedDate']);
+        productList.add(product);
+      }
+    }
+    setState(() {});
   }
 }
-
-
