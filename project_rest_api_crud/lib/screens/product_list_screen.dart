@@ -64,6 +64,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   }
 
   Future<void> getProductList() async {
+    productList.clear();
     print("Requesting");
 
     //API calling part
