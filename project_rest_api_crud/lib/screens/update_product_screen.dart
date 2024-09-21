@@ -7,8 +7,9 @@ import 'package:http/http.dart';
 import 'package:project_rest_api_crud/models/product.dart';
 
 class UpdateProductScreen extends StatefulWidget {
-  const UpdateProductScreen({super.key});
+  const UpdateProductScreen({super.key, required this.name, required this.code, required this.price, required this.quantity, required this.img, required this.totalPrice, required this.id});
 
+  final String id;
   final String name;
   final String code;
   final String price;
@@ -34,11 +35,18 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+
   bool _inProgress = false;
 
   @override
   void initState() {
     // TODO: implement initState
+    _productNameTEController.text = widget.name;
+    _productCodeTEController.text = widget.code;
+    _productImageTEController.text = widget.img;
+    _unitPriceTEController.text = widget.price;
+    _quantityTEController.text = widget.quantity;
+    _totalPriceTEController.text = widget.totalPrice;
     super.initState();
     setState(() {});
   }
@@ -59,7 +67,32 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
   }
 
   void _onTapUpdateProductButton(){
+    if (_formKey.currentState!.validate()) {
+      updateProduct();
+    }
+  }
 
+  Future<void> updateProduct() async {
+    _inProgress = true;
+    setState(() {});
+    Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/UpdateProduct/${widget.id}");
+    Map<String, dynamic> requestBody = {
+      "Img": _productImageTEController.text,
+      "ProductCode": _productCodeTEController.text,
+      "ProductName": _productNameTEController.text,
+      "Qty": _quantityTEController.text,
+      "TotalPrice": _totalPriceTEController.text,
+      "UnitPrice": _unitPriceTEController.text
+    };
+    Response response = await post(uri,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(requestBody));
+
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product Updated Successfully !")));
+    }
+    _inProgress = false;
+    setState(() {});
   }
 
   Widget _buildNewProductForm() {
@@ -108,6 +141,8 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
             ],
           ),
         );
+
+
   }
 
 

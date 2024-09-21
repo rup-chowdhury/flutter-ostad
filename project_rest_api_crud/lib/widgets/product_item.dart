@@ -29,6 +29,7 @@ class _ProductItemState extends State<ProductItem> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Product Code: ${widget.product.productCode}"),
+          Text("Image: ${widget.product.productImage}"),
           Text("Price: ${widget.product.unitPrice}"),
           Text("Quantity: ${widget.product.quantity}"),
           Text("Total Price: ${widget.product.totalPrice}"),
@@ -38,7 +39,7 @@ class _ProductItemState extends State<ProductItem> {
               TextButton.icon(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return UpdateProductScreen();
+                    return UpdateProductScreen(id: widget.product.id,name: widget.product.productName, code: widget.product.productCode, img: widget.product.productImage, price: widget.product.unitPrice, quantity: widget.product.quantity, totalPrice: widget.product.totalPrice);
                   }),
                   );
                 },
