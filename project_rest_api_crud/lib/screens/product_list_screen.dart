@@ -81,13 +81,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
       for (var item in jsonResponse['data']) {
         Product product = Product(
             id: item['_id'],
-            productName: item['ProductName'],
-            productCode: item['ProductCode'],
-            productImage: item['Img'],
-            unitPrice: item['UnitPrice'],
-            quantity: item['Qty'],
-            totalPrice: item['TotalPrice'],
-            createdAt: item['CreatedDate']);
+            productName: item['ProductName'] ?? '',
+            productCode: item['ProductCode'] ?? '',
+            productImage: item['Img'] ?? '',
+            unitPrice: item['UnitPrice'] ?? '',
+            quantity: item['Qty'] ?? '',
+            totalPrice: item['TotalPrice'] ?? '',
+            createdAt: item['CreatedDate'] ?? '');
         productList.add(product);
       }
     }
