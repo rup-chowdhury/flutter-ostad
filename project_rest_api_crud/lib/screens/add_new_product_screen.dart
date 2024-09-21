@@ -155,7 +155,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                     _onTapAddProductButton();
                   },
                   color: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 140),
+                  padding: EdgeInsets.symmetric(horizontal: 120),
                 )
         ],
       ),
