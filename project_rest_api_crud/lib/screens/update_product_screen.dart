@@ -80,7 +80,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
               SizedBox(
                 height: 48,
               ),
-              CupertinoButton(child: Text("Add"), onPressed: (){
+              CupertinoButton(child: Text("Update"), onPressed: (){
                 _onTapAddProductButton();
               },
               color: Colors.blue,
