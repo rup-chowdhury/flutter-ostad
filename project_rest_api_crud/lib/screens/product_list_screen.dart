@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:project_rest_api_crud/models/product.dart';
 import 'package:project_rest_api_crud/screens/add_new_product_screen.dart';
 import 'package:project_rest_api_crud/widgets/product_item.dart';
 
@@ -11,6 +12,8 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
+  List<Product> productList = [];
+
 
   @override
   void initState() {
