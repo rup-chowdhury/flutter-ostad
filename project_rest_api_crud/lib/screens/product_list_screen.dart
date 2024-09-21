@@ -15,6 +15,7 @@ class ProductListScreen extends StatefulWidget {
 
 class _ProductListScreenState extends State<ProductListScreen> {
   List<Product> productList = [];
+  bool _inProgress = false;
 
   @override
   void initState() {
@@ -36,7 +37,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
         ],
         backgroundColor: Colors.blueGrey[100],
       ),
-      body: ListView.builder(
+      body: _inProgress ? const Center(
+        child: CircularProgressIndicator(),
+      ) : ListView.builder(
           itemCount: productList.length,
           itemBuilder: (context, index) {
             return Padding(
@@ -64,19 +67,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
   }
 
   Future<void> getProductList() async {
-    productList.clear();
-    print("Requesting");
+    _inProgress = true;
+    setState(() {});
 
     //API calling part
 
     Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/ReadProduct");
     Response response = await get(uri); // receiving the response from the API
 
-    print(response);
-    print(response.statusCode);
-    print(response.body);
-
     if (response.statusCode == 200) {
+      productList.clear();
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       for (var item in jsonResponse['data']) {
         Product product = Product(
@@ -91,6 +91,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
         productList.add(product);
       }
     }
+    _inProgress = false;
     setState(() {});
   }
 }
