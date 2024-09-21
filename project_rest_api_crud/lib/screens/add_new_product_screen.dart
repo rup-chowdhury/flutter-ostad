@@ -41,8 +41,8 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
     );
   }
 
-  void _onTapAddProductButton(){
-    if (_formKey.currentState!.validate()){
+  void _onTapAddProductButton() {
+    if (_formKey.currentState!.validate()) {
       addNewProduct();
     }
   }
@@ -60,104 +60,108 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
       "UnitPrice": _unitPriceTEController.text
     };
     Response response = await post(uri,
-        headers:{
-      "Content-Type": "application/json"
-    },
-      body: jsonEncode(requestBody));
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(requestBody));
 
     print(response.statusCode);
     print(response.body);
 
-    if(response.statusCode == 200){
-
-    }
+    if (response.statusCode == 200) {}
     _inProgress = false;
     setState(() {});
   }
 
   Widget _buildNewProductForm() {
     return Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: _productNameTEController,
-                decoration: InputDecoration(
-                    hintText: "Name", labelText: "Product Name"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty){
-                    return "Enter a valid value";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _unitPriceTEController,
-                decoration:
-                    InputDecoration(hintText: "Price", labelText: "Unit Price"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty){
-                    return "Enter a valid value";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _quantityTEController,
-                decoration: InputDecoration(
-                    hintText: "Quantity", labelText: "Quantity"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty){
-                    return "Enter a valid value";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _totalPriceTEController,
-                decoration: InputDecoration(
-                    hintText: "Total Price", labelText: "Total Price"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty){
-                    return "Enter a valid value";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _productImageTEController,
-                decoration: InputDecoration(
-                    hintText: "Image", labelText: "Product Image"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty){
-                    return "Enter a valid value";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _productCodeTEController,
-                decoration: InputDecoration(
-                    hintText: "Code", labelText: "Product Code"),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty){
-                    return "Enter a valid value";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 48,
-              ),
-              CupertinoButton(child: Text("Add Product"), onPressed: (){
-                _onTapAddProductButton();
-              },
-              color: Colors.blue,
-              padding: EdgeInsets.symmetric(horizontal: 140),)
-            ],
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            controller: _productNameTEController,
+            decoration:
+                InputDecoration(hintText: "Name", labelText: "Product Name"),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return "Enter a valid value";
+              }
+              return null;
+            },
           ),
-        );
+          TextFormField(
+            controller: _unitPriceTEController,
+            decoration:
+                InputDecoration(hintText: "Price", labelText: "Unit Price"),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return "Enter a valid value";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            controller: _quantityTEController,
+            decoration:
+                InputDecoration(hintText: "Quantity", labelText: "Quantity"),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return "Enter a valid value";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            controller: _totalPriceTEController,
+            decoration: InputDecoration(
+                hintText: "Total Price", labelText: "Total Price"),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return "Enter a valid value";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            controller: _productImageTEController,
+            decoration:
+                InputDecoration(hintText: "Image", labelText: "Product Image"),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return "Enter a valid value";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            controller: _productCodeTEController,
+            decoration:
+                InputDecoration(hintText: "Code", labelText: "Product Code"),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return "Enter a valid value";
+              }
+              return null;
+            },
+          ),
+          SizedBox(
+            height: 48,
+          ),
+          _inProgress
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : CupertinoButton(
+                  child: Text("Add Product"),
+                  onPressed: () {
+                    _onTapAddProductButton();
+                  },
+                  color: Colors.blue,
+                  padding: EdgeInsets.symmetric(horizontal: 140),
+                )
+        ],
+      ),
+    );
   }
+
   @override
   void dispose() {
     _productNameTEController.dispose();
