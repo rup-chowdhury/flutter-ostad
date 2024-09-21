@@ -11,6 +11,14 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getProductList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +56,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
     Response response = await get(uri);                          // receiving the response from the API
 
 
+    print(response);
+    print(response.statusCode);
+    print(response.body);
   }
 }
 
