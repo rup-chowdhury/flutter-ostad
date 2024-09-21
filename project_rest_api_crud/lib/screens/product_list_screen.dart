@@ -40,14 +40,14 @@ class _ProductListScreenState extends State<ProductListScreen> {
     );
   }
 
-  void getProductList() {
+  Future<void> getProductList() async {
 
     //API calling part
 
     Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/ReadProduct");
-    get(uri);
+    Response response = await get(uri);                          // receiving the response from the API
 
-    
+
   }
 }
 
