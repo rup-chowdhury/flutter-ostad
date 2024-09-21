@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:project_rest_api_crud/models/product.dart';
 import 'package:project_rest_api_crud/screens/update_product_screen.dart';
+import 'package:project_rest_api_crud/screens/add_new_product_screen.dart';
+import 'package:project_rest_api_crud/screens/product_list_screen.dart';
 
-class ProductItem extends StatelessWidget {
+class ProductItem extends StatefulWidget {
   const ProductItem({
     super.key, required this.product,
   });
@@ -11,18 +13,25 @@ class ProductItem extends StatelessWidget {
   final Product product;
 
   @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
+  bool _isDeleted = false;
+
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       tileColor: Colors.white,
-      title: Text(product.productName),
+      title: Text(widget.product.productName),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Product Code: ${product.productCode}"),
-          Text("Price: ${product.unitPrice}"),
-          Text("Quantity: ${product.quantity}"),
-          Text("Total Price: ${product.totalPrice}"),
+          Text("Product Code: ${widget.product.productCode}"),
+          Text("Price: ${widget.product.unitPrice}"),
+          Text("Quantity: ${widget.product.quantity}"),
+          Text("Total Price: ${widget.product.totalPrice}"),
           const Divider(),
           ButtonBar(
             children: [
@@ -38,9 +47,14 @@ class ProductItem extends StatelessWidget {
                 ),),
                 icon: const Icon(Icons.edit, color: Colors.blue,),
               ),
-              TextButton.icon(
+              _isDeleted
+                  ? const Center(
+                child: CircularProgressIndicator(),
+              )
+                  : TextButton.icon(
                 onPressed: () {
-                  deleteData(product.id);
+                  deleteData(widget.product.id);
+                  setState(() {});
                 },
                 label: const Text("Delete", style: TextStyle(
                     color: Colors.red
@@ -53,13 +67,21 @@ class ProductItem extends StatelessWidget {
       ),
     );
   }
+  Future<void> deleteData(String id) async{
+    _isDeleted = true;
+    Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/DeleteProduct/${id}");
+    Response response = await get(uri);
+
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product has been Deleted !")));
+      setState(() {
+      ProductListScreen();
+
+      });
+    }
+
+    _isDeleted = false;
+
+  }
 }
 
-Future<void> deleteData(String id) async{
-
-  Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/DeleteProduct/${id}");
-  Response response = await get(uri);
-
-
-
-}
