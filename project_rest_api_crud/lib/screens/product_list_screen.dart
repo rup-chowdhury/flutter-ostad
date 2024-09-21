@@ -29,6 +29,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         title: const Text("Product List"),
+        actions: [
+          IconButton(onPressed: (){
+            getProductList();
+          }, icon: Icon(Icons.refresh))
+        ],
         backgroundColor: Colors.blueGrey[100],
       ),
       body: ListView.builder(
