@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:project_rest_api_crud/screens/add_new_product_screen.dart';
 import 'package:project_rest_api_crud/widgets/product_item.dart';
 
@@ -37,6 +38,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
       child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void getProductList() {
+
+    //API calling part
+
+    Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/ReadProduct");
+    get(uri);
+
+    
   }
 }
 
