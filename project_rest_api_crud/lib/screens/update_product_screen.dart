@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart';
+import 'package:project_rest_api_crud/models/product.dart';
 
 class UpdateProductScreen extends StatefulWidget {
   const UpdateProductScreen({super.key});
@@ -11,6 +14,7 @@ class UpdateProductScreen extends StatefulWidget {
 }
 
 class _UpdateProductScreenState extends State<UpdateProductScreen> {
+
   final TextEditingController _productNameTEController =
       TextEditingController();
   final TextEditingController _unitPriceTEController = TextEditingController();
@@ -22,6 +26,15 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
       TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  bool _inProgress = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +51,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
     );
   }
 
-  void _onTapAddProductButton(){
+  void _onTapUpdateProductButton(){
 
   }
 
@@ -81,7 +94,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                 height: 48,
               ),
               CupertinoButton(child: Text("Update"), onPressed: (){
-                _onTapAddProductButton();
+                _onTapUpdateProductButton();
               },
               color: Colors.blue,
               padding: EdgeInsets.symmetric(horizontal: 140),)
@@ -89,6 +102,9 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
           ),
         );
   }
+
+
+  
   @override
   void dispose() {
     _productNameTEController.dispose();

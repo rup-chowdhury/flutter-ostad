@@ -63,9 +63,6 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
         headers: {"Content-Type": "application/json"},
         body: jsonEncode(requestBody));
 
-    print(response.statusCode);
-    print(response.body);
-
     if (response.statusCode == 200) {
       _clearTextFields();
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product added Successfully !")));

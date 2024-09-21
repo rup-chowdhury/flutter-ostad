@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:project_rest_api_crud/models/product.dart';
 import 'package:project_rest_api_crud/screens/update_product_screen.dart';
 
@@ -28,7 +29,7 @@ class ProductItem extends StatelessWidget {
               TextButton.icon(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return const UpdateProductScreen();
+                    return UpdateProductScreen();
                   }),
                   );
                 },
@@ -38,7 +39,9 @@ class ProductItem extends StatelessWidget {
                 icon: const Icon(Icons.edit, color: Colors.blue,),
               ),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  deleteData(product.id);
+                },
                 label: const Text("Delete", style: TextStyle(
                     color: Colors.red
                 ),),
@@ -50,4 +53,13 @@ class ProductItem extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> deleteData(String id) async{
+
+  Uri uri = Uri.parse("http://164.68.107.70:6060/api/v1/DeleteProduct/${id}");
+  Response response = await get(uri);
+
+
+
 }
