@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return _buildWaterTrackListTile(index);
       },
       separatorBuilder: (context, index) {
-        return Divider(
+        return const Divider(
           height: 2,
           thickness: 2,
         );
