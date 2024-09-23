@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Text(
           getTotalGlassCount().toString(),
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
         ),
         const Text("Glass/s"),
         const SizedBox(
