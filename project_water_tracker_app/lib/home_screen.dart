@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               _onTapDeleteWaterTrack(index);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.delete_forever_rounded,
               color: Colors.red,
             )),
