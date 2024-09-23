@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2)),
                     border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 5),
+                        borderSide: const BorderSide(color: Colors.blue, width: 5),
                         borderRadius: BorderRadius.circular(10))),
               ),
             ),
