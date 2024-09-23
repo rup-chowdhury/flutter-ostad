@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2)),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2)),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 5),
