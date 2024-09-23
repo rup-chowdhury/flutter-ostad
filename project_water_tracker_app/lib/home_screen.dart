@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2)),
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2)),
