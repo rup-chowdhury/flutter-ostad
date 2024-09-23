@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _buildWaterTrackCounter(),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           Expanded(child: _buildWaterTrackListView())
