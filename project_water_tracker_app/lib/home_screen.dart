@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   _onTapAddWaterTrack();
                 },
-                child: Text("Add")),
+                child: const Text("Add")),
           ],
         ),
       ],
