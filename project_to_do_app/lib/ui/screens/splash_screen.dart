@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:project_to_do_app/ui/utils/assets_path.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,11 +15,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          SvgPicture.asset("assets/images/background.svg",
+          SvgPicture.asset(AssetsPath.backgroundSvg,
             height: MediaQuery.sizeOf(context).height,
             width: MediaQuery.sizeOf(context).width,
             fit: BoxFit.cover,),
-          Center(child: SvgPicture.asset("assets/images/logo.svg", width: 120,)),
+          Center(child: SvgPicture.asset(AssetsPath.logoSvg, width: 120,)),
         ],
 
       ),
