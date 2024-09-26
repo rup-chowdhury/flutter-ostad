@@ -12,14 +12,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset("assets/images/logo.svg", width: 120,),
-          ],
+      body: Stack(
+        children: [
+          SvgPicture.asset("assets/images/background.svg",),
+          Center(child: SvgPicture.asset("assets/images/logo.svg", width: 120,)),
+        ],
 
-        ),
       ),
     );
   }
