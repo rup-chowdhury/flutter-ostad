@@ -13,26 +13,30 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          SvgPicture.asset(AssetsPath.backgroundSvg,
-            height: MediaQuery.sizeOf(context).height,
-            width: MediaQuery.sizeOf(context).width,
-            fit: BoxFit.cover,),
-          Center(child: SvgPicture.asset(AssetsPath.logoSvg, width: 120,)),
-        ],
-
+      body: ScreenBackground(
+        child: Center(child: SvgPicture.asset(AssetsPath.logoSvg, width: 120,)),
       ),
     );
   }
 }
 
 class ScreenBackground extends StatelessWidget {
-  const ScreenBackground({super.key});
+  const ScreenBackground({super.key, required this.child});
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Stack(
+      children: [
+        SvgPicture.asset(AssetsPath.backgroundSvg,
+          height: MediaQuery.sizeOf(context).height,
+          width: MediaQuery.sizeOf(context).width,
+          fit: BoxFit.cover,),
+        child,
+      ],
+
+    );
   }
 }
 
