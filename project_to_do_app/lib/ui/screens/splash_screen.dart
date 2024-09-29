@@ -27,8 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-class  extends StatelessWidget {
-  const ({super.key});
+class ScreenBackground extends StatelessWidget {
+  const ScreenBackground({super.key});
 
   @override
   Widget build(BuildContext context) {
