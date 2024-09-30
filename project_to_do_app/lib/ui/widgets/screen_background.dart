@@ -17,7 +17,7 @@ class ScreenBackground extends StatelessWidget {
           height: screenSize.height,
           width: screenSize.width,
           fit: BoxFit.cover,),
-        child,
+        SafeArea(child: child),
       ],
 
     );
