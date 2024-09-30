@@ -11,6 +11,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Future<void> _moveToNextScreen() async {
+    await Future.delayed(Duration(seconds: 2));
+    
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
