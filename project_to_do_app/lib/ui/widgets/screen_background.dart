@@ -14,8 +14,8 @@ class ScreenBackground extends StatelessWidget {
     return Stack(
       children: [
         SvgPicture.asset(AssetsPath.backgroundSvg,
-          height: MediaQuery.sizeOf(context).height,
-          width: MediaQuery.sizeOf(context).width,
+          height: screenSize.height,
+          width: screenSize.width,
           fit: BoxFit.cover,),
         child,
       ],
