@@ -7,6 +7,11 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+
+        )
+      ),
       home: SplashScreen(),
     );
   }
