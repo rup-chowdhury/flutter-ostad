@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -10,6 +11,13 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    TextTheme textTheme = Theme.of(context).textTheme;
+    return Scaffold(
+      body: ScreenBackground(child: Column(
+        children: [
+          Text("Get Started With", style: textTheme.titleLarge,)
+        ],
+      ),),
+    );
   }
 }
