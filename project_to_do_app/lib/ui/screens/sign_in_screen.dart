@@ -13,11 +13,21 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: ScreenBackground(child: Column(
-        children: [
-          Text("Get Started With", style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),)
-        ],
-      ),),
+      body: ScreenBackground(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 82,),
+              Text(
+                "Get Started With",
+                style:
+                    textTheme.displaySmall?.copyWith(fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
