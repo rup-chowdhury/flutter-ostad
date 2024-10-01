@@ -29,9 +29,11 @@ class _SignInScreenState extends State<SignInScreen> {
               TextFormField(decoration: InputDecoration(
                 hintText: "Email"
               ),),
+              SizedBox(height: 8,),
               TextFormField(decoration: InputDecoration(
                 hintText: "Password"
-              ),)
+              ),),
+              SizedBox(height: 24,)
             ],
           ),
         ),
