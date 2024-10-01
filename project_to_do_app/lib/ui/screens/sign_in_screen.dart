@@ -26,7 +26,15 @@ class _SignInScreenState extends State<SignInScreen> {
                     textTheme.displaySmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 24,),
-              TextFormField(),
+              TextFormField(decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(8)
+                )
+
+              ),),
               TextFormField()
             ],
           ),
