@@ -15,7 +15,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       body: ScreenBackground(child: Column(
         children: [
-          Text("Get Started With", style: textTheme.titleLarge,)
+          Text("Get Started With", style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),)
         ],
       ),),
     );
