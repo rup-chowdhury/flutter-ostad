@@ -23,7 +23,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 "Get Started With",
                 style:
                     textTheme.displaySmall?.copyWith(fontWeight: FontWeight.w600),
-              )
+              ),
+              const SizedBox(height: 24,),
+              TextFormField(),
+              TextFormField()
             ],
           ),
         ),
