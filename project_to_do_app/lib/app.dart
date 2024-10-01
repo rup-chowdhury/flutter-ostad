@@ -20,6 +20,9 @@ class TaskManagerApp extends StatelessWidget {
       fillColor: Colors.white,
       filled: true,
       border: _inputBorder(),
+      enabledBorder: _inputBorder(),
+      errorBorder: _inputBorder(),
+      focusedBorder: _inputBorder()
     );
   }
 
