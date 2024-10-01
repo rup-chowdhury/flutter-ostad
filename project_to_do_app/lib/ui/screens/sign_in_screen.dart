@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -35,7 +36,13 @@ class _SignInScreenState extends State<SignInScreen> {
               ),),
               SizedBox(height: 24,),
               ElevatedButton(onPressed: (){
-              }, child: Icon(Icons.arrow_forward_ios))
+              }, child: Icon(Icons.arrow_forward_ios),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.themeColor,
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                fixedSize: Size.fromWidth(double.maxFinite) 
+              ),)
             ],
           ),
         ),
