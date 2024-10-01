@@ -9,17 +9,22 @@ class TaskManagerApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: TextTheme(),
-        inputDecorationTheme: InputDecorationTheme(
-            fillColor: Colors.white,
-            filled: true,
-            border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(8)
-            )
-        )
-      ),
+          textTheme: TextTheme(),
+          inputDecorationTheme: _inputDecorationTheme()),
       home: SplashScreen(),
     );
+  }
+
+  InputDecorationTheme _inputDecorationTheme() {
+    return InputDecorationTheme(
+      fillColor: Colors.white,
+      filled: true,
+      border: _inputBorder(),
+    );
+  }
+
+  OutlineInputBorder _inputBorder() {
+    return OutlineInputBorder(
+        borderSide: BorderSide.none, borderRadius: BorderRadius.circular(8));
   }
 }
