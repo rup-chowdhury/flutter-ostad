@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/ui/screens/splash_screen.dart';
+import 'package:project_to_do_app/ui/utils/app_colors.dart';
 
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});
@@ -10,8 +11,24 @@ class TaskManagerApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textTheme: TextTheme(),
-          inputDecorationTheme: _inputDecorationTheme()),
+          inputDecorationTheme: _inputDecorationTheme(),
+          elevatedButtonTheme: _elevatedButtonThemeData()
+      ),
       home: SplashScreen(),
+    );
+  }
+
+  ElevatedButtonThemeData _elevatedButtonThemeData(){
+    return ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColor.themeColor,
+        foregroundColor: Colors.white,
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        fixedSize: Size.fromWidth(double.maxFinite),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8)
+        ),
+      ),
     );
   }
 
