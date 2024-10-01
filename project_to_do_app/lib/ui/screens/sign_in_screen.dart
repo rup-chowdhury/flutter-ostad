@@ -41,7 +41,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 backgroundColor: AppColor.themeColor,
                 foregroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                fixedSize: Size.fromWidth(double.maxFinite) 
+                fixedSize: Size.fromWidth(double.maxFinite),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)
+                )
               ),)
             ],
           ),
