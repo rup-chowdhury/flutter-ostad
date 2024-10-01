@@ -25,6 +25,8 @@ class TaskManagerApp extends StatelessWidget {
 
   OutlineInputBorder _inputBorder() {
     return OutlineInputBorder(
-        borderSide: BorderSide.none, borderRadius: BorderRadius.circular(8));
+      borderSide: BorderSide.none,
+      borderRadius: BorderRadius.circular(8),
+    );
   }
 }
