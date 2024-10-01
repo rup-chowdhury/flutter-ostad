@@ -27,12 +27,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               const SizedBox(height: 24,),
               TextFormField(decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(8)
-                )
+
 
               ),),
               TextFormField()
