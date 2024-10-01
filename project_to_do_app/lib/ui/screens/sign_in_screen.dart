@@ -33,7 +33,9 @@ class _SignInScreenState extends State<SignInScreen> {
               TextFormField(decoration: InputDecoration(
                 hintText: "Password"
               ),),
-              SizedBox(height: 24,)
+              SizedBox(height: 24,),
+              ElevatedButton(onPressed: (){
+              }, child: Icon(Icons.arrow_forward_ios))
             ],
           ),
         ),
