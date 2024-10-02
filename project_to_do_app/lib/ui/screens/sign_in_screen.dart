@@ -22,43 +22,59 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 82,),
+                const SizedBox(
+                  height: 82,
+                ),
                 Text(
                   "Get Started With",
-                  style:
-                      textTheme.displaySmall?.copyWith(fontWeight: FontWeight.w600),
+                  style: textTheme.displaySmall
+                      ?.copyWith(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: 24,),
-                TextFormField(decoration: InputDecoration(
-                  hintText: "Email"
-                ),),
-                SizedBox(height: 8,),
-                TextFormField(decoration: InputDecoration(
-                  hintText: "Password"
-                ),),
+                const SizedBox(
+                  height: 24,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(hintText: "Email"),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(hintText: "Password"),
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Icons.arrow_circle_right_outlined),
+                ),
                 SizedBox(height: 24,),
-                ElevatedButton(onPressed: (){
-                }, child: Icon(Icons.arrow_circle_right_outlined),
-                ),
                 Center(
                   child: Column(
                     children: [
-                      TextButton(onPressed: (){
-                      }, child: Text("Forgot Password ?"),),
-                      RichText(text: TextSpan(
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          letterSpacing: 0.5
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Forgot Password ?",
+                          style: TextStyle(color: Colors.grey),
                         ),
-                        text: "Don't have an account? ",
-                        children: [
-                          TextSpan(text: "Sign Up", style: TextStyle(
-                            color: AppColor.themeColor,
-                          )),
-                        ]
                       ),
+                      RichText(
+                        text: TextSpan(
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                                letterSpacing: 0.5),
+                            text: "Don't have an account? ",
+                            children: [
+                              TextSpan(
+                                  text: "Sign Up",
+                                  style: TextStyle(
+                                    color: AppColor.themeColor,
+                                  )),
+                            ]),
                       ),
                     ],
                   ),
