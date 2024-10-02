@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
@@ -34,7 +36,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 24,
                 ),
                 _buildSignInForm(),
-                const SizedBox(height: 24,),
+                const SizedBox(
+                  height: 24,
+                ),
                 _buildSignUpSection(),
               ],
             ),
@@ -50,60 +54,71 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget _buildSignUpSection() {
     return Center(
-                child: Column(
-                  children: [
-                    TextButton(
-                      onPressed: _onTapForgotPassword,
-                      child: const Text(
-                        "Forgot Password ?",
-                        style: TextStyle(color: Colors.grey),
+      child: Column(
+        children: [
+          TextButton(
+            onPressed: _onTapForgotPassword,
+            child: const Text(
+              "Forgot Password ?",
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+          RichText(
+            text: TextSpan(
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    letterSpacing: 0.5),
+                text: "Don't have an account? ",
+                children: [
+                  TextSpan(
+                      text: "Sign Up",
+                      style: TextStyle(
+                        color: AppColor.themeColor,
                       ),
-                    ),
-                    RichText(
-                      text: const TextSpan(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              letterSpacing: 0.5),
-                          text: "Don't have an account? ",
-                          children: [
-                            TextSpan(
-                                text: "Sign Up",
-                                style: TextStyle(
-                                  color: AppColor.themeColor,
-                                )),
-                          ]),
-                    ),
-                  ],
-                ),
-              );
+                      recognizer: TapGestureRecognizer()..onTap = _onTapSignUp),
+                ]),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildSignInForm() {
     return Column(
-                children: [
-                  TextFormField(
-                    decoration: const InputDecoration(hintText: "Email"),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(hintText: "Password"),
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.arrow_circle_right_outlined),
-                  ),
-                ],
-              );
+      children: [
+        TextFormField(
+          decoration: const InputDecoration(hintText: "Email"),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(hintText: "Password"),
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        ElevatedButton(
+          onPressed: _onTapNextButton,
+          child: const Icon(Icons.arrow_circle_right_outlined),
+        ),
+      ],
+    );
   }
 
-  void _onTapNextButton(){
+  void _onTapNextButton() {
     //TODO: implement action for Next Button
+  }
+
+  void _onTapSignUp() {
+    //TODO: action for pressing Sign up button
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignUpScreen(),
+      ),
+    );
   }
 }
