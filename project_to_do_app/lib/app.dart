@@ -10,7 +10,8 @@ class TaskManagerApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          textTheme: TextTheme(),
+        colorSchemeSeed: AppColor.themeColor,
+          textTheme: const TextTheme(),
           inputDecorationTheme: _inputDecorationTheme(),
           elevatedButtonTheme: _elevatedButtonThemeData()
       ),
