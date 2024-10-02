@@ -48,8 +48,28 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
+  Widget _buildSignInForm() {
+    return Column(
+      children: [
+        TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration(hintText: "Email"),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(hintText: "Password"),
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        ElevatedButton(
+          onPressed: _onTapNextButton,
+          child: const Icon(Icons.arrow_circle_right_outlined),
+        ),
+      ],
+    );
   }
 
   Widget _buildSignUpSection() {
@@ -85,31 +105,12 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget _buildSignInForm() {
-    return Column(
-      children: [
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Email"),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Password"),
-        ),
-        const SizedBox(
-          height: 24,
-        ),
-        ElevatedButton(
-          onPressed: _onTapNextButton,
-          child: const Icon(Icons.arrow_circle_right_outlined),
-        ),
-      ],
-    );
-  }
-
   void _onTapNextButton() {
     //TODO: implement action for Next Button
+  }
+
+  void _onTapForgotPassword() {
+    //TODO: implement forgot password button action
   }
 
   void _onTapSignUp() {
