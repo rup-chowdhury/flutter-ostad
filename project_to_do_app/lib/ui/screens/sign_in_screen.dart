@@ -35,41 +35,45 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 _buildSignInForm(),
                 SizedBox(height: 24,),
-                Center(
-                  child: Column(
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Forgot Password ?",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                                letterSpacing: 0.5),
-                            text: "Don't have an account? ",
-                            children: [
-                              TextSpan(
-                                  text: "Sign Up",
-                                  style: TextStyle(
-                                    color: AppColor.themeColor,
-                                  )),
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
+                _buildSignUpSection(),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildSignUpSection() {
+    return Center(
+                child: Column(
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Forgot Password ?",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    RichText(
+                      text: TextSpan(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              letterSpacing: 0.5),
+                          text: "Don't have an account? ",
+                          children: [
+                            TextSpan(
+                                text: "Sign Up",
+                                style: TextStyle(
+                                  color: AppColor.themeColor,
+                                )),
+                          ]),
+                    ),
+                  ],
+                ),
+              );
   }
 
   Widget _buildSignInForm() {
