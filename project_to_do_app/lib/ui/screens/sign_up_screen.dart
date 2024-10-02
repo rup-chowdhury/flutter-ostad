@@ -48,36 +48,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
-  }
-
-  Widget _buildHaveAccountSection() {
-    return Center(
-      child: Column(
-        children: [
-          RichText(
-            text: TextSpan(
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                    letterSpacing: 0.5),
-                text: "Have account? ",
-                children: [
-                  TextSpan(
-                      text: "Sign In",
-                      style: TextStyle(
-                        color: AppColor.themeColor,
-                      ),
-                      recognizer: TapGestureRecognizer()..onTap = _onTapSignIn),
-                ]),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildSignUpForm() {
     return Column(
       children: [
@@ -119,8 +89,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+  Widget _buildHaveAccountSection() {
+    return Center(
+      child: Column(
+        children: [
+          RichText(
+            text: TextSpan(
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    letterSpacing: 0.5),
+                text: "Have account? ",
+                children: [
+                  TextSpan(
+                      text: "Sign In",
+                      style: TextStyle(
+                        color: AppColor.themeColor,
+                      ),
+                      recognizer: TapGestureRecognizer()..onTap = _onTapSignIn),
+                ]),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _onTapNextButton() {
     //TODO: implement action for Next Button
+  }
+
+  void _onTapForgotPassword() {
+    //TODO: implement forgot password button action
   }
 
   void _onTapSignIn() {
