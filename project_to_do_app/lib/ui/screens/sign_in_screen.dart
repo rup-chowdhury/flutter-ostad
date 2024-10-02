@@ -33,22 +33,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(hintText: "Email"),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(hintText: "Password"),
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Icon(Icons.arrow_circle_right_outlined),
-                ),
+                _buildSignInForm(),
                 SizedBox(height: 24,),
                 Center(
                   child: Column(
@@ -85,5 +70,28 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  Widget _buildSignInForm() {
+    return Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(hintText: "Email"),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(hintText: "Password"),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Icon(Icons.arrow_circle_right_outlined),
+                  ),
+                ],
+              );
   }
 }
