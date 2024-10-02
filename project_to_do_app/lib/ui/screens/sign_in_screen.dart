@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 24,
                 ),
                 _buildSignInForm(),
-                SizedBox(height: 24,),
+                const SizedBox(height: 24,),
                 _buildSignUpSection(),
               ],
             ),
@@ -44,19 +44,23 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
+  void _onTapForgotPassword() {
+    //TODO: implement forgot password button action
+  }
+
   Widget _buildSignUpSection() {
     return Center(
                 child: Column(
                   children: [
                     TextButton(
-                      onPressed: () {},
-                      child: Text(
+                      onPressed: _onTapForgotPassword,
+                      child: const Text(
                         "Forgot Password ?",
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
                     RichText(
-                      text: TextSpan(
+                      text: const TextSpan(
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
@@ -80,22 +84,26 @@ class _SignInScreenState extends State<SignInScreen> {
     return Column(
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(hintText: "Email"),
+                    decoration: const InputDecoration(hintText: "Email"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   TextFormField(
-                    decoration: InputDecoration(hintText: "Password"),
+                    decoration: const InputDecoration(hintText: "Password"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Icon(Icons.arrow_circle_right_outlined),
+                    child: const Icon(Icons.arrow_circle_right_outlined),
                   ),
                 ],
               );
+  }
+
+  void _onTapNextButton(){
+    //TODO: implement action for Next Button
   }
 }
