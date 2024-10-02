@@ -40,6 +40,29 @@ class _SignInScreenState extends State<SignInScreen> {
                 ElevatedButton(onPressed: (){
                 }, child: Icon(Icons.arrow_circle_right_outlined),
                 ),
+                Center(
+                  child: Column(
+                    children: [
+                      TextButton(onPressed: (){
+                      }, child: Text("Forgot Password ?"),),
+                      RichText(text: TextSpan(
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          letterSpacing: 0.5
+                        ),
+                        text: "Don't have an account? ",
+                        children: [
+                          TextSpan(text: "Sign Up", style: TextStyle(
+                            color: AppColor.themeColor,
+                          )),
+                        ]
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
