@@ -70,6 +70,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: 8,
         ),
         TextFormField(
+          keyboardType: TextInputType.number,
           decoration: const InputDecoration(hintText: "Mobile"),
         ),
         const SizedBox(
