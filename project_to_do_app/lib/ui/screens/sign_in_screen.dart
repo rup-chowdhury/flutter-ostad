@@ -59,6 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
           height: 8,
         ),
         TextFormField(
+          obscureText: true,
           decoration: const InputDecoration(hintText: "Password"),
         ),
         const SizedBox(
