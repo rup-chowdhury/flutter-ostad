@@ -39,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                _buildSignUpSection(),
+                _buildHaveAccountSection(),
               ],
             ),
           ),
@@ -52,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     //TODO: implement forgot password button action
   }
 
-  Widget _buildSignUpSection() {
+  Widget _buildHaveAccountSection() {
     return Center(
       child: Column(
         children: [
@@ -63,14 +63,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                     letterSpacing: 0.5),
-                text: "Don't have an account? ",
+                text: "Have account? ",
                 children: [
                   TextSpan(
-                      text: "Sign Up",
+                      text: "Sign In",
                       style: TextStyle(
                         color: AppColor.themeColor,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = _onTapSignUp),
+                      recognizer: TapGestureRecognizer()..onTap = _onTapSignIn),
                 ]),
           ),
         ],
@@ -83,6 +83,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
       children: [
         TextFormField(
           decoration: const InputDecoration(hintText: "Email"),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(hintText: "First Name"),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(hintText: "Last Name"),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(hintText: "Mobile"),
         ),
         const SizedBox(
           height: 8,
@@ -105,13 +123,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     //TODO: implement action for Next Button
   }
 
-  void _onTapSignUp() {
+  void _onTapSignIn() {
     //TODO: action for pressing Sign up button
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SignUpScreen(),
-      ),
-    );
+    Navigator.pop(context);
   }
 }
