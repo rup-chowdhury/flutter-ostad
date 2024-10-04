@@ -8,10 +8,19 @@ class MainBottomNavBarScreen extends StatefulWidget {
 }
 
 class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
+
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(destinations: const [
+      bottomNavigationBar: NavigationBar(
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: (int index) {
+            _selectedIndex = index;
+            setState(() {});
+          },
+          destinations: const [
         NavigationDestination(
           icon: Icon(Icons.new_label),
           label: "New",
