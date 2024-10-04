@@ -35,7 +35,7 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
               backgroundColor: Colors.white,
             ),
             SizedBox(
-              width: 8,
+              width: 16,
             ),
             Expanded(
               child: Column(
