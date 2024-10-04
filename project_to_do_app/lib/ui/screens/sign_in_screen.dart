@@ -112,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapForgotPassword() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordEmailScreen()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordEmailScreen()));
   }
 
   void _onTapSignUp() {
