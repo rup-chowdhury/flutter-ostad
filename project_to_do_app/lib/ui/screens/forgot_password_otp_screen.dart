@@ -1,16 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
-class ForgotPasswordEmailScreen extends StatefulWidget {
-  const ForgotPasswordEmailScreen({super.key});
+class ForgotPasswordOTPScreen extends StatefulWidget {
+  const ForgotPasswordOTPScreen({super.key});
 
   @override
-  State<ForgotPasswordEmailScreen> createState() => _ForgotPasswordEmailScreenState();
+  State<ForgotPasswordOTPScreen> createState() => _ForgotPasswordOTPScreenState();
 }
 
-class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
+class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -27,7 +28,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
                   height: 82,
                 ),
                 Text(
-                  "Your Email Address",
+                  "PIN Verification",
                   style: textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w600),
                 ),
@@ -35,7 +36,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
                   height: 8,
                 ),
                 Text(
-                  "A 6 digits verification OTP will be sent to your email address",
+                  "A 6 digits verification OTP has been sent to your email address",
                   style: textTheme.titleSmall
                       ?.copyWith(color: Colors.grey),
                 ),
@@ -58,8 +59,29 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   Widget _buildVerifyEmailForm() {
     return Column(
       children: [
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Email"),
+        PinCodeTextField(
+          length: 6,
+          obscureText: false,
+          animationType: AnimationType.fade,
+          keyboardType: TextInputType.number,
+          pinTheme: PinTheme(
+            shape: PinCodeFieldShape.box,
+            borderRadius: BorderRadius.circular(5),
+            fieldHeight: 50,
+            fieldWidth: 40,
+            activeFillColor: Colors.white,
+            inactiveFillColor: Colors.white,
+            selectedFillColor: Colors.white,
+          ),
+          animationDuration: Duration(milliseconds: 300),
+          backgroundColor: Colors.transparent,
+          enableActiveFill: true,
+          beforeTextPaste: (text) {
+            print("Allowing to paste $text");
+            //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+            //but you can show anything you want here, like your pop up saying wrong paste format or etc
+            return true;
+          }, appContext: context,
         ),
         const SizedBox(
           height: 24,
