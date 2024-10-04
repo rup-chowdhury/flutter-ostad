@@ -4,14 +4,14 @@ import 'package:project_to_do_app/ui/screens/forgot_password_otp_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
-class ForgotPasswordEmailScreen extends StatefulWidget {
-  const ForgotPasswordEmailScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
-  State<ForgotPasswordEmailScreen> createState() => _ForgotPasswordEmailScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
