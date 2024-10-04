@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/screens/forgot_password_email_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
@@ -111,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordEmailScreen()));
   }
 
   void _onTapSignUp() {
