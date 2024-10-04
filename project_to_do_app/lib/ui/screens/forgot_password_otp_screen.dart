@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:project_to_do_app/ui/screens/reset_password_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
@@ -44,7 +45,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                _buildVerifyEmailForm(),
+                _buildResetPasswordForm(),
                 const SizedBox(
                   height: 40,
                 ),
@@ -57,7 +58,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
     );
   }
 
-  Widget _buildVerifyEmailForm() {
+  Widget _buildResetPasswordForm() {
     return Column(
       children: [
         PinCodeTextField(
@@ -123,7 +124,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   }
 
   void _onTapNextButton() {
-    //TODO: implement action for Next Button
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen(),),);
   }
 
   void _onTapForgotPassword() {
