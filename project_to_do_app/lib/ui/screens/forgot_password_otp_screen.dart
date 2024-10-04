@@ -34,7 +34,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
                   style: textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Text(
@@ -74,7 +74,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
             inactiveFillColor: Colors.white,
             selectedFillColor: Colors.white,
           ),
-          animationDuration: Duration(milliseconds: 300),
+          animationDuration: const Duration(milliseconds: 300),
           backgroundColor: Colors.transparent,
           enableActiveFill: true,
           beforeTextPaste: (text) {
@@ -102,7 +102,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
         children: [
           RichText(
             text: TextSpan(
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
@@ -111,7 +111,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
                 children: [
                   TextSpan(
                       text: "Sign In",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColor.themeColor,
                       ),
                       recognizer: TapGestureRecognizer()..onTap = _onTapSignIn),
@@ -133,7 +133,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   void _onTapSignIn() {
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => SignInScreen()),
+      MaterialPageRoute(builder: (context) => const SignInScreen()),
       (_) => false,
     );
   }
