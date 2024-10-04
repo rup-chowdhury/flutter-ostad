@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/screens/forgot_password_otp_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
@@ -99,7 +100,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   }
 
   void _onTapNextButton() {
-    //TODO: implement action for Next Button
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordOTPScreen(),),);
   }
 
   void _onTapForgotPassword() {
