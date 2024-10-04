@@ -31,12 +31,20 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
                   style: textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w600),
                 ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  "A 6 digits verification OTP will be sent to your email address",
+                  style: textTheme.titleSmall
+                      ?.copyWith(color: Colors.grey),
+                ),
                 const SizedBox(
                   height: 24,
                 ),
-                _buildSignUpForm(),
+                _buildVerifyEmailForm(),
                 const SizedBox(
-                  height: 24,
+                  height: 40,
                 ),
                 _buildHaveAccountSection(),
               ],
@@ -47,36 +55,11 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
     );
   }
 
-  Widget _buildSignUpForm() {
+  Widget _buildVerifyEmailForm() {
     return Column(
       children: [
         TextFormField(
           decoration: const InputDecoration(hintText: "Email"),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(hintText: "First Name"),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Last Name"),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        TextFormField(
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(hintText: "Mobile"),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(hintText: "Password"),
         ),
         const SizedBox(
           height: 24,
