@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/ui/screens/forgot_password_otp_screen.dart';
+import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
@@ -28,7 +29,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   height: 82,
                 ),
                 Text(
-                  "Your Email Address",
+                  "Set Password",
                   style: textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w600),
                 ),
@@ -36,7 +37,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   height: 8,
                 ),
                 Text(
-                  "A 6 digits verification OTP will be sent to your email address",
+                  "Minimum length of password should be 8 letters",
                   style: textTheme.titleSmall
                       ?.copyWith(color: Colors.grey),
                 ),
@@ -60,7 +61,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     return Column(
       children: [
         TextFormField(
-          decoration: const InputDecoration(hintText: "Email"),
+          decoration: const InputDecoration(hintText: "Password"),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(hintText: "Confirm Password"),
         ),
         const SizedBox(
           height: 24,
@@ -100,7 +107,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   }
 
   void _onTapNextButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordOTPScreen(),),);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const SignInScreen()),
+          (_) => false,
+    );
   }
 
   void _onTapForgotPassword() {
@@ -108,7 +119,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   }
 
   void _onTapSignIn() {
-    //TODO: action for pressing Sign up button
-    Navigator.pop(context);
+
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const SignInScreen()),
+          (_) => false,
+    );
   }
 }
