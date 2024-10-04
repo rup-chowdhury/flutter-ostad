@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
@@ -8,7 +9,8 @@ class ForgotPasswordOTPScreen extends StatefulWidget {
   const ForgotPasswordOTPScreen({super.key});
 
   @override
-  State<ForgotPasswordOTPScreen> createState() => _ForgotPasswordOTPScreenState();
+  State<ForgotPasswordOTPScreen> createState() =>
+      _ForgotPasswordOTPScreenState();
 }
 
 class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
@@ -37,8 +39,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
                 ),
                 Text(
                   "A 6 digits verification OTP has been sent to your email address",
-                  style: textTheme.titleSmall
-                      ?.copyWith(color: Colors.grey),
+                  style: textTheme.titleSmall?.copyWith(color: Colors.grey),
                 ),
                 const SizedBox(
                   height: 24,
@@ -81,7 +82,8 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
             //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
             //but you can show anything you want here, like your pop up saying wrong paste format or etc
             return true;
-          }, appContext: context,
+          },
+          appContext: context,
         ),
         const SizedBox(
           height: 24,
@@ -129,7 +131,10 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   }
 
   void _onTapSignIn() {
-    //TODO: action for pressing Sign up button
-    Navigator.pop(context);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => SignInScreen()),
+      (_) => false,
+    );
   }
 }
