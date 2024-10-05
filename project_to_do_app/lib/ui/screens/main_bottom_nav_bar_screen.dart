@@ -26,42 +26,7 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.themeColor,
-        title: Row(
-          children: [
-            CircleAvatar(
-              radius: 16,
-              backgroundColor: Colors.white,
-            ),
-            SizedBox(
-              width: 16,
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Rup Chowdhury",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
-                  ),
-                  Text(
-                    "rupbd1@gmail.com",
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.logout),
-            ),
-          ],
-        ),
-      ),
+      appBar: TMAppBar(),
       body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
           selectedIndex: _selectedIndex,
@@ -89,4 +54,54 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
           ]),
     );
   }
+}
+
+class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const TMAppBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: AppColor.themeColor,
+      title: Row(
+        children: [
+          CircleAvatar(
+            radius: 16,
+            backgroundColor: Colors.white,
+          ),
+          SizedBox(
+            width: 16,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Rup Chowdhury",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
+                ),
+                Text(
+                  "rupbd1@gmail.com",
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
