@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 
 class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -38,7 +39,9 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SignInScreen()), (_) => false);
+            },
             icon: const Icon(Icons.logout),
           ),
         ],
