@@ -5,6 +5,7 @@ import 'package:project_to_do_app/ui/screens/new_task_screen.dart';
 import 'package:project_to_do_app/ui/screens/progress_task_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/utils/assets_path.dart';
+import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {
   const MainBottomNavBarScreen({super.key});
@@ -56,52 +57,4 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   }
 }
 
-class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const TMAppBar({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColor.themeColor,
-      title: Row(
-        children: [
-          CircleAvatar(
-            radius: 16,
-            backgroundColor: Colors.white,
-          ),
-          SizedBox(
-            width: 16,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Rup Chowdhury",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
-                ),
-                Text(
-                  "rupbd1@gmail.com",
-                  style: TextStyle(fontSize: 14, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.logout),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}
