@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
 
-class NewTaskScreen extends StatelessWidget {
+class NewTaskScreen extends StatefulWidget {
   const NewTaskScreen({super.key});
 
+  @override
+  State<NewTaskScreen> createState() => _NewTaskScreenState();
+}
+
+class _NewTaskScreenState extends State<NewTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,11 +16,13 @@ class NewTaskScreen extends StatelessWidget {
         child: Text("New"),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
-        },
+        onPressed: _onTapAddFAB,
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void _onTapAddFAB(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
   }
 }
