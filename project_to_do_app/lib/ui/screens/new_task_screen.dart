@@ -16,7 +16,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
       body: Column(
         children: [
           _buildSummarySection(),
-          Expanded(child: ListView.builder(
+          Expanded(child: ListView.separated(
               itemCount: 10,
               itemBuilder: (context, index) {
             return Card(
@@ -28,7 +28,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                 ],
               ),
             );
-          }))
+          },
+          separatorBuilder: (context, index) {
+                return SizedBox(height: 8,);
+          },))
         ],
       ),
       floatingActionButton: FloatingActionButton(
