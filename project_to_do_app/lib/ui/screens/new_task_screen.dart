@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
 
 class NewTaskScreen extends StatelessWidget {
   const NewTaskScreen({super.key});
@@ -10,7 +11,9 @@ class NewTaskScreen extends StatelessWidget {
         child: Text("New"),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
+        },
         child: const Icon(Icons.add),
       ),
     );
