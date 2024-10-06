@@ -15,30 +15,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  TaskSummaryCard(
-                    count: 9,
-                    title: "New",
-                  ),
-                  TaskSummaryCard(
-                    count: 9,
-                    title: "Completed",
-                  ),TaskSummaryCard(
-                    count: 9,
-                    title: "Cancelled",
-                  ),TaskSummaryCard(
-                    count: 9,
-                    title: "Progress",
-                  ),
-                ],
-              ),
-            ),
-          )
+          _buildSummarySection()
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -46,6 +23,33 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  Padding _buildSummarySection() {
+    return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                TaskSummaryCard(
+                  count: 9,
+                  title: "New",
+                ),
+                TaskSummaryCard(
+                  count: 9,
+                  title: "Completed",
+                ),TaskSummaryCard(
+                  count: 9,
+                  title: "Cancelled",
+                ),TaskSummaryCard(
+                  count: 9,
+                  title: "Progress",
+                ),
+              ],
+            ),
+          ),
+        );
   }
 
   void _onTapAddFAB(){
