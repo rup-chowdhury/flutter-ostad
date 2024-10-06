@@ -12,8 +12,17 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text("New"),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                TaskSummaryCard()
+              ],
+            ),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _onTapAddFAB,
@@ -24,5 +33,31 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   void _onTapAddFAB(){
     Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
+  }
+}
+
+class TaskSummaryCard extends StatelessWidget {
+  const TaskSummaryCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      elevation: 0,
+      child: SizedBox(
+        width: 100,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Text("09", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),),
+              Text("New", style: TextStyle(color: Colors.grey),)
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
