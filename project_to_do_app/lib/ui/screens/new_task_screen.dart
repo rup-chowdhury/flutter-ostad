@@ -15,7 +15,20 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return Scaffold(
       body: Column(
         children: [
-          _buildSummarySection()
+          _buildSummarySection(),
+          Expanded(child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+            return Card(
+              elevation: 0,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Text("Title of the Task")
+                ],
+              ),
+            );
+          }))
         ],
       ),
       floatingActionButton: FloatingActionButton(
