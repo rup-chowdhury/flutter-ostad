@@ -16,13 +16,26 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                TaskSummaryCard(
-                  count: 9,
-                  title: "New",
-                )
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  TaskSummaryCard(
+                    count: 9,
+                    title: "New",
+                  ),
+                  TaskSummaryCard(
+                    count: 9,
+                    title: "Completed",
+                  ),TaskSummaryCard(
+                    count: 9,
+                    title: "Cancelled",
+                  ),TaskSummaryCard(
+                    count: 9,
+                    title: "Progress",
+                  ),
+                ],
+              ),
             ),
           )
         ],
@@ -53,13 +66,14 @@ class TaskSummaryCard extends StatelessWidget {
       color: Colors.white,
       elevation: 0,
       child: SizedBox(
-        width: 100,
+        width: 110,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("$count", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),),
+              SizedBox(height: 4,),
               Text(title, style: TextStyle(color: Colors.grey),)
             ],
           ),
