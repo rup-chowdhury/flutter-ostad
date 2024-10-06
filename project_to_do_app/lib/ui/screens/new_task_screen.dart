@@ -18,7 +18,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                TaskSummaryCard()
+                TaskSummaryCard(
+                  count: 9,
+                  title: "New",
+                )
               ],
             ),
           )
@@ -38,8 +41,11 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
 class TaskSummaryCard extends StatelessWidget {
   const TaskSummaryCard({
-    super.key,
+    super.key, required this.count, required this.title,
   });
+
+  final int count;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +57,10 @@ class TaskSummaryCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("09", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),),
-              Text("New", style: TextStyle(color: Colors.grey),)
+              Text("$count", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),),
+              Text(title, style: TextStyle(color: Colors.grey),)
             ],
           ),
         ),
