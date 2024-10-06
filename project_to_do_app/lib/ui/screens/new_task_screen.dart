@@ -23,35 +23,35 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             return Card(
               elevation: 0,
               color: Colors.white,
-              margin: EdgeInsets.symmetric(horizontal: 16),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Title of the Task", style: Theme.of(context).textTheme.titleSmall,),
-                    Text("Description of task",),
-                    Text("Date: 20/10/2024",),
-                    SizedBox(height: 8,),
+                    const Text("Description of task",),
+                    const Text("Date: 20/10/2024",),
+                    const SizedBox(height: 8,),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Chip(
-                          label: Text(
+                          label: const Text(
                             "New", style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold
                         ),), shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24),
-                          side: BorderSide(
+                          side: const BorderSide(
                             color: AppColor.themeColor
                           )
                         ),),
                         Wrap(
                           children: [
-                            IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
-                            IconButton(onPressed: (){}, icon: Icon(Icons.delete)),
+                            IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
+                            IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
                           ],
                         )
                       ],
@@ -62,7 +62,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             );
           },
           separatorBuilder: (context, index) {
-                return SizedBox(height: 8,);
+                return const SizedBox(height: 8,);
           },))
         ],
       ),
@@ -74,8 +74,8 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   }
 
   Padding _buildSummarySection() {
-    return Padding(
-          padding: const EdgeInsets.all(8.0),
+    return const Padding(
+          padding: EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
