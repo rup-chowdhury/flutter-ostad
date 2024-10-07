@@ -25,7 +25,7 @@ class TaskCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                buildTaskStatusChip(),
+                _buildTaskStatusChip(),
                 Wrap(
                   children: [
                     IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
@@ -40,7 +40,7 @@ class TaskCard extends StatelessWidget {
     );
   }
 
-  Widget buildTaskStatusChip() {
+  Widget _buildTaskStatusChip() {
     return Chip(
                 label: const Text(
                   "New", style: TextStyle(
