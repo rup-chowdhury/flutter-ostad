@@ -25,17 +25,7 @@ class TaskCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Chip(
-                  label: const Text(
-                    "New", style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold
-                  ),), shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24),
-                    side: const BorderSide(
-                        color: AppColor.themeColor
-                    )
-                ),),
+                buildTaskStatusChip(),
                 Wrap(
                   children: [
                     IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
@@ -48,5 +38,19 @@ class TaskCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Chip buildTaskStatusChip() {
+    return Chip(
+                label: const Text(
+                  "New", style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold
+                ),), shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  side: const BorderSide(
+                      color: AppColor.themeColor
+                  )
+              ),);
   }
 }
