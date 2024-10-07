@@ -40,7 +40,7 @@ class TaskCard extends StatelessWidget {
     );
   }
 
-  Chip buildTaskStatusChip() {
+  Widget buildTaskStatusChip() {
     return Chip(
                 label: const Text(
                   "New", style: TextStyle(
