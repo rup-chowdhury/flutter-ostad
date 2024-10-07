@@ -22,10 +22,19 @@ class _TaskCardState extends State<TaskCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Title of the Task", style: Theme.of(context).textTheme.titleSmall,),
-            const Text("Description of task",),
-            const Text("Date: 20/10/2024",),
-            const SizedBox(height: 8,),
+            Text(
+              "Title of the Task",
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            const Text(
+              "Description of task",
+            ),
+            const Text(
+              "Date: 20/10/2024",
+            ),
+            const SizedBox(
+              height: 8,
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,8 +42,12 @@ class _TaskCardState extends State<TaskCard> {
                 _buildTaskStatusChip(),
                 Wrap(
                   children: [
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
+                    IconButton(
+                        onPressed: _onTapEditButton,
+                        icon: const Icon(Icons.edit)),
+                    IconButton(
+                        onPressed: _onTapDeleteButton,
+                        icon: const Icon(Icons.delete)),
                   ],
                 )
               ],
@@ -45,36 +58,39 @@ class _TaskCardState extends State<TaskCard> {
     );
   }
 
-  void _onTapEditButton(){
-
-  }
-
-  void _onTapDeleteButton(){
-    showDialog(context: context, builder: (context){
+  void _onTapEditButton() {
+    showDialog(context: context, builder: (context) {
       return AlertDialog(
-        title: Text("Edit Status"),
+        title: const Text("Edit Status"),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: ['New', 'Completed', 'Cancelled', 'Progress'].map((e){
+            return ListTile(
+            title: Text(e),
+            );
+      }).toList(),
+        ),
         actions: [
-          ElevatedButton(onPressed: (){
+          TextButton(onPressed: (){
+            Navigator.pop(context);
           }, child: Text("Cancel")),
-          ElevatedButton(onPressed: (){
-          }, child: Text("Ok")),
-
+          TextButton(onPressed: (){}, child: Text("Okay"))
         ],
       );
     });
   }
 
+  void _onTapDeleteButton() {}
+
   Widget _buildTaskStatusChip() {
     return Chip(
-                label: const Text(
-                  "New", style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold
-                ),), shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                  side: const BorderSide(
-                      color: AppColor.themeColor
-                  )
-              ),);
+      label: const Text(
+        "New",
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+      ),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+          side: const BorderSide(color: AppColor.themeColor)),
+    );
   }
 }
