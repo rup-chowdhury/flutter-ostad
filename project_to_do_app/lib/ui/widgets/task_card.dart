@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 
-class TaskCard extends StatelessWidget {
+class TaskCard extends StatefulWidget {
   const TaskCard({
     super.key,
   });
 
+  @override
+  State<TaskCard> createState() => _TaskCardState();
+}
+
+class _TaskCardState extends State<TaskCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -38,6 +43,25 @@ class TaskCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _onTapEditButton(){
+
+  }
+
+  void _onTapDeleteButton(){
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+        title: Text("Edit Status"),
+        actions: [
+          ElevatedButton(onPressed: (){
+          }, child: Text("Cancel")),
+          ElevatedButton(onPressed: (){
+          }, child: Text("Ok")),
+
+        ],
+      );
+    });
   }
 
   Widget _buildTaskStatusChip() {
