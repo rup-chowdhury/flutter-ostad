@@ -25,7 +25,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
           },
           separatorBuilder: (context, index) {
                 return const SizedBox(height: 8,);
-          },))
+          },),)
         ],
       ),
       floatingActionButton: FloatingActionButton(
