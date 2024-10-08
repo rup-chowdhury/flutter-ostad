@@ -6,7 +6,10 @@ import 'package:project_to_do_app/ui/utils/app_colors.dart';
 class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TMAppBar({
     super.key,
+    this.isProfileScreenOpen = false,
   });
+
+    final bool isProfileScreenOpen;
 
   @override
   Widget build(BuildContext context) {
