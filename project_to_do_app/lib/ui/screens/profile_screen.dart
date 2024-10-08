@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -11,7 +12,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: TMAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
 
+        ),
+      ),
     );
   }
 }
