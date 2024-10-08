@@ -67,6 +67,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Container _buildPhotoPicker(){
-    return Container();
+    return Container(
+      height: 55,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white
+      ),
+      child: Row(
+        children: [
+          Container(
+            height: 55,
+            width: 100,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(8),
+                bottomLeft: Radius.circular(8),
+              ),
+            ),
+            alignment: Alignment.center,
+            child: Text("Photo", style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+              fontSize: 16
+            ),),
+          ),
+          SizedBox(width: 8,),
+          Text("Selected Photo"),
+        ],
+      ),
+    );
   }
 }
