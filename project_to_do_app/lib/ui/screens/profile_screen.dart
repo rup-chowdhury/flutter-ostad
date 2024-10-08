@@ -14,14 +14,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: const TMAppBar(isProfileScreenOpen: true,),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text(
-              "Get Started With",
-              style: Theme.of(context).textTheme.displaySmall
-                  ?.copyWith(fontWeight: FontWeight.w600),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 48,),
+              Text(
+                "Get Started With",
+                style: Theme.of(context).textTheme.displaySmall
+                    ?.copyWith(fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
         ),
       ),
     );
