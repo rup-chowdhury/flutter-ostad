@@ -11,11 +11,17 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: TMAppBar(isProfileScreenOpen: true,),
+    return Scaffold(
+      appBar: const TMAppBar(isProfileScreenOpen: true,),
       body: SingleChildScrollView(
         child: Column(
-
+          children: [
+            Text(
+              "Get Started With",
+              style: Theme.of(context).textTheme.displaySmall
+                  ?.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ],
         ),
       ),
     );
