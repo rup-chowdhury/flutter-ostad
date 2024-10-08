@@ -68,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Container _buildPhotoPicker(){
     return Container(
-      height: 55,
+      height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.white
@@ -76,7 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Row(
         children: [
           Container(
-            height: 55,
+            height: 50,
             width: 100,
             decoration: BoxDecoration(
               color: Colors.grey,
