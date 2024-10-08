@@ -25,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: Theme.of(context).textTheme.displaySmall
                     ?.copyWith(fontWeight: FontWeight.w600),
               ),
-              const SizedBox(height: 16,),
+              const SizedBox(height: 32,),
               _buildPhotoPicker(),
               const SizedBox(height: 16,),
               TextFormField(
