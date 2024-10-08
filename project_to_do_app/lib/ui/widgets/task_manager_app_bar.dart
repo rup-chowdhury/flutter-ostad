@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/ui/screens/profile_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 
@@ -10,8 +11,13 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProfileScreen(),
+          ),
+        );
       },
       child: AppBar(
         backgroundColor: AppColor.themeColor,
@@ -43,8 +49,11 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             IconButton(
-              onPressed: (){
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SignInScreen()), (_) => false);
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInScreen()),
+                    (_) => false);
               },
               icon: const Icon(Icons.logout),
             ),
@@ -57,6 +66,4 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-
 }
-
