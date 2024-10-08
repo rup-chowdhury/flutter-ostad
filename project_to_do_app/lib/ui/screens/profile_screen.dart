@@ -11,8 +11,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: TMAppBar(),
+    return const Scaffold(
+      appBar: TMAppBar(isProfileScreenOpen: true,),
       body: SingleChildScrollView(
         child: Column(
 
