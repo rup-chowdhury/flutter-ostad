@@ -25,7 +25,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: ScreenBackground(
         child: SingleChildScrollView(
           child: Padding(
@@ -175,8 +174,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
-  void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
+  Future<void> _signUp() async{
+
   }
 
   void _onTapSignIn() {
