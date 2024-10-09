@@ -65,6 +65,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             controller: _emailTEController,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true) {
+                return "Enter valid email";
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 8,
@@ -72,6 +78,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
           TextFormField(
             controller: _firstNameTEController,
             decoration: const InputDecoration(hintText: "First Name"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true) {
+                return "Enter first name";
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 8,
@@ -79,6 +91,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
           TextFormField(
             controller: _lastNameTEController,
             decoration: const InputDecoration(hintText: "Last Name"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true) {
+                return "Enter last name";
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 8,
@@ -87,6 +105,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             controller: _mobileTEController,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(hintText: "Mobile"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true) {
+                return "Enter mobile number";
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 8,
@@ -94,6 +118,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
           TextFormField(
             controller: _passwordTEController,
             decoration: const InputDecoration(hintText: "Password"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true) {
+                return "Enter password";
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 24,
