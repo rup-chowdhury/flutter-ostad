@@ -164,7 +164,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _onTapNextButton() {
-    //TODO: implement action for Next Button
+    if (!_formKey.currentState!.validate()){
+      return;
+    }
   }
 
   void _onTapForgotPassword() {
