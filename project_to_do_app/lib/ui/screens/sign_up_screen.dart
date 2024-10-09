@@ -60,24 +60,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Column(
       children: [
         TextFormField(
+          controller: _emailTEController,
           decoration: const InputDecoration(hintText: "Email"),
         ),
         const SizedBox(
           height: 8,
         ),
         TextFormField(
+          controller: _firstNameTEController,
           decoration: const InputDecoration(hintText: "First Name"),
         ),
         const SizedBox(
           height: 8,
         ),
         TextFormField(
+          controller: _lastNameTEController,
           decoration: const InputDecoration(hintText: "Last Name"),
         ),
         const SizedBox(
           height: 8,
         ),
         TextFormField(
+          controller: _mobileTEController,
           keyboardType: TextInputType.number,
           decoration: const InputDecoration(hintText: "Mobile"),
         ),
@@ -85,6 +89,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: 8,
         ),
         TextFormField(
+          controller: _passwordTEController,
           decoration: const InputDecoration(hintText: "Password"),
         ),
         const SizedBox(
