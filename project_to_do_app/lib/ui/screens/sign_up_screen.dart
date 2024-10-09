@@ -58,6 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget _buildSignUpForm() {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           TextFormField(
