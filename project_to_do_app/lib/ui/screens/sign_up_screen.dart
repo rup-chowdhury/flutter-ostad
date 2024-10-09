@@ -144,4 +144,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
     //TODO: action for pressing Sign up button
     Navigator.pop(context);
   }
+
+  @override
+  void dispose() {
+    _emailTEController.dispose();
+    _firstNameTEController.dispose();
+    _lastNameTEController.dispose();
+    _mobileTEController.dispose();
+    _passwordTEController.dispose();
+    super.dispose();
+  }
 }
