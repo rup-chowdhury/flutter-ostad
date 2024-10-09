@@ -63,6 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         children: [
           TextFormField(
             controller: _emailTEController,
+            keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email"),
           ),
           const SizedBox(
