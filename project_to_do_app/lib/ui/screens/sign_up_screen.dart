@@ -64,6 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         children: [
           TextFormField(
             controller: _emailTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email"),
             validator: (String? value) {
@@ -78,6 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           TextFormField(
             controller: _firstNameTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: const InputDecoration(hintText: "First Name"),
             validator: (String? value) {
               if(value?.isEmpty ?? true) {
@@ -91,6 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           TextFormField(
             controller: _lastNameTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: const InputDecoration(hintText: "Last Name"),
             validator: (String? value) {
               if(value?.isEmpty ?? true) {
@@ -104,6 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           TextFormField(
             controller: _mobileTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(hintText: "Mobile"),
             validator: (String? value) {
@@ -118,6 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           TextFormField(
             controller: _passwordTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: const InputDecoration(hintText: "Password"),
             validator: (String? value) {
               if(value?.isEmpty ?? true) {
