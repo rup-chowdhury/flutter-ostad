@@ -177,6 +177,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (!_formKey.currentState!.validate()){
       return;
     }
+
+    _signUp();
   }
 
   Future<void> _signUp() async{
