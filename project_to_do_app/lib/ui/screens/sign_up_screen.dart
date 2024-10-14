@@ -6,6 +6,7 @@ import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -186,9 +187,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     _inProgress = false;
     setState(() {});
     if(response.isSuccess) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('New User Created')));
+      showSnackBarMessage(context, 'New User Created');
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(response.errorMessage)));
+      showSnackBarMessage(context, response.errorMessage, true);
     }
 
   }
