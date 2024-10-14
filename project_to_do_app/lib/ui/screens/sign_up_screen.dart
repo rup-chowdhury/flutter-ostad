@@ -187,7 +187,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Future<void> _signUp() async{
     _inProgress = true;
     setState(() {});
-    NetworkResponse response = await NetworkCaller.postRequest(url: Urls.registrationUrl);
+
+    Map<String, dynamic> requestBody = {
+      "email": _emailTEController.text.trim(),
+      "firstName": _firstNameTEController.text.trim(),
+      "lastName": _lastNameTEController.text.trim(),
+      "mobile": _mobileTEController.text.trim(),
+      "password": _passwordTEController.text
+    };
+
+    NetworkResponse response = await NetworkCaller.postRequest(
+        url: Urls.registrationUrl,
+        body: requestBody);
 
     _inProgress = false;
     setState(() {});
