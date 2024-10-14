@@ -204,11 +204,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
     _inProgress = false;
     setState(() {});
     if(response.isSuccess) {
+      _clearTextFields();
       showSnackBarMessage(context, 'New User Created');
     } else {
       showSnackBarMessage(context, response.errorMessage, true);
     }
 
+  }
+
+  void _clearTextFields() {
+    _emailTEController.clear();
+    _firstNameTEController.clear();
+    _lastNameTEController.clear();
+    _mobileTEController.clear();
+    _passwordTEController.clear();
   }
 
   void _onTapSignIn() {
