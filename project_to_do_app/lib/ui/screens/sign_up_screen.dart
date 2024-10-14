@@ -20,7 +20,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _lastNameTEController = TextEditingController();
   final TextEditingController _mobileTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
-  bool inProgress = false;
+  bool _inProgress = false;
 
   @override
   Widget build(BuildContext context) {
@@ -176,6 +176,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _signUp() async{
+    _inProgress = true;
+    
 
   }
 
