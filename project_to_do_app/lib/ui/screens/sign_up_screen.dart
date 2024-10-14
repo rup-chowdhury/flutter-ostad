@@ -5,6 +5,7 @@ import 'package:project_to_do_app/data/models/network_response.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
+import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
@@ -140,8 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           Visibility(
             visible: _inProgress == false,
-            replacement: const Center(
-                child: CircularProgressIndicator()),
+            replacement: const CenteredCircularProgressIndicator(),
             child: ElevatedButton(
               onPressed: _onTapNextButton,
               child: const Icon(Icons.arrow_circle_right_outlined),
