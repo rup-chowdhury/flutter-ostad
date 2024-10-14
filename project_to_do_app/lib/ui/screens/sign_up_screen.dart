@@ -1,6 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
@@ -178,7 +181,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Future<void> _signUp() async{
     _inProgress = true;
     setState(() {});
-    
+    NetworkResponse response = await NetworkCaller.postRequest(url: Urls.registrationUrl);
+
+    _inProgress = false;
+    setState(() {});
+    if(response.isSuccess) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('New User Created')));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(response.errorMessage)));
+    }
 
   }
 
