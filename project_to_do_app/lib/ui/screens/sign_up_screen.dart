@@ -198,7 +198,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     NetworkResponse response = await NetworkCaller.postRequest(
         url: Urls.registrationUrl,
-        body: requestBody);
+        body: requestBody,
+    );
 
     _inProgress = false;
     setState(() {});
