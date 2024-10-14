@@ -177,6 +177,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Future<void> _signUp() async{
     _inProgress = true;
+    setState(() {});
     
 
   }
