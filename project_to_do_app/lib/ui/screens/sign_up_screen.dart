@@ -174,11 +174,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _onTapNextButton() {
-    if (!_formKey.currentState!.validate()){
-      return;
+    if (_formKey.currentState!.validate()){
+      _signUp();
     }
-
-    _signUp();
   }
 
   Future<void> _signUp() async{
