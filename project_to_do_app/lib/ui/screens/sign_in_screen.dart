@@ -83,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 return 'Enter your password';
               }
               if(value!.length <= 6){
-                return 'Enter password with more than 6 letters';
+                return 'Enter password with more than 6 characters';
               }
               return null;
             },
