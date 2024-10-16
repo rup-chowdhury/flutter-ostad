@@ -1,11 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/screens/forgot_password_email_screen.dart';
 import 'package:project_to_do_app/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -20,7 +24,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
 
-  final bool _inProgress = false;
+  bool _inProgress = false;
 
   @override
   Widget build(BuildContext context) {
@@ -140,16 +144,26 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Future<void> _signIn() async{
-
-  }
-
   void _onTapNextButton() {
     if(!_formKey.currentState!.validate()){
       return;
     }
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
+    _signIn();
   }
+
+  Future<void> _signIn() async{
+    _inProgress = true;
+    setState(() {});
+    final NetworkResponse response = await NetworkCaller.postRequest(url: Urls.loginUrl);
+    _inProgress = false;
+    setState(() {});
+    if(response.isSuccess) {
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
+    } else {
+      showSnackBarMessage(context, response.errorMessage, true);
+    }
+  }
+
 
   void _onTapForgotPassword() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordEmailScreen()));
