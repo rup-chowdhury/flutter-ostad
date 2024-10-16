@@ -117,7 +117,12 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapNextButton() {
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (_) => false);
+    if(!_formKey.currentState!.validate()){
+      return;
+    }
+
+
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
   }
 
   void _onTapForgotPassword() {
