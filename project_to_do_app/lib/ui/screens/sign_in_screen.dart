@@ -4,6 +4,7 @@ import 'package:project_to_do_app/ui/screens/forgot_password_email_screen.dart';
 import 'package:project_to_do_app/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
+import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -18,6 +19,8 @@ class _SignInScreenState extends State<SignInScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
+
+  final bool _inProgress = false;
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +94,13 @@ class _SignInScreenState extends State<SignInScreen> {
           const SizedBox(
             height: 24,
           ),
-          ElevatedButton(
-            onPressed: _onTapNextButton,
-            child: const Icon(Icons.arrow_circle_right_outlined),
+          Visibility(
+            visible: _inProgress == false,
+            replacement: const CenteredCircularProgressIndicator(),
+            child: ElevatedButton(
+              onPressed: _onTapNextButton,
+              child: const Icon(Icons.arrow_circle_right_outlined),
+            ),
           ),
         ],
       ),
@@ -134,7 +141,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Future<void> _signIn() async{
-      
+
   }
 
   void _onTapNextButton() {
