@@ -69,6 +69,7 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
           TextFormField(
             controller: _emailTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email"),
             validator: (String? value) {
@@ -83,6 +84,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           TextFormField(
             controller: _passwordTEController,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             obscureText: true,
             decoration: const InputDecoration(hintText: "Password"),
             validator: (String? value) {
@@ -154,7 +156,13 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<void> _signIn() async{
     _inProgress = true;
     setState(() {});
-    final NetworkResponse response = await NetworkCaller.postRequest(url: Urls.loginUrl);
+
+    Map<String, dynamic> requestBody = {
+      "email": _emailTEController.text.trim(),
+      "password":_passwordTEController.text
+    };
+
+    final NetworkResponse response = await NetworkCaller.postRequest(url: Urls.loginUrl, body: requestBody);
     _inProgress = false;
     setState(() {});
     if(response.isSuccess) {
