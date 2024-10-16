@@ -133,12 +133,14 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
+  Future<void> _signIn() async{
+      
+  }
+
   void _onTapNextButton() {
     if(!_formKey.currentState!.validate()){
       return;
     }
-
-
     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
   }
 
