@@ -80,7 +80,10 @@ class _SignInScreenState extends State<SignInScreen> {
             decoration: const InputDecoration(hintText: "Password"),
             validator: (String? value) {
               if(value?.isEmpty ?? true){
-                return 'Enter a valid email';
+                return 'Enter your password';
+              }
+              if(value!.length <= 6){
+                return 'Enter password with more than 6 letters';
               }
               return null;
             },
