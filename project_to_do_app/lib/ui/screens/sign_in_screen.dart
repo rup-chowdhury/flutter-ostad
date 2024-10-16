@@ -64,6 +64,12 @@ class _SignInScreenState extends State<SignInScreen> {
             controller: _emailTEController,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true){
+                return 'Enter a valid email';
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 8,
@@ -72,6 +78,12 @@ class _SignInScreenState extends State<SignInScreen> {
             controller: _passwordTEController,
             obscureText: true,
             decoration: const InputDecoration(hintText: "Password"),
+            validator: (String? value) {
+              if(value?.isEmpty ?? true){
+                return 'Enter a valid email';
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 24,
