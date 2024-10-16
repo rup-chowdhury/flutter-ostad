@@ -14,6 +14,11 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  
+
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -51,27 +56,30 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget _buildSignInForm() {
-    return Column(
-      children: [
-        TextFormField(
-          keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(hintText: "Email"),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        TextFormField(
-          obscureText: true,
-          decoration: const InputDecoration(hintText: "Password"),
-        ),
-        const SizedBox(
-          height: 24,
-        ),
-        ElevatedButton(
-          onPressed: _onTapNextButton,
-          child: const Icon(Icons.arrow_circle_right_outlined),
-        ),
-      ],
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(hintText: "Email"),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: const InputDecoration(hintText: "Password"),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          ElevatedButton(
+            onPressed: _onTapNextButton,
+            child: const Icon(Icons.arrow_circle_right_outlined),
+          ),
+        ],
+      ),
     );
   }
 
