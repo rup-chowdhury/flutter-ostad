@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:project_to_do_app/data/models/network_response.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
+import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
 import 'package:project_to_do_app/ui/screens/forgot_password_email_screen.dart';
 import 'package:project_to_do_app/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
@@ -166,6 +167,9 @@ class _SignInScreenState extends State<SignInScreen> {
     _inProgress = false;
     setState(() {});
     if(response.isSuccess) {
+
+      await AuthController.saveAccessToken(response.responseData['token']);
+
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
     } else {
       showSnackBarMessage(context, response.errorMessage, true);
