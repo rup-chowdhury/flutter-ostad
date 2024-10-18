@@ -182,7 +182,6 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapSignUp() {
-    //TODO: action for pressing Sign up button
     Navigator.push(
       context,
       MaterialPageRoute(
