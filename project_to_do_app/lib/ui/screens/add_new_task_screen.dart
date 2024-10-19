@@ -56,12 +56,16 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                   },
                 ),
                 const SizedBox(height: 16,),
-                ElevatedButton(onPressed: (){}, child: const Icon(Icons.arrow_circle_right_outlined))
+                ElevatedButton(onPressed: _onTapSubmitButton, child: const Icon(Icons.arrow_circle_right_outlined))
               ],
             ),
           ),
         ),
       ),
     );
+  }
+  void _onTapSubmitButton() {
+    if(_formKey.currentState!.validate()){
+    }
   }
 }
