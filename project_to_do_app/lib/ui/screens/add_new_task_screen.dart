@@ -78,6 +78,13 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   }
 
   Future<void> _addNewTask() async {
+    _addNewTaskInProgress = true;
+    Map<String, dynamic> requestBody = {
+      "title": titleTEController.text.trim(),
+      "description": descriptionTEController.text.trim(),
+      "status":"New"
+    };
+
 
   }
 }
