@@ -9,6 +9,10 @@ class AddNewTaskScreen extends StatefulWidget {
 }
 
 class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
+  final TextEditingController titleTEController = TextEditingController();
+  final TextEditingController descriptionTEController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
