@@ -12,6 +12,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   final TextEditingController titleTEController = TextEditingController();
   final TextEditingController descriptionTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _addNewTaskInProgress = false;
 
 
   @override
@@ -56,7 +57,13 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                   },
                 ),
                 const SizedBox(height: 16,),
-                ElevatedButton(onPressed: _onTapSubmitButton, child: const Icon(Icons.arrow_circle_right_outlined))
+                Visibility(
+                  visible: !_addNewTaskInProgress,
+                  replacement: const CircularProgressIndicator(),
+                  child: ElevatedButton(
+                      onPressed: _onTapSubmitButton,
+                      child: const Icon(Icons.arrow_circle_right_outlined)),
+                )
               ],
             ),
           ),
@@ -71,6 +78,6 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   }
 
   Future<void> _addNewTask() async {
-    
+
   }
 }
