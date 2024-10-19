@@ -27,12 +27,14 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
               Text("Add New Task", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),),
               const SizedBox(height: 24,),
               TextFormField(
+                controller: titleTEController,
                 decoration: const InputDecoration(
                   hintText: "Title"
                 ),
               ),
               const SizedBox(height: 8,),
               TextFormField(
+                controller: descriptionTEController,
                 maxLines: 5,
                 decoration: const InputDecoration(
                     hintText: "Description"
