@@ -34,6 +34,12 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                   decoration: const InputDecoration(
                     hintText: "Title"
                   ),
+                  validator: (String? value) {
+                    if(value?.trim().isEmpty ?? true){
+                      return 'Enter a title';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 8,),
                 TextFormField(
@@ -42,6 +48,12 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                   decoration: const InputDecoration(
                       hintText: "Description"
                   ),
+                  validator: (String? value) {
+                    if(value?.trim().isEmpty ?? true){
+                      return 'Enter description';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16,),
                 ElevatedButton(onPressed: (){}, child: const Icon(Icons.arrow_circle_right_outlined))
