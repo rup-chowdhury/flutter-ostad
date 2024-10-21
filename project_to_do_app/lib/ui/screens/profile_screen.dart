@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             alignment: Alignment.center,
-            child: Text("Photo", style: TextStyle(
+            child: const Text("Photo", style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
               fontSize: 16
