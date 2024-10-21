@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
-import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/task_card.dart';
 import 'package:project_to_do_app/ui/widgets/task_summary_card.dart';
 
