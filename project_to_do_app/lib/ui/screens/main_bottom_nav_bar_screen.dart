@@ -3,8 +3,6 @@ import 'package:project_to_do_app/ui/screens/cancelled_task_screen.dart';
 import 'package:project_to_do_app/ui/screens/completed_task_screen.dart';
 import 'package:project_to_do_app/ui/screens/new_task_screen.dart';
 import 'package:project_to_do_app/ui/screens/progress_task_screen.dart';
-import 'package:project_to_do_app/ui/utils/app_colors.dart';
-import 'package:project_to_do_app/ui/utils/assets_path.dart';
 import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {
