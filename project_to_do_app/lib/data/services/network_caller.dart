@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:project_to_do_app/app.dart';
 import 'package:project_to_do_app/data/models/network_response.dart';
 import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
 import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
@@ -65,7 +66,15 @@ class NetworkCaller {
             isSuccess: true,
             statusCode: response.statusCode,
             responseData: decodeData);
-      } else {
+      } else if (response.statusCode == 401){
+        _moveToLogin();
+        return NetworkResponse(
+          isSuccess: false,
+          statusCode: response.statusCode,
+          errorMessage: 'Unauthenticated!'
+        );
+      }
+      else {
         return NetworkResponse(
           isSuccess: false,
           statusCode: response.statusCode,
@@ -90,7 +99,10 @@ class NetworkCaller {
     debugPrint('URL: $url\nRESPONSE CODE: ${response.statusCode}\nBODY: ${response.body}');
   }
 
-  static void _moveToLogin() {
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SignInScreen()), (p) => false);
+  static Future<void> _moveToLogin() async {
+    await AuthController.clearUserData();
+    Navigator.pushAndRemoveUntil(
+        TaskManagerApp.navigatorKey.currentContext!,
+        MaterialPageRoute(builder: (context) => const SignInScreen()), (p) => false);
   }
 }
