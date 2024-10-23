@@ -11,6 +11,7 @@ class NewTaskScreen extends StatefulWidget {
 }
 
 class _NewTaskScreenState extends State<NewTaskScreen> {
+  bool _getNewTaskListInProgress = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +64,12 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   void _onTapAddFAB(){
     Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
+  }
+
+  Future<void> _getNewTaskList() async {
+    _getNewTaskListInProgress = true;
+    setState(() {});
+
   }
 }
 
