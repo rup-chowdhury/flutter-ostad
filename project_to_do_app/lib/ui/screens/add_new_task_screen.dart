@@ -103,4 +103,12 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
       titleTEController.clear();
       descriptionTEController.clear();
     }
+
+    @override
+    void dispose() {
+      titleTEController.dispose();
+      descriptionTEController.dispose();
+      super.dispose();
+    }
+
 }
