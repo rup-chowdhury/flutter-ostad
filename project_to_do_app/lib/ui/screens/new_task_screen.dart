@@ -23,8 +23,8 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   @override
   void initState() {
-    _getNewTaskList();
     super.initState();
+    _getNewTaskList();
   }
   @override
   Widget build(BuildContext context) {
@@ -105,6 +105,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
       _newTaskList = taskListModel.taskList ?? [];
     } else {
       showSnackBarMessage(context, response.errorMessage, true);
+      print(response.errorMessage);
     }
     _getNewTaskListInProgress = false;
     setState(() {});
