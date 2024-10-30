@@ -3,6 +3,7 @@ import 'package:project_to_do_app/data/models/network_response.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 import 'package:project_to_do_app/ui/widgets/task_card.dart';
 import 'package:project_to_do_app/ui/widgets/task_summary_card.dart';
 
@@ -82,5 +83,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     setState(() {});
     final NetworkResponse response =
         await NetworkCaller.getRequest(url: Urls.newTaskList);
+    if(response.isSuccess) {
+
+    } else {
+      showSnackBarMessage(context, response.errorMessage, true);
+    }
   }
 }
