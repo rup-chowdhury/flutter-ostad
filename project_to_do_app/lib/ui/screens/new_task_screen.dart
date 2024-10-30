@@ -5,6 +5,7 @@ import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
+import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 import 'package:project_to_do_app/ui/widgets/task_card.dart';
 import 'package:project_to_do_app/ui/widgets/task_summary_card.dart';
@@ -33,6 +34,8 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
           _buildSummarySection(),
           Expanded(
             child: Visibility(
+              visible: !_getNewTaskListInProgress,
+              replacement: const CenteredCircularProgressIndicator(),
               child: ListView.separated(
                 itemCount: 10,
                 itemBuilder: (context, index) {
