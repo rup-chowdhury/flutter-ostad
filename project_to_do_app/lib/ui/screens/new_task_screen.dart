@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
@@ -16,6 +17,7 @@ class NewTaskScreen extends StatefulWidget {
 
 class _NewTaskScreenState extends State<NewTaskScreen> {
   bool _getNewTaskListInProgress = false;
+  List<TaskModel> _newTaskList = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
