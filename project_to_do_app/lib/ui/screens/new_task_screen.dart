@@ -39,7 +39,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
               child: ListView.separated(
                 itemCount: _newTaskList.length,
                 itemBuilder: (context, index) {
-                  return const TaskCard();
+                  // return const TaskCard();
                 },
                 separatorBuilder: (context, index) {
                   return const SizedBox(
