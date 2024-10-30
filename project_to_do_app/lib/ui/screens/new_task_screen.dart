@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/models/task_list_model.dart';
 import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
@@ -81,12 +82,14 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   }
 
   Future<void> _getNewTaskList() async {
+    _newTaskList.clear();
     _getNewTaskListInProgress = true;
     setState(() {});
     final NetworkResponse response =
         await NetworkCaller.getRequest(url: Urls.newTaskList);
     if(response.isSuccess) {
-
+      final TaskListModel taskListModel = TaskListModel.fromJson(response.responseData);
+      _newTaskList = taskListModel.taskList ?? [];
     } else {
       showSnackBarMessage(context, response.errorMessage, true);
     }
