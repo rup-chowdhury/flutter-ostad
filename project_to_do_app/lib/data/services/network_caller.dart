@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:project_to_do_app/app.dart';
@@ -18,8 +16,6 @@ class NetworkCaller {
       };
       printRequest(url, null, headers);
       final Response response = await get(uri, headers: headers);
-
-
       printResponse(url, response);
       if (response.statusCode == 200) {
         final decodeData = jsonDecode(response.body);
@@ -58,20 +54,28 @@ class NetworkCaller {
         'Content-Type': 'application/json',
         'token': AuthController.accessToken.toString(),
       };
-      debugPrint(url);
+      printRequest(url, body, headers);
       final Response response = await post(
           uri,
           headers: headers,
           body: jsonEncode(body)
       );
-      printRequest(url, body, headers);
       printResponse(url, response);
       if (response.statusCode == 200) {
         final decodeData = jsonDecode(response.body);
+
+        if(decodeData['status'] == 'fail'){
+          return NetworkResponse(
+              isSuccess: false,
+              statusCode: response.statusCode,
+              errorMessage: decodeData['data'],
+          );
+        }
         return NetworkResponse(
             isSuccess: true,
             statusCode: response.statusCode,
-            responseData: decodeData);
+            responseData: decodeData,
+        );
       } else if (response.statusCode == 401){
         _moveToLogin();
         return NetworkResponse(
@@ -109,6 +113,7 @@ class NetworkCaller {
     await AuthController.clearUserData();
     Navigator.pushAndRemoveUntil(
         TaskManagerApp.navigatorKey.currentContext!,
-        MaterialPageRoute(builder: (context) => const SignInScreen()), (p) => false);
+        MaterialPageRoute(builder: (context) => const SignInScreen()),
+            (p) => false);
   }
 }
