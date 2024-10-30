@@ -19,6 +19,12 @@ class NewTaskScreen extends StatefulWidget {
 class _NewTaskScreenState extends State<NewTaskScreen> {
   bool _getNewTaskListInProgress = false;
   List<TaskModel> _newTaskList = [];
+
+  @override
+  void initState() {
+    _getNewTaskList();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
