@@ -22,54 +22,63 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const TMAppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 48,),
-                Text("Add New Task", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),),
-                const SizedBox(height: 24,),
-                TextFormField(
-                  controller: titleTEController,
-                  decoration: const InputDecoration(
-                    hintText: "Title"
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result){
+        if(didPop) {
+          return;
+        }
+        Navigator.pop(context, _shouldRefreshPreviousPage);
+      },
+      child: Scaffold(
+        appBar: const TMAppBar(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 48,),
+                  Text("Add New Task", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),),
+                  const SizedBox(height: 24,),
+                  TextFormField(
+                    controller: titleTEController,
+                    decoration: const InputDecoration(
+                      hintText: "Title"
+                    ),
+                    validator: (String? value) {
+                      if(value?.trim().isEmpty ?? true){
+                        return 'Enter a title';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (String? value) {
-                    if(value?.trim().isEmpty ?? true){
-                      return 'Enter a title';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 8,),
-                TextFormField(
-                  controller: descriptionTEController,
-                  maxLines: 5,
-                  decoration: const InputDecoration(
-                      hintText: "Description"
+                  const SizedBox(height: 8,),
+                  TextFormField(
+                    controller: descriptionTEController,
+                    maxLines: 5,
+                    decoration: const InputDecoration(
+                        hintText: "Description"
+                    ),
+                    validator: (String? value) {
+                      if(value?.trim().isEmpty ?? true){
+                        return 'Enter description';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (String? value) {
-                    if(value?.trim().isEmpty ?? true){
-                      return 'Enter description';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16,),
-                Visibility(
-                  visible: !_addNewTaskInProgress,
-                  replacement: const CircularProgressIndicator(),
-                  child: ElevatedButton(
-                      onPressed: _onTapSubmitButton,
-                      child: const Icon(Icons.arrow_circle_right_outlined)),
-                )
-              ],
+                  const SizedBox(height: 16,),
+                  Visibility(
+                    visible: !_addNewTaskInProgress,
+                    replacement: const CircularProgressIndicator(),
+                    child: ElevatedButton(
+                        onPressed: _onTapSubmitButton,
+                        child: const Icon(Icons.arrow_circle_right_outlined)),
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -100,7 +100,9 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             builder: (context) => const AddNewTaskScreen(),
         )
     );
-    _getNewTaskList();
+    if(shouldRefresh == true){
+      _getNewTaskList();
+    }
     // if()
   }
 
