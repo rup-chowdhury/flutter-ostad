@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
 import 'package:project_to_do_app/ui/widgets/task_card.dart';
 import 'package:project_to_do_app/ui/widgets/task_summary_card.dart';
@@ -18,14 +21,19 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
       body: Column(
         children: [
           _buildSummarySection(),
-          Expanded(child: ListView.separated(
+          Expanded(
+            child: ListView.separated(
               itemCount: 10,
               itemBuilder: (context, index) {
-            return const TaskCard();
-          },
-          separatorBuilder: (context, index) {
-                return const SizedBox(height: 8,);
-          },),)
+                return const TaskCard();
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  height: 8,
+                );
+              },
+            ),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -37,41 +45,42 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   Padding _buildSummarySection() {
     return const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                TaskSummaryCard(
-                  count: 9,
-                  title: "New",
-                ),
-                TaskSummaryCard(
-                  count: 9,
-                  title: "Completed",
-                ),TaskSummaryCard(
-                  count: 9,
-                  title: "Cancelled",
-                ),TaskSummaryCard(
-                  count: 9,
-                  title: "Progress",
-                ),
-              ],
+      padding: EdgeInsets.all(8.0),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            TaskSummaryCard(
+              count: 9,
+              title: "New",
             ),
-          ),
-        );
+            TaskSummaryCard(
+              count: 9,
+              title: "Completed",
+            ),
+            TaskSummaryCard(
+              count: 9,
+              title: "Cancelled",
+            ),
+            TaskSummaryCard(
+              count: 9,
+              title: "Progress",
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
-  void _onTapAddFAB(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
+  void _onTapAddFAB() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
   }
 
   Future<void> _getNewTaskList() async {
     _getNewTaskListInProgress = true;
     setState(() {});
-
+    final NetworkResponse response =
+        await NetworkCaller.getRequest(url: Urls.newTaskList);
   }
 }
-
-
-
