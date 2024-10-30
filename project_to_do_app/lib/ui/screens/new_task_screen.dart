@@ -89,9 +89,14 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     );
   }
 
-  void _onTapAddFAB() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const AddNewTaskScreen()));
+  Future<void> _onTapAddFAB() async {
+    final bool? shouldRefresh = await Navigator.push(context,
+        MaterialPageRoute(
+            builder: (context) => const AddNewTaskScreen(),
+        )
+    );
+    _getNewTaskList();
+    // if()
   }
 
   Future<void> _getNewTaskList() async {
