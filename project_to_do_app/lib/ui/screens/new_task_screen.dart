@@ -32,16 +32,18 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
         children: [
           _buildSummarySection(),
           Expanded(
-            child: ListView.separated(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const TaskCard();
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 8,
-                );
-              },
+            child: Visibility(
+              child: ListView.separated(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return const TaskCard();
+                },
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 8,
+                  );
+                },
+              ),
             ),
           )
         ],
