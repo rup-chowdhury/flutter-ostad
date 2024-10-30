@@ -93,5 +93,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     } else {
       showSnackBarMessage(context, response.errorMessage, true);
     }
+    _getNewTaskListInProgress = false;
+    setState(() {});
   }
 }
