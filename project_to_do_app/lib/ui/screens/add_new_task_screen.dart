@@ -17,6 +17,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   final TextEditingController descriptionTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _addNewTaskInProgress = false;
+  bool _shouldRefreshPreviousPage = false;
 
 
   @override
@@ -93,8 +94,10 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     _addNewTaskInProgress = false;
     setState(() {});
     if(response.isSuccess){
+      _shouldRefreshPreviousPage = true;
       _clearTextFields();
       showSnackBarMessage(context, 'New Task Added');
+      // Navigator.pop(context);
     }else{
       showSnackBarMessage(context, response.errorMessage, true);
     }
