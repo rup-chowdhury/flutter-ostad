@@ -15,6 +15,9 @@ class TaskCard extends StatefulWidget {
 }
 
 class _TaskCardState extends State<TaskCard> {
+  String _selectedStatus = '';
+
+
   @override
   Widget build(BuildContext context) {
     return Card(
