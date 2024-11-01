@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
 import 'package:project_to_do_app/data/models/task_model.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class TaskCard extends StatefulWidget {
   const TaskCard({
     super.key,
     required this.taskModel,
+    required this.onRefreshList,
   });
 
   final TaskModel taskModel;
+  final VoidCallback onRefreshList;
 
   @override
   State<TaskCard> createState() => _TaskCardState();
@@ -16,6 +22,7 @@ class TaskCard extends StatefulWidget {
 
 class _TaskCardState extends State<TaskCard> {
   String _selectedStatus = '';
+  bool _changeStatusInProgress = false;
 
   @override
   void initState() {
@@ -80,7 +87,10 @@ class _TaskCardState extends State<TaskCard> {
           mainAxisSize: MainAxisSize.min,
           children: ['New', 'Completed', 'Cancelled', 'Progress'].map((e){
             return ListTile(
-              onTap: (){},
+              onTap: (){
+                _changeStatus(e);
+                Navigator.pop(context);
+              },
             title: Text(e),
               selected: _selectedStatus == e,
               trailing: _selectedStatus == e ? const Icon(Icons.check) : null,
@@ -91,7 +101,6 @@ class _TaskCardState extends State<TaskCard> {
           TextButton(onPressed: (){
             Navigator.pop(context);
           }, child: Text("Cancel")),
-          TextButton(onPressed: (){}, child: Text("Okay"))
         ],
       );
     });
@@ -109,5 +118,20 @@ class _TaskCardState extends State<TaskCard> {
           borderRadius: BorderRadius.circular(24),
           side: const BorderSide(color: AppColor.themeColor)),
     );
+  }
+
+  Future<void> _changeStatus(String newStatus) async {
+    _changeStatusInProgress = true;
+    setState(() {});
+    final NetworkResponse response = await NetworkCaller.getRequest(
+        url: Urls.changeTaskStatus(widget.taskModel.sId!, newStatus));
+
+    if(response.isSuccess){
+      widget.onRefreshList();
+    }else{
+      _changeStatusInProgress = false;
+      setState(() {});
+      showSnackBarMessage(context, response.errorMessage);
+    }
   }
 }
