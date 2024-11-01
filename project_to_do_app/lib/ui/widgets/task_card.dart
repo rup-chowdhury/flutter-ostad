@@ -4,6 +4,7 @@ import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
+import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class TaskCard extends StatefulWidget {
@@ -62,12 +63,13 @@ class _TaskCardState extends State<TaskCard> {
                 _buildTaskStatusChip(),
                 Wrap(
                   children: [
-                    IconButton(
-                        onPressed: _onTapEditButton,
-                        icon: const Icon(Icons.edit)),
-                    IconButton(
-                        onPressed: _onTapDeleteButton,
-                        icon: const Icon(Icons.delete)),
+                    Visibility(
+                      visible: !_changeStatusInProgress,
+                      replacement: const CenteredCircularProgressIndicator(),
+                      child: IconButton(
+                          onPressed: _onTapEditButton,
+                          icon: const Icon(Icons.edit)),
+                    ),
                   ],
                 )
               ],
