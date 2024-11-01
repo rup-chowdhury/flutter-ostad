@@ -72,6 +72,7 @@ class _TaskCardState extends State<TaskCard> {
   }
 
   void _onTapEditButton() {
+    print(_selectedStatus);
     showDialog(context: context, builder: (context) {
       return AlertDialog(
         title: const Text("Edit Status"),
@@ -81,6 +82,8 @@ class _TaskCardState extends State<TaskCard> {
             return ListTile(
               onTap: (){},
             title: Text(e),
+              selected: _selectedStatus == e,
+              trailing: _selectedStatus == e ? const Icon(Icons.check) : null,
             );
       }).toList(),
         ),
