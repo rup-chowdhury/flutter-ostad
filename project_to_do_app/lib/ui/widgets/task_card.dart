@@ -17,6 +17,12 @@ class TaskCard extends StatefulWidget {
 class _TaskCardState extends State<TaskCard> {
   String _selectedStatus = '';
 
+  @override
+  void initState() {
+    super.initState();
+    _selectedStatus = widget.taskModel.status!;
+  }
+
 
   @override
   Widget build(BuildContext context) {
