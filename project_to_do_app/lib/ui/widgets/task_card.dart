@@ -24,7 +24,7 @@ class TaskCard extends StatefulWidget {
 class _TaskCardState extends State<TaskCard> {
   String _selectedStatus = '';
   bool _changeStatusInProgress = false;
-
+  bool _deleteTaskInProgress = false;
   @override
   void initState() {
     super.initState();
@@ -70,6 +70,13 @@ class _TaskCardState extends State<TaskCard> {
                           onPressed: _onTapEditButton,
                           icon: const Icon(Icons.edit)),
                     ),
+                    Visibility(
+                      visible: !_deleteTaskInProgress,
+                      replacement: const CenteredCircularProgressIndicator(),
+                      child: IconButton(
+                          onPressed: _onTapDeleteButton,
+                          icon: const Icon(Icons.delete)),
+                    ),
                   ],
                 )
               ],
@@ -108,7 +115,20 @@ class _TaskCardState extends State<TaskCard> {
     });
   }
 
-  void _onTapDeleteButton() {}
+  Future<void> _onTapDeleteButton() async {
+    _deleteTaskInProgress = true;
+    setState(() {});
+    final NetworkResponse response = await NetworkCaller.getRequest(
+        url: Urls.deleteTask(widget.taskModel.sId!));
+
+    if(response.isSuccess){
+      widget.onRefreshList();
+    }else{
+      _deleteTaskInProgress = false;
+      setState(() {});
+      showSnackBarMessage(context, response.errorMessage);
+    }
+  }
 
   Widget _buildTaskStatusChip() {
     return Chip(
