@@ -132,8 +132,8 @@ class _TaskCardState extends State<TaskCard> {
 
   Widget _buildTaskStatusChip() {
     return Chip(
-      label: const Text(
-        "New",
+      label: Text(
+        widget.taskModel.status!,
         style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
       ),
       shape: RoundedRectangleBorder(
