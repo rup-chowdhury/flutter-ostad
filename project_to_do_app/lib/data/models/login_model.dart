@@ -46,15 +46,4 @@ class Data {
     mobile = json['mobile'];
     createdDate = json['createdDate'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['email'] = this.email;
-    data['firstName'] = this.firstName;
-    data['lastName'] = this.lastName;
-    data['mobile'] = this.mobile;
-    data['createdDate'] = this.createdDate;
-    return data;
-  }
 }
