@@ -170,6 +170,7 @@ class _SignInScreenState extends State<SignInScreen> {
     if(response.isSuccess) {
       LoginModel loginModel = LoginModel.fromJson(response.responseData);
       await AuthController.saveAccessToken(loginModel.token!);
+      await AuthController.saveUserData(loginModel.data!);
 
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
     } else {
