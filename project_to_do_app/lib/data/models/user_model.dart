@@ -22,4 +22,15 @@ class UserModel {
     mobile = json['mobile'];
     createdDate = json['createdDate'];
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['email'] = email;
+    data['firstName'] = firstName;
+    data['lastName'] = lastName;
+    data['mobile'] = mobile;
+    data['createdDate'] = createdDate;
+    return data;
+  }
 }
