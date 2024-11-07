@@ -43,14 +43,14 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   Text(
                     AuthController.userData?.fullName ?? '',
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: Colors.white),
                   ),
                   Text(
                     AuthController.userData?.email ?? '',
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: const TextStyle(fontSize: 14, color: Colors.white),
                   )
                 ],
               ),
