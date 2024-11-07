@@ -6,6 +6,10 @@ class UserModel {
   String? mobile;
   String? createdDate;
 
+  String get fullName {
+    return '${firstName ?? ''} ${lastName ?? ''}';
+  }
+
   UserModel(
       {this.sId,
         this.email,
