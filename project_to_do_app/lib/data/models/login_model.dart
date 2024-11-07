@@ -1,18 +1,18 @@
 class LoginModel {
   String? status;
-  UserData? data;
+  UserModel? data;
   String? token;
 
   LoginModel({this.status, this.data, this.token});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
-    data = json['data'] != null ? new UserData.fromJson(json['data']) : null;
+    data = json['data'] != null ? new UserModel.fromJson(json['data']) : null;
     token = json['token'];
   }
 }
 
-class UserData {
+class UserModel {
   String? sId;
   String? email;
   String? firstName;
@@ -20,7 +20,7 @@ class UserData {
   String? mobile;
   String? createdDate;
 
-  UserData(
+  UserModel(
       {this.sId,
         this.email,
         this.firstName,
@@ -28,7 +28,7 @@ class UserData {
         this.mobile,
         this.createdDate});
 
-  UserData.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     email = json['email'];
     firstName = json['firstName'];
