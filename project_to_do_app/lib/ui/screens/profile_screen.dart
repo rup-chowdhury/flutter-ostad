@@ -10,11 +10,11 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _emailTEController = TextEditingController();
+  final TextEditingController _firstNameTEController = TextEditingController();
+  final TextEditingController _lastNameTEController = TextEditingController();
+  final TextEditingController _phoneTEController = TextEditingController();
+  final TextEditingController _passwordTEController = TextEditingController();
+  // final TextEditingController _emailTEController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
