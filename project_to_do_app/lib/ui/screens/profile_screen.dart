@@ -101,7 +101,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Container _buildPhotoPicker(){
+  Widget _buildPhotoPicker(){
     return Container(
       height: 50,
       decoration: BoxDecoration(
