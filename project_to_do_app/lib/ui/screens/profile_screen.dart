@@ -51,6 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 16,),
               TextFormField(
                 controller: _emailTEController,
+                enabled: false,
                 decoration: const InputDecoration(
                   hintText: "Email"
                 ),
