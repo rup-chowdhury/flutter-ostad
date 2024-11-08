@@ -16,6 +16,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final TextEditingController _passwordTEController = TextEditingController();
   // final TextEditingController _emailTEController = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+    _setUserData();
+  }
+
   void _setUserData() {
     _emailTEController.text = AuthController.userData?.email ?? '';
     _firstNameTEController.text = AuthController.userData?.firstName ?? '';
