@@ -1,8 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/screens/forgot_password_otp_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class ForgotPasswordEmailScreen extends StatefulWidget {
   const ForgotPasswordEmailScreen({super.key});
@@ -12,6 +16,8 @@ class ForgotPasswordEmailScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
+  final TextEditingController _emailTEController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -60,6 +66,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
     return Column(
       children: [
         TextFormField(
+          controller: _emailTEController,
           decoration: const InputDecoration(hintText: "Email"),
         ),
         const SizedBox(
@@ -100,7 +107,18 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   }
 
   void _onTapNextButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordOTPScreen(),),);
+    sendOTP();
+  }
+
+  Future<void> sendOTP() async{
+    final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.sendOTPtoEmail(_emailTEController.text.toString() ?? ''));
+    setState(() {});
+    if(response.isSuccess) {
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordOTPScreen(),),);
+    } else {
+      showSnackBarMessage(context, response.errorMessage, true);
+    }
   }
 
   void _onTapForgotPassword() {
