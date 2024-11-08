@@ -133,4 +133,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+
+  Future<void> _selectImage() async{
+
+  }
 }

@@ -1,13 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
+import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
 import 'package:project_to_do_app/ui/screens/reset_password_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_in_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 import 'package:project_to_do_app/ui/widgets/screen_background.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class ForgotPasswordOTPScreen extends StatefulWidget {
-  const ForgotPasswordOTPScreen({super.key});
+  const ForgotPasswordOTPScreen( {super.key});
 
   @override
   State<ForgotPasswordOTPScreen> createState() =>
@@ -15,8 +20,11 @@ class ForgotPasswordOTPScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
+  final TextEditingController _otpTEController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -62,6 +70,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
     return Column(
       children: [
         PinCodeTextField(
+          controller: _otpTEController,
           length: 6,
           obscureText: false,
           animationType: AnimationType.fade,
@@ -124,8 +133,19 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   }
 
   void _onTapNextButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordScreen(),),);
+    sendOTP();
   }
+
+    Future<void> sendOTP() async{
+      final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.checkOTP(AuthController.userData?.email ?? '' ,_otpTEController.text.toString() ?? ''));
+      setState(() {});
+      if(response.isSuccess) {
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen(),),);
+      } else {
+        showSnackBarMessage(context, response.errorMessage, true);
+      }
+    }
 
   void _onTapForgotPassword() {
     //TODO: implement forgot password button action
