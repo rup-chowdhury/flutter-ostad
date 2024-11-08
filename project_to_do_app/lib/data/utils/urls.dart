@@ -11,6 +11,9 @@ class Urls {
   static const String taskStatusCount = '$_baseUrl/taskStatusCount';
 
 
+  static void sendOTPtoEmail(String email) =>
+        '$_baseUrl/RecoverVerifyEmail/$email';
+
   static String changeTaskStatus(String taskId, String status) =>
       '$_baseUrl/updateTaskStatus/$taskId/$status';
 
