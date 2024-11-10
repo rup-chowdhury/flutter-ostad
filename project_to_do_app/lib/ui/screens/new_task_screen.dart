@@ -76,7 +76,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   Padding _buildSummarySection() {
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Visibility(
         visible: _getTaskStatusCountListInProgress == false,
         replacement: const CenteredCircularProgressIndicator(),
