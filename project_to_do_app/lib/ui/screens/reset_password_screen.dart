@@ -95,7 +95,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 children: [
                   TextSpan(
                       text: "Sign In",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColor.themeColor,
                       ),
                       recognizer: TapGestureRecognizer()..onTap = _onTapSignIn),
