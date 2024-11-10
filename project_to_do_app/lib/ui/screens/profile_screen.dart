@@ -128,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),),
           ),
           const SizedBox(width: 8,),
-          Text("Selected Photo"),
+          const Text("Selected Photo"),
         ],
       ),
     );
