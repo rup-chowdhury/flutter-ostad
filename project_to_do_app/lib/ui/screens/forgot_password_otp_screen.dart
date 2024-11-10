@@ -141,7 +141,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
       setState(() {});
       if(response.isSuccess) {
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen(),),);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordScreen(),),);
       } else {
         showSnackBarMessage(context, response.errorMessage, true);
       }
