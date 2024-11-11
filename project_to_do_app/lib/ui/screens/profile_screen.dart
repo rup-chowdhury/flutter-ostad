@@ -142,6 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     XFile? _pickedImage = await _imagePicker.pickImage(source: ImageSource.gallery);
     if(_pickedImage != null){
       selectedImage = _pickedImage;
+      setState(() {});
     }
   }
 }
