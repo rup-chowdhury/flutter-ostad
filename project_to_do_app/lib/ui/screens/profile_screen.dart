@@ -105,34 +105,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildPhotoPicker(){
-    return Container(
-      height: 50,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.white
-      ),
-      child: Row(
-        children: [
-          Container(
-            height: 50,
-            width: 100,
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8),
-                bottomLeft: Radius.circular(8),
+    return GestureDetector(
+      onTap: _selectImage,
+      child: Container(
+        height: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Colors.white
+        ),
+        child: Row(
+          children: [
+            Container(
+              height: 50,
+              width: 100,
+              decoration: const BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  bottomLeft: Radius.circular(8),
+                ),
               ),
+              alignment: Alignment.center,
+              child: const Text("Photo", style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 16
+              ),),
             ),
-            alignment: Alignment.center,
-            child: const Text("Photo", style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-              fontSize: 16
-            ),),
-          ),
-          const SizedBox(width: 8,),
-          const Text("Selected Photo"),
-        ],
+            const SizedBox(width: 8,),
+            const Text("Selected Photo"),
+          ],
+        ),
       ),
     );
   }
