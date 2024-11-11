@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
 import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 
@@ -135,6 +136,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _selectImage() async{
-
+    ImagePicker _imagePicker = ImagePicker();
   }
 }
