@@ -19,6 +19,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // final TextEditingController _emailTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  XFile? selectedImage;
+
   @override
   void initState() {
     super.initState();
@@ -138,5 +140,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _selectImage() async{
     ImagePicker _imagePicker = ImagePicker();
     XFile? _pickedImage = await _imagePicker.pickImage(source: ImageSource.gallery);
+    if(_pickedImage != null){
+      selectedImage = _pickedImage;
+    }
   }
 }
