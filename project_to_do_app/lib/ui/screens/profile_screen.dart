@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:project_to_do_app/data/models/network_response.dart';
+import 'package:project_to_do_app/data/models/user_model.dart';
+import 'package:project_to_do_app/data/services/network_caller.dart';
+import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
+import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -20,6 +27,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   XFile? selectedImage;
+
+  bool _updateProfileInProgress = false;
 
   @override
   void initState() {
@@ -102,6 +111,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _updateProfile() async {
+    _updateProfileInProgress = true;
+    setState(() {});
+    Map<String, dynamic> requestBody = {
+      "email": _emailTEController.text.trim(),
+      "firstName": _firstNameTEController.text.trim(),
+      "lastName": _lastNameTEController.text.trim(),
+      "mobile": _phoneTEController.text.trim(),
+    };
+    if (_passwordTEController.text.isNotEmpty) {
+      requestBody['password'] = _passwordTEController.text;
+    }
+    if(selectedImage != null) {
+      List<int> imageBytes = await selectedImage!.readAsBytes();
+      String convertedImage = base64Encode(imageBytes);
+      requestBody['photo'] = convertedImage;
+    }
+
+    final NetworkResponse response = await NetworkCaller.postRequest(url: Urls.updateProfile, body: requestBody);
+
+    _updateProfileInProgress = false;
+    setState(() {});
+
+    if(response.isSuccess) {
+      // AuthController.saveUserData(UserModel);
+      showSnackBarMessage(context, 'Profile has been updated!');
+    } else {
+      showSnackBarMessage(context, response.errorMessage);
+    }
+
   }
 
   Widget _buildPhotoPicker(){
