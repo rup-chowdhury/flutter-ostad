@@ -96,6 +96,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: const InputDecoration(
                       hintText: "Last Name"
                   ),
+                  validator: (String? value){
+                    if(value?.trim().isEmpty ?? true) {
+                      return 'Enter your last name';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 8,),
                 TextFormField(
