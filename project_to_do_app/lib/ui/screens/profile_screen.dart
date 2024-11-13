@@ -70,6 +70,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: const InputDecoration(
                     hintText: "Email"
                   ),
+                  validator: (String? value){
+                    if(value?.trim().isEmpty ?? true) {
+                      return 'Enter you email';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 8,),
                 TextFormField(
