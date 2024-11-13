@@ -227,3 +227,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 }
+
+//TODO : needs to restart the app to show the change in the update profile
+
