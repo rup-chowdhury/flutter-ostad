@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   validator: (String? value){
                     if(value?.trim().isEmpty ?? true) {
-                      return 'Enter you email';
+                      return 'Enter your email';
                     }
                     return null;
                   },
@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   validator: (String? value){
                     if(value?.trim().isEmpty ?? true) {
-                      return 'Enter you first name';
+                      return 'Enter your first name';
                     }
                     return null;
                   },
