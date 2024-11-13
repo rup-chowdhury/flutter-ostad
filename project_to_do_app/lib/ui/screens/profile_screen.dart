@@ -109,6 +109,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: const InputDecoration(
                       hintText: "Phone"
                   ),
+                  validator: (String? value){
+                    if(value?.trim().isEmpty ?? true) {
+                      return 'Enter you phone number';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 8,),
                 TextFormField(
