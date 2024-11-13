@@ -7,6 +7,7 @@ import 'package:project_to_do_app/data/models/user_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
+import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 
@@ -124,11 +125,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 const SizedBox(height: 16,),
-                ElevatedButton(onPressed: (){
-                  if(_formKey.currentState!.validate()) {
-                  _updateProfile();
-                  }
-                }, child: const Icon(Icons.arrow_circle_right_outlined))
+                Visibility(
+                  visible: !_updateProfileInProgress,
+                  replacement: const CenteredCircularProgressIndicator(),
+                  child: ElevatedButton(onPressed: (){
+                    if(_formKey.currentState!.validate()) {
+                    _updateProfile();
+                    }
+                  }, child: const Icon(Icons.arrow_circle_right_outlined)),
+                )
               ],
             ),
           ),
