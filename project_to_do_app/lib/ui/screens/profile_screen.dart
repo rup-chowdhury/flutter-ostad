@@ -133,18 +133,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),),
             ),
             const SizedBox(width: 8,),
-            const Text("Selected Photo"),
+            Text(_getSelectedPhotoTitle()),
           ],
         ),
       ),
     );
   }
 
+  String _getSelectedPhotoTitle() {
+    if(selectedImage != null) {
+      return selectedImage!.name;
+    }
+    return 'Select Photo';
+  }
+
   Future<void> _selectImage() async{
-    ImagePicker _imagePicker = ImagePicker();
-    XFile? _pickedImage = await _imagePicker.pickImage(source: ImageSource.gallery);
-    if(_pickedImage != null){
-      selectedImage = _pickedImage;
+    ImagePicker imagePicker = ImagePicker();
+    XFile? pickedImage = await imagePicker.pickImage(source: ImageSource.gallery);
+    if(pickedImage != null){
+      selectedImage = pickedImage;
       setState(() {});
     }
   }
