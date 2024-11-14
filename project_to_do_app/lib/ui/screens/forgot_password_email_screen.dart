@@ -121,9 +121,9 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
     }
   }
 
-  void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
-  }
+  // void _onTapForgotPassword() {
+  //   //TODO: implement forgot password button action
+  // }
 
   void _onTapSignIn() {
     //TODO: action for pressing Sign up button
