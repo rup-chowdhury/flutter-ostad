@@ -8,8 +8,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _counter = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: Center(
+        child: Text(
+          '$_counter',
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _onTapAddButton,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  void _onTapAddButton() {
+    _counter++;
+    setState(() {});
   }
 }
