@@ -48,5 +48,6 @@ class CounterController extends GetxController {
 
   void increment() {
     counter++;
+    update();
   }
 }
