@@ -23,5 +23,4 @@ class ControllerBinder extends Bindings {
   void dependencies() {
     Get.put(CounterController());
   }
-
 }

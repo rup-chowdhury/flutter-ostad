@@ -9,7 +9,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CounterController counterController = CounterController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: GetBuilder<CounterController>(
-          init: counterController,
           builder: (counterController){
             return Text(
               '${counterController.counter}',
@@ -32,14 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
         )
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _onTapAddButton,
+        onPressed: () {
+          Get.find<CounterController>().increment();
+        },
         child: const Icon(Icons.add),
       ),
     );
-  }
-
-  void _onTapAddButton() {
-    counterController.increment();
   }
 }
 
