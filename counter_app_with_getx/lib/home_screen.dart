@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Text(
           '$_counter',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.w600,
           ),
