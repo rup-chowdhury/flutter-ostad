@@ -18,16 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Home'),
       ),
       body: Center(
-        child: Obx((){
-          return Text(
-            '$_counter',
+        child: Text(
+            '${counterController.counter}',
             style: const TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.w600,
             ),
           );
-        },
-        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _onTapAddButton,
@@ -37,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onTapAddButton() {
-    _counter++;
+    counterController.increment();
   }
 }
 
