@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
+  RxInt _counter = 0.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Home'),
       ),
       body: Center(
-        child: Text(
-          '$_counter',
-          style: const TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.w600,
-          ),
+        child: Obx((){
+          return Text(
+            '$_counter',
+            style: const TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.w600,
+            ),
+          );
+        },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -34,6 +38,5 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _onTapAddButton() {
     _counter++;
-    setState(() {});
   }
 }
