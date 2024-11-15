@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  RxInt _counter = 0.obs;
+  CounterController counterController = CounterController();
 
   @override
   Widget build(BuildContext context) {
