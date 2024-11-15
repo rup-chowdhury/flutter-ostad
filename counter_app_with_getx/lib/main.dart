@@ -1,3 +1,4 @@
+import 'package:counter_app_with_getx/counter_controller.dart';
 import 'package:counter_app_with_getx/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

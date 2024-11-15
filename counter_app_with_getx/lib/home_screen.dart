@@ -1,3 +1,4 @@
+import 'package:counter_app_with_getx/counter_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,11 +40,4 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class CounterController extends GetxController {
-  int counter = 0;
 
-  void increment() {
-    counter++;
-    update();
-  }
-}
