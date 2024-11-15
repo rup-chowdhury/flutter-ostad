@@ -18,13 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Home'),
       ),
       body: Center(
-        child: Text(
-            '${counterController.counter}',
-            style: const TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.w600,
-            ),
-          );
+        child: GetBuilder<CounterController>(
+          init: counterController,
+          builder: (counterController){
+            return Text(
+              '${counterController.counter}',
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w600,
+              ),
+            );
+          },
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _onTapAddButton,
