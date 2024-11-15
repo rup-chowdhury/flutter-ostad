@@ -40,3 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _counter++;
   }
 }
+
+class CounterController extends GetxController {
+  int counter = 0;
+
+  void increment() {
+    counter++;
+  }
+}
