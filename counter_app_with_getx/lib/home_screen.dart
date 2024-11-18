@@ -1,4 +1,5 @@
 import 'package:counter_app_with_getx/counter_controller.dart';
+import 'package:counter_app_with_getx/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,16 +19,23 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Home'),
       ),
       body: Center(
-        child: GetBuilder<CounterController>(
-          builder: (counterController){
-            return Text(
-              '${counterController.counter}',
-              style: const TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
+        child: Column(
+          children: [
+            GetBuilder<CounterController>(
+            builder: (counterController){
+              return Text(
+                '${counterController.counter}',
+                style: const TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
+                ),
+              );
+            },
+          ),
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
+            }, child: const Text('Settings'))
+      ]
         )
       ),
       floatingActionButton: FloatingActionButton(
