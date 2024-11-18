@@ -12,7 +12,9 @@ class SettingsScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            TextButton(onPressed: (){}, child:
+            TextButton(onPressed: (){
+              Navigator.pop(context);
+            }, child:
             const Text('Back'))
           ],
         ),
