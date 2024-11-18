@@ -11,7 +11,10 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          
+          children: [
+            TextButton(onPressed: (){}, child:
+            const Text('Back'))
+          ],
         ),
       ),
     );
