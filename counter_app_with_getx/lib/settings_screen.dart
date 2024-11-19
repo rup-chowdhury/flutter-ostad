@@ -1,3 +1,4 @@
+import 'package:counter_app_with_getx/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,12 @@ class SettingsScreen extends StatelessWidget {
               // Navigator.pop(context);
               Get.back();
             }, child:
-            const Text('Back'))
+            const Text('Back')),
+            ElevatedButton(onPressed: (){
+              // Navigator.pop(context);
+              Get.to(() => const ProfileScreen());
+            }, child:
+            const Text('Profile'))
           ],
         ),
       ),
