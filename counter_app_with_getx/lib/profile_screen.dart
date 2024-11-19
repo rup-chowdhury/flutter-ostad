@@ -18,7 +18,8 @@ class ProfileScreen extends StatelessWidget {
               // Navigator.pop(context);
               Get.back();
             }, child:
-            const Text('Back'))
+            const Text('Back')),
+            TextButton(onPressed: (){}, child: )
           ],
         ),
       ),
