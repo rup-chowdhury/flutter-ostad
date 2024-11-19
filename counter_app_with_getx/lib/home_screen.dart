@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             TextButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
             }, child: const Text('Settings'))
-      ]
+                    ]
         )
       ),
       floatingActionButton: FloatingActionButton(
