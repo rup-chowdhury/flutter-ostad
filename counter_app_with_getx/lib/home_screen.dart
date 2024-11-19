@@ -11,7 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,26 +18,28 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Home'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GetBuilder<CounterController>(
-            builder: (counterController){
-              return Text(
-                '${counterController.counter}',
-                style: const TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w600,
-                ),
-              );
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        GetBuilder<CounterController>(
+          builder: (counterController) {
+            return Text(
+              '${counterController.counter}',
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w600,
+              ),
+            );
+          },
+        ),
+        TextButton(
+            onPressed: () {
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => const SettingsScreen()));
+              Get.to(() => const SettingsScreen());
             },
-          ),
-            TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
-            }, child: const Text('Settings'))
-                    ]
-        )
-      ),
+            child: const Text('Settings'))
+      ])),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.find<CounterController>().increment();
@@ -48,5 +49,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
