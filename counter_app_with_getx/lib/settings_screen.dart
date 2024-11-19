@@ -22,7 +22,7 @@ class SettingsScreen extends StatelessWidget {
             const Text('Back')),
             ElevatedButton(onPressed: (){
               // Navigator.pop(context);
-              Get.to(() => const ProfileScreen());
+              Get.off(() => const ProfileScreen());
             }, child:
             const Text('Profile'))
           ],
