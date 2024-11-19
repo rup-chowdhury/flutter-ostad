@@ -11,6 +11,7 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(onPressed: (){
               Navigator.pop(context);
