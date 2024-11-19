@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GetBuilder<CounterController>(
             builder: (counterController){
