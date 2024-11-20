@@ -15,16 +15,18 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(onPressed: (){
-              // Navigator.pop(context);
-              Get.back();
-            }, child:
-            const Text('Back')),
-            ElevatedButton(onPressed: (){
-              // Navigator.pop(context);
-              Get.off(() => const ProfileScreen());
-            }, child:
-            const Text('Profile'))
+            TextButton(
+                onPressed: () {
+                  // Navigator.pop(context);
+                  Get.back();
+                },
+                child: const Text('Back')),
+            ElevatedButton(
+                onPressed: () {
+                  // Navigator.pop(context);
+                  Get.off(() => const ProfileScreen());
+                },
+                child: const Text('Profile'))
           ],
         ),
       ),
