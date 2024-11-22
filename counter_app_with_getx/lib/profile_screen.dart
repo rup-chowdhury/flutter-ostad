@@ -1,3 +1,4 @@
+import 'package:counter_app_with_getx/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,9 @@ class ProfileScreen extends StatelessWidget {
               Get.back();
             }, child:
             const Text('Back')),
-            TextButton(onPressed: (){},
+            TextButton(onPressed: (){
+              Get.offAll(() => const HomeScreen(), opaque: false);
+            },
                 child: const Text('Home'))
           ],
         ),
