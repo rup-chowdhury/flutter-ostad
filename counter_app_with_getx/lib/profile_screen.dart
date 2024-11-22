@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
             }, child:
             const Text('Back')),
             TextButton(onPressed: (){
-              Get.offAll(() => const HomeScreen(), opaque: false);
+              Get.offAll(() => const HomeScreen(), opaque: false, transition: Transition.fadeIn);
             },
                 child: const Text('Home'))
           ],

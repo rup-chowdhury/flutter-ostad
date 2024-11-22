@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   // Navigator.pop(context);
-                  Get.off(() => const ProfileScreen());
+                  Get.off(() => const ProfileScreen(), transition: Transition.fadeIn);
                 },
                 child: const Text('Profile'))
           ],

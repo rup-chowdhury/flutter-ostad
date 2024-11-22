@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //     context,
               //     MaterialPageRoute(
               //         builder: (context) => const SettingsScreen()));
-              Get.to(() => const SettingsScreen());
+              Get.to(() => const SettingsScreen(), transition: Transition.fadeIn);
             },
             child: const Text('Settings'))
       ])),
