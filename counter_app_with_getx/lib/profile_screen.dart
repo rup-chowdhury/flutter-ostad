@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
             }, child:
             const Text('Back')),
             TextButton(onPressed: (){},
-                child: Text('Home'))
+                child: const Text('Home'))
           ],
         ),
       ),
