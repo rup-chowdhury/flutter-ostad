@@ -17,11 +17,13 @@ class ProfileScreen extends StatelessWidget {
           children: [
             TextButton(onPressed: (){
               // Navigator.pop(context);
-              Get.back();
+              Get.back(
+                result: 'sdhhjsd'
+              );
             }, child:
             const Text('Back')),
             TextButton(onPressed: (){
-              Get.offAll(() => const HomeScreen(), opaque: false, transition: Transition.fadeIn);
+              Get.offAll(() => const HomeScreen(), opaque: false, transition: Transition.leftToRight);
             },
                 child: const Text('Home'))
           ],
