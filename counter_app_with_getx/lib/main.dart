@@ -17,6 +17,7 @@ class CounterApp extends StatelessWidget {
       home: const HomeScreen(),
       initialBinding: ControllerBinder(),
       routes: {
+        '/' : (context) => HomeScreen(),
         '/profile' : (context) => const ProfileScreen()
       },
     );
