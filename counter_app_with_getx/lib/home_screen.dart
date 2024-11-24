@@ -32,11 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         TextButton(
             onPressed: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const SettingsScreen()));
-              Get.to(() => const SettingsScreen(), transition: Transition.fadeIn);
+              Navigator.pushNamed(context, '/settings');
             },
             child: const Text('Settings'))
       ])),
