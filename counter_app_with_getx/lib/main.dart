@@ -14,8 +14,8 @@ class CounterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: const HomeScreen(),
       initialBinding: ControllerBinder(),
+      initialRoute: '/',
       routes: {
         '/' : (context) => const HomeScreen(),
         '/profile' : (context) => const ProfileScreen()
