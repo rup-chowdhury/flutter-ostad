@@ -16,10 +16,15 @@ import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
 import 'package:project_to_do_app/ui/screens/splash_screen.dart';
 import 'package:project_to_do_app/ui/utils/app_colors.dart';
 
-class TaskManagerApp extends StatelessWidget {
+class TaskManagerApp extends StatefulWidget {
   const TaskManagerApp({super.key});
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+  @override
+  State<TaskManagerApp> createState() => _TaskManagerAppState();
+}
+
+class _TaskManagerAppState extends State<TaskManagerApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
