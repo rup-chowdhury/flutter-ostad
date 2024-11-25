@@ -23,8 +23,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
-
-  bool _inProgress = false;
+  final SignInController signInController = Get.find<SignInController>();
 
   @override
   Widget build(BuildContext context) {
@@ -154,17 +153,13 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Future<void> _signIn() async {
-    final bool result = await Get.find<SignInController>()
+    final bool result = await signInController
         .signIn(_emailTEController.text.trim(), _passwordTEController.text);
 
     if (result) {
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const MainBottomNavBarScreen()),
-          (value) => false);
+      Get.offAllNamed(MainBottomNavBarScreen.name);
     } else {
-      showSnackBarMessage(context, Get.find<SignInController>().errorMessage!, true);
+      showSnackBarMessage(context, signInController.errorMessage!, true);
     }
   }
 
