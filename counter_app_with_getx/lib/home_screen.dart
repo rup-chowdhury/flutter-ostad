@@ -42,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const GetSnackBar(
                   title: 'Title',
                   message: 'This is message',
+                  duration: Duration(seconds: 3),
                 )
               );
             }, child: const Text('Show Snack Bar'),),
