@@ -99,13 +99,17 @@ class _SignInScreenState extends State<SignInScreen> {
           const SizedBox(
             height: 24,
           ),
-          Visibility(
-            visible: _inProgress == false,
-            replacement: const CenteredCircularProgressIndicator(),
-            child: ElevatedButton(
-              onPressed: _onTapNextButton,
-              child: const Icon(Icons.arrow_circle_right_outlined),
-            ),
+          GetBuilder<SignInController>(
+            builder: (controller) {
+              return Visibility(
+                visible: controller.inProgress == false,
+                replacement: const CenteredCircularProgressIndicator(),
+                child: ElevatedButton(
+                  onPressed: _onTapNextButton,
+                  child: const Icon(Icons.arrow_circle_right_outlined),
+                ),
+              );
+            }
           ),
         ],
       ),
