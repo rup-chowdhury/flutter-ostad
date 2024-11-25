@@ -15,6 +15,8 @@ import 'package:project_to_do_app/ui/widgets/task_summary_card.dart';
 class NewTaskScreen extends StatefulWidget {
   const NewTaskScreen({super.key});
 
+  static const String name = '/newTaskScreen';
+
   @override
   State<NewTaskScreen> createState() => _NewTaskScreenState();
 }

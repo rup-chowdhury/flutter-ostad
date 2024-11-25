@@ -12,6 +12,8 @@ import '../../data/utils/urls.dart';
 class CompletedTaskScreen extends StatefulWidget {
   const CompletedTaskScreen({super.key});
 
+  static const String name = '/completedTaskScreen';
+
   @override
   State<CompletedTaskScreen> createState() => _CompletedTaskScreenState();
 }

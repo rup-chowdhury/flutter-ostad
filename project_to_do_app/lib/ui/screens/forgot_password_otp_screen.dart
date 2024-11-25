@@ -14,6 +14,8 @@ import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 class ForgotPasswordOTPScreen extends StatefulWidget {
   const ForgotPasswordOTPScreen( {super.key});
 
+  static const String name = '/forgotPasswordOtpScreen';
+
   @override
   State<ForgotPasswordOTPScreen> createState() =>
       _ForgotPasswordOTPScreenState();

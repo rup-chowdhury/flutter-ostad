@@ -8,6 +8,8 @@ import 'package:project_to_do_app/ui/widgets/screen_background.dart';
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
 
+  static const String name = '/resetPasswordScreen';
+
   @override
   State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }

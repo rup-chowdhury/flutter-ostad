@@ -8,6 +8,8 @@ import 'package:project_to_do_app/ui/widgets/task_manager_app_bar.dart';
 class AddNewTaskScreen extends StatefulWidget {
   const AddNewTaskScreen({super.key});
 
+  static const String name = '/addNewTaskScreen';
+
   @override
   State<AddNewTaskScreen> createState() => _AddNewTaskScreenState();
 }

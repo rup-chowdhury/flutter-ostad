@@ -11,6 +11,8 @@ import '../widgets/snack_bar_message.dart';
 class ProgressTaskScreen extends StatefulWidget {
   const ProgressTaskScreen({super.key});
 
+  static const String name = '/progressTaskScreen';
+
   @override
   State<ProgressTaskScreen> createState() => _ProgressTaskScreenState();
 }
