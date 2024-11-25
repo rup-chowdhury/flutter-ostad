@@ -8,11 +8,12 @@ import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
 class SignInController extends GetxController{
   bool _inProgress = false;
 
-  bool get inProgress => _inProgress;
 
   String? _errorMessage;
 
   String? get errorMessage => _errorMessage;
+
+  bool get inProgress => _inProgress;
 
   Future<bool> signIn(String email, String password) async{
     bool isSuccess = false;
@@ -31,7 +32,7 @@ class SignInController extends GetxController{
       LoginModel loginModel = LoginModel.fromJson(response.responseData);
       await AuthController.saveAccessToken(loginModel.token!);
       await AuthController.saveUserData(loginModel.data!);
-      _inProgress = true;
+      isSuccess = true;
       update();
     } else {
       _errorMessage = response.errorMessage;
