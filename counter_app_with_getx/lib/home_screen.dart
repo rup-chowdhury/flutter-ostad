@@ -37,7 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Get.toNamed(SettingsScreen.name);
             },
             child: const Text('Settings'),),
-            ElevatedButton(onPressed: (){}, child: const Text('Show Snack Bar'),),
+            ElevatedButton(onPressed: (){
+              Get.showSnackbar(
+                const GetSnackBar(
+                  title: 'Title',
+                  message: 'This is message',
+                )
+              );
+            }, child: const Text('Show Snack Bar'),),
       ],),),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
