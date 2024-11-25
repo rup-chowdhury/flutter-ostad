@@ -36,8 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               Get.toNamed(SettingsScreen.name);
             },
-            child: const Text('Settings'))
-      ])),
+            child: const Text('Settings'),),
+            ElevatedButton(onPressed: (){}, child: const Text('Show Snack Bar'),),
+      ],),),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.find<CounterController>().increment();
