@@ -32,7 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/settings');
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/settings', (predicate) => false);
             },
             child: const Text('Settings'))
       ])),
