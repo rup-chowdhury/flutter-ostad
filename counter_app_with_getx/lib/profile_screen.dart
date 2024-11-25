@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
+  static const String name = '/profile';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
