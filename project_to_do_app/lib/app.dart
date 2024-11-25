@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_to_do_app/controller_binder.dart';
 import 'package:project_to_do_app/ui/screens/add_new_task_screen.dart';
 import 'package:project_to_do_app/ui/screens/cancelled_task_screen.dart';
 import 'package:project_to_do_app/ui/screens/completed_task_screen.dart';
@@ -46,6 +47,7 @@ class TaskManagerApp extends StatelessWidget {
         SignInScreen.name : (context)=> const SignInScreen(),
         SignUpScreen.name : (context)=> const SignUpScreen(),
       },
+      initialBinding: ControllerBinder(),
     );
   }
 
