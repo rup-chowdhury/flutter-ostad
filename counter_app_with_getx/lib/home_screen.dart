@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: 'Title',
                   message: 'This is message',
                   duration: Duration(seconds: 3),
+                  snackPosition: SnackPosition.TOP,
                 )
               );
             }, child: const Text('Show Snack Bar'),),
