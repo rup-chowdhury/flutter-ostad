@@ -129,7 +129,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           RichText(
             text: TextSpan(
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
@@ -138,7 +138,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   TextSpan(
                       text: "Sign Up",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColor.themeColor,
                       ),
                       recognizer: TapGestureRecognizer()..onTap = _onTapSignUp),
@@ -161,7 +161,7 @@ class _SignInScreenState extends State<SignInScreen> {
         .signIn(_emailTEController.text.trim(), _passwordTEController.text);
 
     if (result) {
-      Get.offAllNamed(MainBottomNavBarScreen.name);
+      Get.offNamed(MainBottomNavBarScreen.name);
     } else {
       showSnackBarMessage(context, signInController.errorMessage!, true);
     }

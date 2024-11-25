@@ -32,6 +32,7 @@ class SignInController extends GetxController{
       await AuthController.saveAccessToken(loginModel.token!);
       await AuthController.saveUserData(loginModel.data!);
       _inProgress = true;
+      update();
     } else {
       _errorMessage = response.errorMessage;
     }
