@@ -150,7 +150,6 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
     }
 
   void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
   }
 
   void _onTapSignIn() {
