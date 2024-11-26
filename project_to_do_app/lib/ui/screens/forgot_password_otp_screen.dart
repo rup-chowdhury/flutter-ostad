@@ -149,7 +149,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
       }
     }
 
-  void _onTapForgotPassword()
+  void 
 
   void _onTapSignIn() {
     Navigator.pushAndRemoveUntil(
