@@ -139,7 +139,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   }
 
     Future<void> sendOTP() async{
-      final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.checkOTP(AuthController.userData?.email ?? '' ,_otpTEController.text.toString() ?? ''));
+      final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.checkOTP(AuthController.userData?.email ?? '' ,_otpTEController.text.toString() ?? '',));
       setState(() {});
       if(response.isSuccess) {
 
