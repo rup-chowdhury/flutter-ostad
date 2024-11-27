@@ -14,7 +14,8 @@ class ForgotPasswordEmailScreen extends StatefulWidget {
   static const String name = '/forgotPasswordEmailScreen';
 
   @override
-  State<ForgotPasswordEmailScreen> createState() => _ForgotPasswordEmailScreenState();
+  State<ForgotPasswordEmailScreen> createState() =>
+      _ForgotPasswordEmailScreenState();
 }
 
 class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
@@ -45,8 +46,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
                 ),
                 Text(
                   "A 6 digits verification OTP will be sent to your email address",
-                  style: textTheme.titleSmall
-                      ?.copyWith(color: Colors.grey),
+                  style: textTheme.titleSmall?.copyWith(color: Colors.grey),
                 ),
                 const SizedBox(
                   height: 24,
@@ -112,12 +112,17 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
     sendOTP();
   }
 
-  Future<void> sendOTP() async{
-    final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.sendOTPtoEmail(_emailTEController.text.toString() ?? ''));
+  Future<void> sendOTP() async {
+    final NetworkResponse response = await NetworkCaller.getRequest(
+        url: Urls.sendOTPtoEmail(_emailTEController.text.toString() ?? ''));
     setState(() {});
-    if(response.isSuccess) {
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordOTPScreen(),),);
+    if (response.isSuccess) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ForgotPasswordOTPScreen(),
+        ),
+      );
     } else {
       showSnackBarMessage(context, response.errorMessage, true);
     }
