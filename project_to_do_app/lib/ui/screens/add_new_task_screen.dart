@@ -21,13 +21,12 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   bool _addNewTaskInProgress = false;
   bool _shouldRefreshPreviousPage = false;
 
-
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop, result){
-        if(didPop) {
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
           return;
         }
         Navigator.pop(context, _shouldRefreshPreviousPage);
@@ -42,36 +41,46 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 48,),
-                  Text("Add New Task", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),),
-                  const SizedBox(height: 24,),
+                  const SizedBox(
+                    height: 48,
+                  ),
+                  Text(
+                    "Add New Task",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
                   TextFormField(
                     controller: titleTEController,
-                    decoration: const InputDecoration(
-                      hintText: "Title"
-                    ),
+                    decoration: const InputDecoration(hintText: "Title"),
                     validator: (String? value) {
-                      if(value?.trim().isEmpty ?? true){
+                      if (value?.trim().isEmpty ?? true) {
                         return 'Enter a title';
                       }
                       return null;
                     },
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   TextFormField(
                     controller: descriptionTEController,
                     maxLines: 5,
-                    decoration: const InputDecoration(
-                        hintText: "Description"
-                    ),
+                    decoration: const InputDecoration(hintText: "Description"),
                     validator: (String? value) {
-                      if(value?.trim().isEmpty ?? true){
+                      if (value?.trim().isEmpty ?? true) {
                         return 'Enter description';
                       }
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16,),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   Visibility(
                     visible: !_addNewTaskInProgress,
                     replacement: const CircularProgressIndicator(),
@@ -87,8 +96,9 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
       ),
     );
   }
+
   void _onTapSubmitButton() {
-    if(_formKey.currentState!.validate()){
+    if (_formKey.currentState!.validate()) {
       _addNewTask();
     }
   }
@@ -98,31 +108,32 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     Map<String, dynamic> requestBody = {
       "title": titleTEController.text.trim(),
       "description": descriptionTEController.text.trim(),
-      "status":"New"
+      "status": "New"
     };
 
-    final NetworkResponse response = await NetworkCaller.postRequest(url: Urls.addNewTaskUrl, body: requestBody);
+    final NetworkResponse response = await NetworkCaller.postRequest(
+        url: Urls.addNewTaskUrl, body: requestBody);
     _addNewTaskInProgress = false;
     setState(() {});
-    if(response.isSuccess){
+    if (response.isSuccess) {
       _shouldRefreshPreviousPage = true;
       _clearTextFields();
       showSnackBarMessage(context, 'New Task Added');
       // Navigator.pop(context);
-    }else{
+    } else {
       showSnackBarMessage(context, response.errorMessage, true);
     }
   }
-    void _clearTextFields(){
-      titleTEController.clear();
-      descriptionTEController.clear();
-    }
 
-    @override
-    void dispose() {
-      titleTEController.dispose();
-      descriptionTEController.dispose();
-      super.dispose();
-    }
+  void _clearTextFields() {
+    titleTEController.clear();
+    descriptionTEController.clear();
+  }
 
+  @override
+  void dispose() {
+    titleTEController.dispose();
+    descriptionTEController.dispose();
+    super.dispose();
+  }
 }
