@@ -18,7 +18,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   final TextEditingController titleTEController = TextEditingController();
   final TextEditingController descriptionTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  
+
   bool _addNewTaskInProgress = false;
   bool _shouldRefreshPreviousPage = false;
 
@@ -98,6 +98,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     );
   }
 
+  
   void _onTapSubmitButton() {
     if (_formKey.currentState!.validate()) {
       _addNewTask();
