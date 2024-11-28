@@ -105,7 +105,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     }
   }
 
-  
+
   Future<void> _addNewTask() async {
     _addNewTaskInProgress = true;
     Map<String, dynamic> requestBody = {
@@ -113,6 +113,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
       "description": descriptionTEController.text.trim(),
       "status": "New"
     };
+    
 
     final NetworkResponse response = await NetworkCaller.postRequest(
         url: Urls.addNewTaskUrl, body: requestBody);
