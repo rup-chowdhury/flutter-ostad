@@ -129,11 +129,12 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     }
   }
 
-  
+
   void _clearTextFields() {
     titleTEController.clear();
     descriptionTEController.clear();
   }
+
 
   @override
   void dispose() {
