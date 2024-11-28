@@ -113,7 +113,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
       "description": descriptionTEController.text.trim(),
       "status": "New"
     };
-    
+
 
     final NetworkResponse response = await NetworkCaller.postRequest(
         url: Urls.addNewTaskUrl, body: requestBody);
@@ -129,6 +129,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     }
   }
 
+  
   void _clearTextFields() {
     titleTEController.clear();
     descriptionTEController.clear();
