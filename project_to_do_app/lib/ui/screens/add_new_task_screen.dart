@@ -98,13 +98,14 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     );
   }
 
-  
+
   void _onTapSubmitButton() {
     if (_formKey.currentState!.validate()) {
       _addNewTask();
     }
   }
 
+  
   Future<void> _addNewTask() async {
     _addNewTaskInProgress = true;
     Map<String, dynamic> requestBody = {
