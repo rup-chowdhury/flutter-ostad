@@ -49,23 +49,27 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
           children: [
             _buildSummarySection(),
             Expanded(
-              child: Visibility(
-                visible: !_getNewTaskListInProgress,
-                replacement: const CenteredCircularProgressIndicator(),
-                child: ListView.separated(
-                  itemCount: _newTaskList.length,
-                  itemBuilder: (context, index) {
-                    return TaskCard(
-                      taskModel: _newTaskList[index],
-                      onRefreshList: _getNewTaskList,
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      height: 8,
-                    );
-                  },
-                ),
+              child: GetBuilder<NewTaskListController>(
+                builder: (controller) {
+                  return Visibility(
+                    visible: !controller.inProgress,
+                    replacement: const CenteredCircularProgressIndicator(),
+                    child: ListView.separated(
+                      itemCount: controller.taskList.length,
+                      itemBuilder: (context, index) {
+                        return TaskCard(
+                          taskModel: controller.taskList[index],
+                          onRefreshList: _getNewTaskList,
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          height: 8,
+                        );
+                      },
+                    ),
+                  );
+                }
               ),
             )
           ],
