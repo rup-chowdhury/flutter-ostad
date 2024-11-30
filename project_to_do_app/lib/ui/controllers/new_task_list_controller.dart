@@ -12,7 +12,7 @@ class NewTaskListController extends GetxController{
   Future<bool> getNewTaskList() async {
     bool isSuccess = false;
     _inProgress = true;
-    setState(() {});
+    update();
     final NetworkResponse response =
     await NetworkCaller.getRequest(url: Urls.newTaskList);
     if(response.isSuccess) {
