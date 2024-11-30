@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_to_do_app/data/models/network_response.dart';
-import 'package:project_to_do_app/data/models/task_list_model.dart';
-import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/models/task_status_count_model.dart';
 import 'package:project_to_do_app/data/models/task_status_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
