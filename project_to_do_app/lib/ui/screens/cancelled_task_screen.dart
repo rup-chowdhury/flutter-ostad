@@ -20,8 +20,6 @@ class CancelledTaskScreen extends StatefulWidget {
 }
 
 class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
-  // bool _getCanceledTaskListInProgress = false;
-  // List<TaskModel> _canceledTaskList =  [];
 
   final CancelledTaskListController _cancelledTaskListController =
       Get.find<CancelledTaskListController>();
@@ -62,21 +60,6 @@ class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
   }
 
   Future<void> _getCanceledTaskList() async {
-    // _canceledTaskList.clear();
-    // _getCanceledTaskListInProgress = true;
-    // setState(() {});
-    // final NetworkResponse response =
-    //     await NetworkCaller.getRequest(url: Urls.canceledTaskList);
-    // if (response.isSuccess) {
-    //   final TaskListModel taskListModel =
-    //       TaskListModel.fromJson(response.responseData);
-    //   _canceledTaskList = taskListModel.taskList ?? [];
-    // } else {
-    //   showSnackBarMessage(context, response.errorMessage, true);
-    //   print(response.errorMessage);
-    // }
-    // _getCanceledTaskListInProgress = false;
-    // setState(() {});
     final bool result = await _cancelledTaskListController.getCancelledTaskList();
     if (result == false) {
       showSnackBarMessage(context, _cancelledTaskListController.errorMessage!, true);
