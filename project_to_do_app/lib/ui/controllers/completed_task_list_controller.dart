@@ -4,7 +4,6 @@ import 'package:project_to_do_app/data/models/task_list_model.dart';
 import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
-import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 
 class CompletedTaskListController extends GetxController{
   bool _inProgress = false;
