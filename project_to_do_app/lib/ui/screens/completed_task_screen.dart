@@ -5,8 +5,6 @@ import 'package:project_to_do_app/ui/widgets/centered_circular_progress_indicato
 import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 import 'package:project_to_do_app/ui/widgets/task_card.dart';
 
-import '../../data/utils/urls.dart';
-
 class CompletedTaskScreen extends StatefulWidget {
   const CompletedTaskScreen({super.key});
 
