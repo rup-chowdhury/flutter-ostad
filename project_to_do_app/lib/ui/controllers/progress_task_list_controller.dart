@@ -18,7 +18,7 @@ class ProgressTaskListController extends GetxController{
 
   List<TaskModel> get taskList => _taskList;
 
-  Future<bool> getCompletedTaskList() async{
+  Future<bool> getProgressTaskList() async{
     bool isSuccess = false;
     _inProgress = true;
     update();
