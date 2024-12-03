@@ -5,7 +5,7 @@ import 'package:project_to_do_app/data/models/task_model.dart';
 import 'package:project_to_do_app/data/services/network_caller.dart';
 import 'package:project_to_do_app/data/utils/urls.dart';
 
-class CancelledTaskListController extends GetxController{
+class CancelledTaskListController extends GetxController {
   bool _inProgress = false;
 
   String? _errorMessage;
@@ -23,9 +23,10 @@ class CancelledTaskListController extends GetxController{
     _inProgress = true;
     update();
     final NetworkResponse response =
-    await NetworkCaller.getRequest(url: Urls.canceledTaskList);
-    if(response.isSuccess) {
-      final TaskListModel taskListModel = TaskListModel.fromJson(response.responseData);
+        await NetworkCaller.getRequest(url: Urls.canceledTaskList);
+    if (response.isSuccess) {
+      final TaskListModel taskListModel =
+          TaskListModel.fromJson(response.responseData);
       _taskList = taskListModel.taskList ?? [];
       isSuccess = true;
     } else {
