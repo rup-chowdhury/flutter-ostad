@@ -28,7 +28,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   final NewTaskListController _newTaskListController =
       Get.find<NewTaskListController>();
 
-  
+
   @override
   void initState() {
     super.initState();
@@ -36,6 +36,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     _getTaskStatusCount();
   }
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
