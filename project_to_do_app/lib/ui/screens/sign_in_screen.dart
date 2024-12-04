@@ -1,10 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:project_to_do_app/data/models/login_model.dart';
-import 'package:project_to_do_app/data/models/network_response.dart';
-import 'package:project_to_do_app/data/services/network_caller.dart';
-import 'package:project_to_do_app/data/utils/urls.dart';
-import 'package:project_to_do_app/ui/controllers/auth_controller.dart';
+import 'package:get/get.dart';
+import 'package:project_to_do_app/ui/controllers/sign_in_controller.dart';
 import 'package:project_to_do_app/ui/screens/forgot_password_email_screen.dart';
 import 'package:project_to_do_app/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:project_to_do_app/ui/screens/sign_up_screen.dart';
@@ -16,17 +13,17 @@ import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
+  static const String name = '/signInScreen';
+
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
-
-  bool _inProgress = false;
+  final SignInController signInController = Get.find<SignInController>();
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email"),
             validator: (String? value) {
-              if(value?.isEmpty ?? true){
+              if (value?.isEmpty ?? true) {
                 return 'Enter a valid email';
               }
               return null;
@@ -90,10 +87,10 @@ class _SignInScreenState extends State<SignInScreen> {
             obscureText: true,
             decoration: const InputDecoration(hintText: "Password"),
             validator: (String? value) {
-              if(value?.isEmpty ?? true){
+              if (value?.isEmpty ?? true) {
                 return 'Enter your password';
               }
-              if(value!.length <= 6){
+              if (value!.length <= 6) {
                 return 'Enter password with more than 6 characters';
               }
               return null;
@@ -102,13 +99,17 @@ class _SignInScreenState extends State<SignInScreen> {
           const SizedBox(
             height: 24,
           ),
-          Visibility(
-            visible: _inProgress == false,
-            replacement: const CenteredCircularProgressIndicator(),
-            child: ElevatedButton(
-              onPressed: _onTapNextButton,
-              child: const Icon(Icons.arrow_circle_right_outlined),
-            ),
+          GetBuilder<SignInController>(
+            builder: (controller) {
+              return Visibility(
+                visible: controller.inProgress == false,
+                replacement: const CenteredCircularProgressIndicator(),
+                child: ElevatedButton(
+                  onPressed: _onTapNextButton,
+                  child: const Icon(Icons.arrow_circle_right_outlined),
+                ),
+              );
+            }
           ),
         ],
       ),
@@ -128,7 +129,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           RichText(
             text: TextSpan(
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
@@ -137,7 +138,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   TextSpan(
                       text: "Sign Up",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColor.themeColor,
                       ),
                       recognizer: TapGestureRecognizer()..onTap = _onTapSignUp),
@@ -149,38 +150,28 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapNextButton() {
-    if(!_formKey.currentState!.validate()){
+    if (!_formKey.currentState!.validate()) {
       return;
     }
     _signIn();
   }
 
-  Future<void> _signIn() async{
-    _inProgress = true;
-    setState(() {});
+  Future<void> _signIn() async {
+    final bool result = await signInController
+        .signIn(_emailTEController.text.trim(), _passwordTEController.text);
 
-    Map<String, dynamic> requestBody = {
-      "email": _emailTEController.text.trim(),
-      "password":_passwordTEController.text
-    };
-
-    final NetworkResponse response = await NetworkCaller.postRequest(url: Urls.loginUrl, body: requestBody);
-    _inProgress = false;
-    setState(() {});
-    if(response.isSuccess) {
-      LoginModel loginModel = LoginModel.fromJson(response.responseData);
-      await AuthController.saveAccessToken(loginModel.token!);
-      await AuthController.saveUserData(loginModel.data!);
-
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()), (value) => false);
+    if (result) {
+      Get.offNamed(MainBottomNavBarScreen.name);
     } else {
-      showSnackBarMessage(context, response.errorMessage, true);
+      showSnackBarMessage(context, signInController.errorMessage!, true);
     }
   }
 
-
   void _onTapForgotPassword() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordEmailScreen()));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const ForgotPasswordEmailScreen()));
   }
 
   void _onTapSignUp() {

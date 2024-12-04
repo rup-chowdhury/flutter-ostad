@@ -14,6 +14,8 @@ import 'package:project_to_do_app/ui/widgets/snack_bar_message.dart';
 class ForgotPasswordOTPScreen extends StatefulWidget {
   const ForgotPasswordOTPScreen( {super.key});
 
+  static const String name = '/forgotPasswordOtpScreen';
+
   @override
   State<ForgotPasswordOTPScreen> createState() =>
       _ForgotPasswordOTPScreenState();
@@ -137,7 +139,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
   }
 
     Future<void> sendOTP() async{
-      final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.checkOTP(AuthController.userData?.email ?? '' ,_otpTEController.text.toString() ?? ''));
+      final NetworkResponse response = await NetworkCaller.getRequest(url: Urls.checkOTP(AuthController.userData?.email ?? '' ,_otpTEController.text.toString() ?? '',));
       setState(() {});
       if(response.isSuccess) {
 
@@ -146,10 +148,6 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
         showSnackBarMessage(context, response.errorMessage, true);
       }
     }
-
-  void _onTapForgotPassword() {
-    //TODO: implement forgot password button action
-  }
 
   void _onTapSignIn() {
     Navigator.pushAndRemoveUntil(
