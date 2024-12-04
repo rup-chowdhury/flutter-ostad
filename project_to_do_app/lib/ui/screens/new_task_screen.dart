@@ -28,6 +28,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   final NewTaskListController _newTaskListController =
       Get.find<NewTaskListController>();
 
+  
   @override
   void initState() {
     super.initState();
