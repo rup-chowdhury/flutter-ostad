@@ -36,7 +36,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     _getTaskStatusCount();
   }
 
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +80,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     );
   }
 
+  
   Padding _buildSummarySection() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
