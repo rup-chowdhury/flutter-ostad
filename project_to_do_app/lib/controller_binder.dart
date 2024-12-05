@@ -14,5 +14,4 @@ class ControllerBinder extends Bindings{
     Get.put(CompletedTaskListController());
     Get.put(ProgressTaskListController());
   }
-
 }
