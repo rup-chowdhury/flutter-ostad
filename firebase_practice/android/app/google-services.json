@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "562338936457",
+    "project_id": "signin-signup-firebase1",
+    "storage_bucket": "signin-signup-firebase1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562338936457:android:ce01a2b4fc42d49fc97858",
+        "android_client_info": {
+          "package_name": "com.example.firebase_practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm6oDJ1dlxQCRZ0Evn-iRl9CJq2QZrv24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562338936457:android:4cd7b515c75c5b9dc97858",
+        "android_client_info": {
+          "package_name": "com.rup.signinsignupfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm6oDJ1dlxQCRZ0Evn-iRl9CJq2QZrv24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
