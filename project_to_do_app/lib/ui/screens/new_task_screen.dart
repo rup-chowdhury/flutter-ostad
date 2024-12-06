@@ -90,6 +90,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     );
   }
 
+  
   List<TaskSummaryCard> _getTaskSummaryCardList(){
     List<TaskSummaryCard> taskSummaryCardList = [];
     for(TaskStatusModel t in _taskStatusCountList ){
