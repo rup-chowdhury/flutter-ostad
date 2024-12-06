@@ -90,7 +90,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     );
   }
 
-  
+
   List<TaskSummaryCard> _getTaskSummaryCardList(){
     List<TaskSummaryCard> taskSummaryCardList = [];
     for(TaskStatusModel t in _taskStatusCountList ){
@@ -100,6 +100,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return taskSummaryCardList;
   }
 
+  
   Future<void> _onTapAddFAB() async {
     final bool? shouldRefresh = await Navigator.push(context,
         MaterialPageRoute(
