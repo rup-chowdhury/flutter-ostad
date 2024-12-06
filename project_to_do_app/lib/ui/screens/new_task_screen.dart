@@ -113,7 +113,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     // if()
   }
 
-  
+
   Future<void> _getNewTaskList() async {
     _newTaskList.clear();
     _getNewTaskListInProgress = true;
@@ -130,6 +130,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     _getNewTaskListInProgress = false;
     setState(() {});
   }
+  
 
   Future<void> _getTaskStatusCount() async {
     _taskStatusCountList.clear();
