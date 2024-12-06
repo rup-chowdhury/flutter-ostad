@@ -100,7 +100,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return taskSummaryCardList;
   }
 
-  
+
   Future<void> _onTapAddFAB() async {
     final bool? shouldRefresh = await Navigator.push(context,
         MaterialPageRoute(
@@ -113,6 +113,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     // if()
   }
 
+  
   Future<void> _getNewTaskList() async {
     _newTaskList.clear();
     _getNewTaskListInProgress = true;
