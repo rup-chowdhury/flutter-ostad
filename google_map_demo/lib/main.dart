@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+void Main() {
+  runApp(const GoogleMapsApp());
+}
+
 class GoogleMapsApp extends StatelessWidget {
   const GoogleMapsApp({super.key});
 
