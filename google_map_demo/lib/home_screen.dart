@@ -15,7 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Maps Screen'),
       ),
-      body: const GoogleMap(initialCameraPosition: CameraPosition(target: LatLng(23.83762441058588, 90.35722629592206,),),),
+      body: const GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(
+            23.83762441058588,
+            90.35722629592206,
+          ),
+        ),
+      ),
     );
   }
 }
