@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   late GoogleMapController googleMapController;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
         mapType: MapType.satellite,
         zoomControlsEnabled: true,
         zoomGesturesEnabled: true,
+        onMapCreated: (GoogleMapController controller){
+          googleMapController = controller;
+        },
         initialCameraPosition: const CameraPosition(
           target: LatLng(
             23.83762441058588,   //LongLat of MIST Tower 3
