@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
           print(latLng);
         },
         mapType: MapType.satellite,
+        zoomControlsEnabled: true,
         initialCameraPosition: const CameraPosition(
           target: LatLng(
             23.83762441058588,   //LongLat of MIST Tower 3
