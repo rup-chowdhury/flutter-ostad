@@ -16,9 +16,10 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Maps Screen'),
       ),
       body: const GoogleMap(
+        mapType: MapType.satellite,
         initialCameraPosition: CameraPosition(
           target: LatLng(
-            23.83762441058588,
+            23.83762441058588,   //LongLat of MIST Tower 3
             90.35722629592206,
           ),
           zoom: 32,
