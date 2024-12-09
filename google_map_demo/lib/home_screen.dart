@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
             23.83762441058588,
             90.35722629592206,
           ),
+          zoom: 32,
         ),
       ),
     );
