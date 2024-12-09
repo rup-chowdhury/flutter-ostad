@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onMapCreated: (GoogleMapController controller){
           googleMapController = controller;
         },
+        trafficEnabled: true,
         initialCameraPosition: const CameraPosition(
           target: LatLng(
             23.83762441058588,   //LongLat of MIST Tower 3
