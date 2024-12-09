@@ -11,6 +11,7 @@ class GoogleMapsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: true,
       home: HomeScreen(),
     );
   }
