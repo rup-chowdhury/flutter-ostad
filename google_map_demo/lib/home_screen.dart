@@ -48,14 +48,17 @@ class _HomeScreenState extends State<HomeScreen> {
               title: 'My Office'
             )
           ),
-          const Marker(
+          Marker(
               markerId: MarkerId('my-present-home'),
               position: LatLng(
                 23.730949422298362,
                 90.42521660684274,
               ),
             infoWindow: InfoWindow(
-              title: 'My Home now'
+              title: 'My Home now',
+              onTap: (){
+                print('Tapped on Home');
+              }
             )
           ),
         },
