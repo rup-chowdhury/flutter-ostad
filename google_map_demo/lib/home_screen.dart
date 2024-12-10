@@ -59,8 +59,15 @@ class _HomeScreenState extends State<HomeScreen> {
               title: 'My Home now',
               onTap: (){
                 print('Tapped on Home');
-              }
-            )
+              },
+            ),
+            draggable: true,
+            onDragStart: (LatLng dragStartLatLng){
+                print('Start LatLng: $dragStartLatLng');
+            },
+            onDragEnd: (LatLng dragEndLatLng){
+              print('End LatLng: $dragEndLatLng');
+            },
           ),
         },
       ),
