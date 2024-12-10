@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 23.730949422298362,
                 90.42521660684274,
               ),
+            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
             infoWindow: InfoWindow(
               title: 'My Home now',
               onTap: (){
