@@ -19,9 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Maps Screen'),
       ),
       body: GoogleMap(
-        onTap: (LatLng latLng){
-          print(latLng);
-        },
+        // onTap: (LatLng latLng){
+        //   print(latLng);
+        // },
         mapType: MapType.satellite,
         zoomControlsEnabled: true,
         zoomGesturesEnabled: true,
@@ -101,8 +101,24 @@ class _HomeScreenState extends State<HomeScreen> {
               center: LatLng(23.827910087575948, 90.36395443694059,),
               radius: 7,
               strokeColor: Colors.yellow,
-              strokeWidth: 0
+              strokeWidth: 0,
+              onTap: (){
+                print('High possibility of vehicle collision, drive slowly and maintain the rules.');
+              }
           ),
+        },
+        polylines: <Polyline>{
+          Polyline(
+            polylineId: PolylineId('Path to Heaven'),
+            color: Colors.amber,
+            width: 4,
+            // patterns: List.empty(),
+            // jointType: JointType.round,
+            points: <LatLng>[
+              LatLng(23.825783016281083, 90.36416110811554),
+              LatLng(23.727964456798325, 90.41928761126101),
+            ]
+          )
         },
       ),
     );
