@@ -190,4 +190,8 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
+
+  Future<void> requestLocationPermission() async {
+
+  }
 }
