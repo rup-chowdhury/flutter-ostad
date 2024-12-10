@@ -70,6 +70,40 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         },
+        circles: <Circle>{
+          Circle(
+            circleId: CircleId('accidents-in-agargaon'),
+            fillColor: Colors.red.withOpacity(0.5),
+            center: LatLng(23.776925942436396, 90.38014548482569,),
+            radius: 50,
+            strokeColor: Colors.red,
+            strokeWidth: 5
+          ),
+          Circle(
+            circleId: CircleId('extensive-injury-accidents-in-mirpur12-mor'),
+            fillColor: Colors.orange.withOpacity(0.5),
+            center: LatLng(23.827890458890693, 90.36406172529641,),
+            radius: 7,
+            strokeColor: Colors.orange,
+            strokeWidth: 0
+          ),
+          Circle(
+              circleId: CircleId('minor-injury-accidents-in-mirpur12-mor'),
+              fillColor: Colors.green.withOpacity(0.5),
+              center: LatLng(23.82792480908795, 90.36390615718047,),
+              radius: 7,
+              strokeColor: Colors.green,
+              strokeWidth: 0
+          ),
+          Circle(
+              circleId: CircleId('vehicle-collision-accidents-in-mirpur12-mor'),
+              fillColor: Colors.yellow.withOpacity(0.5),
+              center: LatLng(23.827910087575948, 90.36395443694059,),
+              radius: 7,
+              strokeColor: Colors.yellow,
+              strokeWidth: 0
+          ),
+        },
       ),
     );
   }
