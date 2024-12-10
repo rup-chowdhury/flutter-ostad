@@ -36,20 +36,27 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           zoom: 32,
         ),
+
         markers: <Marker>{
           const Marker(
             markerId: MarkerId('initial-position'),
             position: LatLng(
               23.83762441058588,   //LongLat of MIST Tower 3
               90.35722629592206,
+            ),
+            infoWindow: InfoWindow(
+              title: 'My Office'
             )
           ),
           const Marker(
-              markerId: MarkerId('pollobi-metro'),
+              markerId: MarkerId('my-present-home'),
               position: LatLng(
-                23.82610317065891,
-                90.36407638895095,
-              )
+                23.730949422298362,
+                90.42521660684274,
+              ),
+            infoWindow: InfoWindow(
+              title: 'My Home now'
+            )
           ),
         },
       ),
