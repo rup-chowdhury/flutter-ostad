@@ -147,19 +147,45 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         },
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        googleMapController.animateCamera(
-          CameraUpdate.newCameraPosition(
-            const CameraPosition(
-              zoom: 16,
-                target: LatLng(
-                    23.730949422298362,
-                    90.42521660684274),
-            ),
+      floatingActionButton:
+      Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: (){
+            googleMapController.animateCamera(
+              CameraUpdate.newCameraPosition(
+                const CameraPosition(
+                  zoom: 16,
+                    target: LatLng(
+                        23.730949422298362,
+                        90.42521660684274),
+                ),
+              )
+            );
+            },
+          child: const Icon(Icons.home),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          FloatingActionButton(
+            onPressed: (){
+              googleMapController.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    zoom: 17,
+                      target: LatLng(
+                          23.83762441058588,   //LongLat of MIST Tower 3
+                          90.35722629592206
+                      ),
+                  ),
+                ),
+              );
+            },
+            child: Icon(Icons.work),
           )
-        );
-        },
-      child: const Icon(Icons.home),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
