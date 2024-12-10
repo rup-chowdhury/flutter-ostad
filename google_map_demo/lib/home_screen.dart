@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -191,7 +192,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Future<void> requestLocationPermission() async {
-
+  Future<bool> requestLocationPermission() async {
+    LocationPermission permission = await Geolocator.requestPermission();
+    if(permission == LocationPermission.always || permission == LocationPermission.whileInUse){
+      return true;
+    } else {
+      return false;
+    }
   }
 }
