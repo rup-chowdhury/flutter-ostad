@@ -11,6 +11,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  Set<Marker> markers = {};
+
+  Set<Polyline> polyLines = {};
+
   late GoogleMapController googleMapController;
 
   @override
@@ -20,6 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Maps Screen'),
       ),
       body: GoogleMap(
+        markers: markers,
+        polylines: polyLines,
         // onTap: (LatLng latLng){
         //   print(latLng);
         // },
@@ -38,39 +44,39 @@ class _HomeScreenState extends State<HomeScreen> {
           zoom: 32,
         ),
 
-        markers: <Marker>{
-          const Marker(
-            markerId: MarkerId('initial-position'),
-            position: LatLng(
-              23.83762441058588,   //LongLat of MIST Tower 3
-              90.35722629592206,
-            ),
-            infoWindow: InfoWindow(
-              title: 'My Office'
-            )
-          ),
-          Marker(
-              markerId: const MarkerId('my-present-home'),
-              position: const LatLng(
-                23.730949422298362,
-                90.42521660684274,
-              ),
-            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-            infoWindow: InfoWindow(
-              title: 'My Home now',
-              onTap: (){
-                print('Tapped on Home');
-              },
-            ),
-            draggable: true,
-            onDragStart: (LatLng dragStartLatLng){
-                print('Start LatLng: $dragStartLatLng');
-            },
-            onDragEnd: (LatLng dragEndLatLng){
-              print('End LatLng: $dragEndLatLng');
-            },
-          ),
-        },
+        // markers: <Marker>{
+        //   const Marker(
+        //     markerId: MarkerId('initial-position'),
+        //     position: LatLng(
+        //       23.83762441058588,   //LongLat of MIST Tower 3
+        //       90.35722629592206,
+        //     ),
+        //     infoWindow: InfoWindow(
+        //       title: 'My Office'
+        //     )
+        //   ),
+        //   Marker(
+        //       markerId: const MarkerId('my-present-home'),
+        //       position: const LatLng(
+        //         23.730949422298362,
+        //         90.42521660684274,
+        //       ),
+        //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        //     infoWindow: InfoWindow(
+        //       title: 'My Home now',
+        //       onTap: (){
+        //         print('Tapped on Home');
+        //       },
+        //     ),
+        //     draggable: true,
+        //     onDragStart: (LatLng dragStartLatLng){
+        //         print('Start LatLng: $dragStartLatLng');
+        //     },
+        //     onDragEnd: (LatLng dragEndLatLng){
+        //       print('End LatLng: $dragEndLatLng');
+        //     },
+        //   ),
+        // },
         circles: <Circle>{
           Circle(
             circleId: CircleId('accidents-in-agargaon'),
@@ -108,19 +114,19 @@ class _HomeScreenState extends State<HomeScreen> {
               }
           ),
         },
-        polylines: <Polyline>{
-          Polyline(
-            polylineId: PolylineId('Path to Heaven'),
-            color: Colors.amber,
-            width: 4,
-            // patterns: List.empty(),
-            // jointType: JointType.round,
-            points: <LatLng>[
-              LatLng(23.825783016281083, 90.36416110811554),
-              LatLng(23.727964456798325, 90.41928761126101),
-            ]
-          )
-        },
+        // polylines: <Polyline>{
+        //   Polyline(
+        //     polylineId: PolylineId('Path to Heaven'),
+        //     color: Colors.amber,
+        //     width: 4,
+        //     // patterns: List.empty(),
+        //     // jointType: JointType.round,
+        //     points: <LatLng>[
+        //       LatLng(23.825783016281083, 90.36416110811554),
+        //       LatLng(23.727964456798325, 90.41928761126101),
+        //     ]
+        //   )
+        // },
         polygons: <Polygon>{
           Polygon(
             polygonId: PolygonId('Cantonment-area'),
@@ -185,7 +191,38 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
             child: Icon(Icons.work),
-          )
+          ),
+          FloatingActionButton.extended(
+          onPressed: () async {
+    Position position = await _determinePosition();
+    Position? oldPosition = await _determineOldPosition();
+
+    googleMapController
+        .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom: 14)));
+
+
+    markers.add(Marker(markerId: const MarkerId('currentLocation'),position: LatLng(position.latitude, position.longitude)));
+
+    polyLines.add(
+        Polyline(
+              polylineId: PolylineId('Path to Heaven'),
+              color: Colors.amber,
+              width: 4,
+              // patterns: List.empty(),
+              // jointType: JointType.round,
+              points: <LatLng>[
+                LatLng(position.latitude, position.longitude),
+                LatLng(oldPosition!.latitude, oldPosition.longitude),
+              ]
+            )
+    );
+
+    setState(() {});
+
+    },
+    label: const Text("Current Location"),
+    icon: const Icon(Icons.location_history),
+    ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
@@ -199,5 +236,64 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       return false;
     }
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled');
+    }
+
+    permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+
+      if (permission == LocationPermission.denied) {
+        return Future.error("Location permission denied");
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error('Location permissions are permanently denied');
+    }
+
+    Position position = await Geolocator.getCurrentPosition();
+
+    return position;
+
+  }
+
+  Future<Position?> _determineOldPosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled');
+    }
+
+    permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+
+      if (permission == LocationPermission.denied) {
+        return Future.error("Location permission denied");
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error('Location permissions are permanently denied');
+    }
+
+    Position? oldPosition = await Geolocator.getLastKnownPosition();
+
+    return oldPosition;
   }
 }
