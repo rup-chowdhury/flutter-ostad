@@ -147,7 +147,20 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         },
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        googleMapController.animateCamera(
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              zoom: 16,
+                target: LatLng(
+                    23.730949422298362,
+                    90.42521660684274))
+          )
+        );
+        },
+      child: Icon(Icons.home),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 }
