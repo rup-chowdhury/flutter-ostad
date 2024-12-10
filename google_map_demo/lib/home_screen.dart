@@ -49,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ),
           Marker(
-              markerId: MarkerId('my-present-home'),
-              position: LatLng(
+              markerId: const MarkerId('my-present-home'),
+              position: const LatLng(
                 23.730949422298362,
                 90.42521660684274,
               ),
