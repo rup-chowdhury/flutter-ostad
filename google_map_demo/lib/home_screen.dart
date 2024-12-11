@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Position? position;
   
   Set<Marker> markers = {};
+  Set<Polyline> polyLines = {};
 
 
   @override
@@ -33,7 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
           // onTap: (LatLng latLng){
           //   print(latLng);
           // },
+
           mapType: MapType.satellite,
+          markers: markers,
+          polylines: polyLines,
           zoomControlsEnabled: true,
           zoomGesturesEnabled: true,
           onMapCreated: (GoogleMapController controller){
@@ -48,39 +52,39 @@ class _HomeScreenState extends State<HomeScreen> {
             zoom: 32,
           ),
 
-          markers: <Marker>{
-            const Marker(
-              markerId: MarkerId('initial-position'),
-              position: LatLng(
-                23.83762441058588,   //LongLat of MIST Tower 3
-                90.35722629592206,
-              ),
-              infoWindow: InfoWindow(
-                title: 'My Office'
-              )
-            ),
-            Marker(
-                markerId: const MarkerId('my-present-home'),
-                position: const LatLng(
-                  23.730949422298362,
-                  90.42521660684274,
-                ),
-              icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-              infoWindow: InfoWindow(
-                title: 'My Home now',
-                onTap: (){
-                  print('Tapped on Home');
-                },
-              ),
-              draggable: true,
-              onDragStart: (LatLng dragStartLatLng){
-                  print('Start LatLng: $dragStartLatLng');
-              },
-              onDragEnd: (LatLng dragEndLatLng){
-                print('End LatLng: $dragEndLatLng');
-              },
-            ),
-          },
+          // markers: <Marker>{
+          //   const Marker(
+          //     markerId: MarkerId('initial-position'),
+          //     position: LatLng(
+          //       23.83762441058588,   //LongLat of MIST Tower 3
+          //       90.35722629592206,
+          //     ),
+          //     infoWindow: InfoWindow(
+          //       title: 'My Office'
+          //     )
+          //   ),
+          //   Marker(
+          //       markerId: const MarkerId('my-present-home'),
+          //       position: const LatLng(
+          //         23.730949422298362,
+          //         90.42521660684274,
+          //       ),
+          //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          //     infoWindow: InfoWindow(
+          //       title: 'My Home now',
+          //       onTap: (){
+          //         print('Tapped on Home');
+          //       },
+          //     ),
+          //     draggable: true,
+          //     onDragStart: (LatLng dragStartLatLng){
+          //         print('Start LatLng: $dragStartLatLng');
+          //     },
+          //     onDragEnd: (LatLng dragEndLatLng){
+          //       print('End LatLng: $dragEndLatLng');
+          //     },
+          //   ),
+          // },
           circles: <Circle>{
             Circle(
               circleId: const CircleId('accidents-in-agargaon'),
@@ -118,19 +122,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
             ),
           },
-          polylines: <Polyline>{
-            const Polyline(
-              polylineId: PolylineId('Path to Heaven'),
-              color: Colors.amber,
-              width: 4,
-              // patterns: List.empty(),
-              // jointType: JointType.round,
-              points: <LatLng>[
-                LatLng(23.825783016281083, 90.36416110811554),
-                LatLng(23.727964456798325, 90.41928761126101),
-              ]
-            )
-          },
+          // polylines: <Polyline>{
+          //   const Polyline(
+          //     polylineId: PolylineId('Path to Heaven'),
+          //     color: Colors.amber,
+          //     width: 4,
+          //     // patterns: List.empty(),
+          //     // jointType: JointType.round,
+          //     points: <LatLng>[
+          //       LatLng(23.825783016281083, 90.36416110811554),
+          //       LatLng(23.727964456798325, 90.41928761126101),
+          //     ]
+          //   )
+          // },
           polygons: <Polygon>{
             Polygon(
               polygonId: const PolygonId('Cantonment-area'),
@@ -160,6 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       floatingActionButton:
       Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
@@ -196,6 +201,9 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.work),
           ),
+          const SizedBox(
+            height: 8,
+          ),
           FloatingActionButton.extended(onPressed: () async {
             Position position = await _determinePosition();
 
@@ -205,8 +213,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
             markers.clear();
 
-            markers.add(Marker(markerId: const MarkerId('currentLocation'),position: LatLng(position.latitude, position.longitude)));
+            markers.add(Marker(markerId: MarkerId('currentLocation'),position: LatLng(position.latitude, position.longitude)));
 
+            polyLines.add(Polyline(polylineId: PolylineId('path-to-something'), points: <LatLng>[
+              LatLng(position.latitude, position.longitude),
+              LatLng(position.latitude + 0.004, position.longitude + 0.0007),
+              LatLng(position.latitude + 0.004, position.longitude + 0.005),
+              LatLng(position.latitude - 0.009, position.longitude + 0.0007),
+            ]));
             setState(() {});
           },
             label: const Text('Current Location'),
