@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // listenCurrentLocation();
+    listenCurrentLocation();
   }
 
   @override
@@ -31,9 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Maps Screen'),
       ),
       body: GoogleMap(
-          // onTap: (LatLng latLng){
-          //   print(latLng);
-          // },
+          onTap: (LatLng latLng){
+            print(latLng);
+          },
 
           mapType: MapType.satellite,
           markers: markers,
@@ -220,6 +220,8 @@ class _HomeScreenState extends State<HomeScreen> {
               LatLng(position.latitude + 0.004, position.longitude + 0.0007),
               LatLng(position.latitude + 0.004, position.longitude + 0.005),
               LatLng(position.latitude - 0.009, position.longitude + 0.0007),
+              const LatLng(37.41526285159456, -122.09481652826072),
+              const LatLng(37.42143688980525, -122.09361489862204)
             ]));
             setState(() {});
           },
@@ -239,8 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
       if(isServiceEnabled) {
         Geolocator.getPositionStream(
           locationSettings: const LocationSettings(
-            // timeLimit: Duration(seconds: 3),
-            distanceFilter: 1,
+            timeLimit: Duration(seconds: 3),
+            // distanceFilter: 1,
             accuracy: LocationAccuracy.best
           )
         ).listen((pos) {
