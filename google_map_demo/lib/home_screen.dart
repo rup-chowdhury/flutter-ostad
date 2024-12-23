@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_map_demo/widgets/draw_route_source_to_destination.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'dart:ui' as ui;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,11 +27,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final LatLng _endLocation = const LatLng(23.7281805381489, 90.41924469591866); // Example end point
 
+  Uint8List? marketimages;
+  List<String> images = ['assets/images/present_location.png', 'assets/images/destination_location.png'];
+
+  // created empty list of markers
+  final List<Marker> _markers = <Marker>[];
+
+  // created list of coordinates of various locations
+  final List<LatLng> _latLen = <LatLng>[
+    LatLng(23.83780971039949, 90.35662645816825),
+    LatLng(23.7281805381489, 90.41924469591866)
+  ];
 
   @override
   void initState() {
     super.initState();
     listenCurrentLocation();
+    loadData();
   }
 
   @override
@@ -46,8 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
               print(latLng);
             },
 
+            markers: Set<Marker>.of(_markers),
+
+
             mapType: MapType.satellite,
-            markers: markers,
+            // markers: markers,
             polylines: polyLines,
             zoomControlsEnabled: true,
             zoomGesturesEnabled: true,
@@ -425,4 +442,35 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+
+
+  Future<Uint8List> getImages(String path, int width) async{
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetHeight: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return(await fi.image.toByteData(format: ui.ImageByteFormat.png))!.buffer.asUint8List();
+  }
+
+  loadData() async{
+    for(int i=0 ;i<images.length; i++){
+      final Uint8List markIcons = await getImages(images[i], 100);
+      // makers added according to index
+      _markers.add(
+          Marker(
+            // given marker id
+            markerId: MarkerId(i.toString()),
+            // given marker icon
+            icon: BitmapDescriptor.fromBytes(markIcons),
+            // given position
+            position: _latLen[i],
+            infoWindow: InfoWindow(
+              // given title for marker
+              title: 'Location: '+i.toString(),
+            ),
+          )
+      );
+      setState(() {
+      });
+    }
+  }
 }
