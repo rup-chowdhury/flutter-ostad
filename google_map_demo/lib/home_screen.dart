@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_map_demo/widgets/draw_route_source_to_destination.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
   
   Set<Marker> markers = {};
   Set<Polyline> polyLines = {};
+
+  final LatLng _startLocation = const LatLng(23.83780971039949, 90.35662645816825); // Example start point
+
+  final LatLng _endLocation = const LatLng(23.826057822068247, 90.36421475229346); // Example end point
+
+  List<LatLng> _polylineCoordinates = []; // To store route points
 
 
   @override
@@ -207,6 +217,8 @@ class _HomeScreenState extends State<HomeScreen> {
           FloatingActionButton.extended(onPressed: () async {
             Position position = await _determinePosition();
 
+            _addRoute(_startLocation, _endLocation);
+
             googleMapController
                 .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom: 14)));
 
@@ -335,4 +347,47 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return posma;
   }
+
+
+
+  // Example: Add a route between two points
+  void _addRoute(LatLng start, LatLng end) async {
+    // **Important:** Replace with your Google Maps API key
+    const apiKey = 'AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg';
+
+    // Construct the Google Maps Directions API URL
+    final url =
+        'https://maps.googleapis.com/maps/api/directions/json?'
+        'origin=${start.latitude},${start.longitude}&'
+        'destination=${end.latitude},${end.longitude}&'
+        'key=$apiKey&'
+        'mode=walking'; // Adjust mode as needed (driving, walking, etc.)
+
+    // Fetch the route data from the API
+    final response = await http.get(Uri.parse(url));
+    final data = jsonDecode(response.body);
+
+    if (data['routes'].isNotEmpty) {
+      final route = data['routes'][0]['overview_polyline']['points'];
+      final decodedPoints = DrawRouteSourceToDestination().decodePolyline(route);
+
+      final polyline = Polyline(
+        polylineId: const PolylineId('route'),
+        color: Colors.blue.shade50,
+        width: 7,
+        startCap: Cap.roundCap,
+        endCap: Cap.roundCap,
+        jointType: JointType.bevel,
+        points: decodedPoints,
+          patterns: [PatternItem.dash(10), PatternItem.gap(7)],
+      );
+
+      setState(() {
+        polyLines.add(polyline);
+      });
+    } else {
+      print('No routes found.');
+    }
+  }
+
 }
