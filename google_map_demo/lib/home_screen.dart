@@ -19,13 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late GoogleMapController googleMapController;
   Position? position;
+
+
+  late TextEditingController sourceTEController = TextEditingController();
+  late TextEditingController destinationTEController = TextEditingController();
   
   Set<Marker> markers = {};
   Set<Polyline> polyLines = {};
 
-  final LatLng _startLocation = const LatLng(23.83780971039949, 90.35662645816825); // Example start point
-
-  final LatLng _endLocation = const LatLng(23.7281805381489, 90.41924469591866); // Example end point
+  late LatLng startLocation;
+  late LatLng endLocation;
 
   Uint8List? marketimages;
   List<String> images = ['assets/images/present_location.png', 'assets/images/destination_location.png'];
@@ -57,31 +60,75 @@ class _HomeScreenState extends State<HomeScreen> {
 
           buildGoogleMap(),
 
-          const SafeArea(
+          SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(16),
-              child: TextField(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  TextField(
+                    controller: sourceTEController,
+                    onTap: (){
+                      startLocation = stringToLatLng(sourceTEController.text.toString().trim());
+                      // _addRoute(_startLocation, _endLocation);
+                    },
 
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white70,
-                  focusColor: Colors.white,
-                  prefixIcon: Icon(Icons.search),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blue
-                    )
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white70,
+                      focusColor: Colors.white,
+                      prefixIcon: Icon(Icons.search),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.blue
+                        )
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                          width: 2,
+                        )
+                      ),
+                      border: OutlineInputBorder(),
+                      hintText: 'Source',
+                    ),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                      width: 2,
-                    )
+                  SizedBox(height: 8,),
+                  TextField(
+                    controller: destinationTEController,
+                    onTap: (){
+                      endLocation = stringToLatLng(destinationTEController.text.toString().trim());
+                      // _addRoute(_startLocation, _endLocation);
+                    },
+
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white70,
+                      focusColor: Colors.white,
+                      prefixIcon: Icon(Icons.search),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.blue
+                        )
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                          width: 2,
+                        )
+                      ),
+                      border: OutlineInputBorder(),
+                      hintText: 'Destination',
+                    ),
                   ),
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter a search term',
-                ),
+                  ElevatedButton(onPressed: (){
+                    _addRoute(startLocation, endLocation);
+                    setState(() {
+                    });
+                  }, child: Text('Go'),
+                  )
+                ],
               ),
             ),
           ),
@@ -130,17 +177,18 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             height: 8,
           ),
-          FloatingActionButton.extended(onPressed: () async {
+          FloatingActionButton.extended(
+            onPressed: () async {
             Position position = await _determinePosition();
 
-            _addRoute(_startLocation, _endLocation);
+
 
             googleMapController
                 .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom: 14)));
 
 
             markers.clear();
-            markers.add(Marker(markerId: const MarkerId('destinationLocation'),position: LatLng(_endLocation.latitude, _endLocation.longitude)));
+            markers.add(Marker(markerId: const MarkerId('destinationLocation'),position: LatLng(endLocation.latitude, endLocation.longitude)));
 
 
             markers.add(Marker(markerId: const MarkerId('currentLocation'),position: LatLng(position.latitude, position.longitude)));
@@ -476,5 +524,23 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
       });
     }
+  }
+
+  LatLng stringToLatLng(String latLngString) {
+    // Assuming latLngString is in the format "latitude,longitude"
+
+    List<String> coordinates = latLngString.split(',');
+
+    print('Start Coordinates: ${coordinates}');
+    print(coordinates.length);
+    if (coordinates.length != 2) {
+      // Handle invalid input (e.g., throw an exception)
+      throw ArgumentError('Invalid LatLng string format');
+    }
+
+    double latitude = double.parse(coordinates[0]);
+    double longitude = double.parse(coordinates[1]);
+
+    return LatLng(latitude, longitude);
   }
 }
