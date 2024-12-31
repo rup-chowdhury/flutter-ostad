@@ -63,6 +63,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/icon_google.png
     - assets/images/present_location.png
     - assets/images/destination_location.png
 
