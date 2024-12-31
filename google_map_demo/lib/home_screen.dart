@@ -38,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // created list of coordinates of various locations
   final List<LatLng> _latLen = <LatLng>[
-    LatLng(23.83780971039949, 90.35662645816825),
-    LatLng(23.7281805381489, 90.41924469591866)
+    const LatLng(23.83780971039949, 90.35662645816825),
+    const LatLng(23.7281805381489, 90.41924469591866)
   ];
 
   @override
@@ -125,7 +125,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ElevatedButton(onPressed: (){
                     startLocation = stringToLatLng(sourceTEController.text.toString().trim());
                     endLocation = stringToLatLng(destinationTEController.text.toString().trim());
+                    _latLen[0] = startLocation;
+                    _latLen[1] = endLocation;
                     _addRoute(startLocation, endLocation);
+                    loadData();
                     setState(() {
                     });
                   }, child: Text('Go'),
