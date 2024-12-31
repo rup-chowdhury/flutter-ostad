@@ -123,6 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   ElevatedButton(onPressed: (){
+                    startLocation = stringToLatLng(sourceTEController.text.toString().trim());
+                    endLocation = stringToLatLng(destinationTEController.text.toString().trim());
                     _addRoute(startLocation, endLocation);
                     setState(() {
                     });
