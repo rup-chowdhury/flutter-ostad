@@ -1,7 +1,16 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_map_demo/screens/sign_in_screen.dart';
 
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -9,12 +18,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignUpScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,43 +35,49 @@ class SignUpScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 48,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 16), // Gap between title and first input
+                _buildTextField(
+                  hint: 'Email ID',
+                  icon: Icons.email,
+                  inputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 16), // Gap between inputs
+                _buildTextField(
+                  hint: 'Full Name',
+                  icon: Icons.person,
+                ),
+                SizedBox(height: 16), // Gap between inputs
+                _buildTextField(
+                  hint: 'Mobile',
+                  icon: Icons.phone,
+                  inputType: TextInputType.phone,
+                  textColor: Color(0xFF3E80F6),
+                ),
+                SizedBox(height: 16), // Gap between inputs
+                _buildTextField(
+                  hint: 'Password',
+                  icon: Icons.lock,
+                  isObscured: true,
+                ),
+                SizedBox(height: 16), // Gap between inputs
+                Text(
+                  '', // Placeholder for policy hint
+                  style: TextStyle(color: Colors.black),
+                ),
+                SizedBox(height: 16), // Gap before button
+              ],
             ),
-            SizedBox(height: 16), // Gap between title and first input
-            _buildTextField(
-              hint: 'Email ID',
-              icon: Icons.email,
-              inputType: TextInputType.emailAddress,
-            ),
-            SizedBox(height: 16), // Gap between inputs
-            _buildTextField(
-              hint: 'Full Name',
-              icon: Icons.person,
-            ),
-            SizedBox(height: 16), // Gap between inputs
-            _buildTextField(
-              hint: 'Mobile',
-              icon: Icons.phone,
-              inputType: TextInputType.phone,
-              textColor: Color(0xFF3E80F6),
-            ),
-            SizedBox(height: 16), // Gap between inputs
-            _buildTextField(
-              hint: 'Password',
-              icon: Icons.lock,
-              isObscured: true,
-            ),
-            SizedBox(height: 16), // Gap between inputs
-            Text(
-              '', // Placeholder for policy hint
-              style: TextStyle(color: Colors.black),
-            ),
-            SizedBox(height: 16), // Gap before button
             Container(
               height: 52,
               width: 160,
@@ -84,16 +101,42 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16), // Gap before login text
-            Text(
-              'Already have an account? Log in',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
+            RichText(
+              text: TextSpan(
+                children: [
+                  const TextSpan(
+                    text: 'Already have an account?',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                    )
+                  ),
+                  TextSpan(
+                    text: '  Sign In',
+                    style: const TextStyle(
+                      color: Colors.blue,
+                      fontSize: 18,
+                    ),
+                    recognizer: TapGestureRecognizer()..onTap = () => _onTapSignIn(context)
+                  )
+                ]
+              ),
             ),
           ],
         ),
       ),
     );
+
   }
+  void _onTapSignIn(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignInScreen(),
+      ),
+    );
+  }
+
 
   Widget _buildTextField({
     required String hint,
@@ -119,3 +162,4 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
+
