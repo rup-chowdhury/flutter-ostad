@@ -42,6 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
     const LatLng(23.7281805381489, 90.41924469591866)
   ];
 
+  double bearing = Geolocator.bearingBetween(23.845832237942982, 90.3631272043976, 23.8285983655763, 90.36407714584722);
+
+  double distanceInMeters = Geolocator.distanceBetween(23.83956161087677, 90.35744835917211, 23.819008976654786, 90.36525413323442);
+
   @override
   void initState() {
     super.initState();
@@ -128,6 +132,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     _latLen[0] = startLocation;
                     _latLen[1] = endLocation;
                     _addRoute(startLocation, endLocation);
+                    print('Bearing: ${bearing}');
+                    print('Distance in kms: ${distanceInMeters/1000}');
                     loadData();
                     setState(() {
                     });
