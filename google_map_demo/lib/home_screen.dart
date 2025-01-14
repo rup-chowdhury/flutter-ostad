@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_google_places_hoc081098/flutter_google_places_hoc081098.dart';
+import 'package:flutter_google_places_hoc081098/google_maps_webservice_places.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_map_demo/widgets/draw_route_source_to_destination.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -100,7 +102,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: 8,),
                   TextField(
                     controller: destinationTEController,
-                    onTap: (){
+                    onTap: () async {
+                      Prediction p = (await PlacesAutocomplete.show(context: context, apiKey: "AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg",
+                        language: 'en',
+                        components: [
+                          Component(Component.country, "bd")
+                        ]
+                      )
+                      ) as Prediction;
                       endLocation = stringToLatLng(destinationTEController.text.toString().trim());
                       // _addRoute(_startLocation, _endLocation);
                     },
