@@ -302,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Circle(
               circleId: const CircleId('extensive-injury-accidents-in-mirpur12-mor'),
-              fillColor: Colors.orange.withOpacity(0.5),
+              fillColor: Colors.orange.withValues(alpha: 100),
               center: const LatLng(23.827890458890693, 90.36406172529641,),
               radius: 7,
               strokeColor: Colors.orange,
