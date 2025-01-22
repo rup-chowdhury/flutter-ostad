@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Prediction p = (await PlacesAutocomplete.show(context: context, apiKey: "AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg",
                         language: 'en',
                         components: [
-                          Component(Component.country, "bd")
+                          Component(Component.country, "bd"),
                         ]
                       )
                       ) as Prediction;
