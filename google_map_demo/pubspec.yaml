@@ -39,6 +39,7 @@ dependencies:
   geolocator: ^13.0.2
   flutter_google_maps_webservices: ^1.0.0
   flutter_google_places_hoc081098: ^2.0.0
+  geocoding: ^3.0.0
 
   http: any
 
