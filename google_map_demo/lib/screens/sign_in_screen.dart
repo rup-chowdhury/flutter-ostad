@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_map_demo/home_screen.dart';
+import 'package:google_map_demo/widgets/TransformLatLngToAddress/transform_lat_lng.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -51,7 +52,8 @@ class SignInScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Handle continue button press
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => TransformLatLng()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF37AFE3),
