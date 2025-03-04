@@ -9,7 +9,8 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  static const LatLng _initialPosition = LatLng(23.838405415619437, 90.3595992615412);
+  static const LatLng _initialPosition =
+      LatLng(23.838405415619437, 90.3595992615412);
 
   @override
 
