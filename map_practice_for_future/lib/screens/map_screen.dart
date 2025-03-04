@@ -15,7 +15,7 @@ class _MapScreenState extends State<MapScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(initialCameraPosition: CameraPosition(target: _initialPosition)),
+      body: GoogleMap(initialCameraPosition: CameraPosition(target: _initialPosition, zoom: 13)),
     );
   }
 }
