@@ -28,6 +28,11 @@ class _MapScreenState extends State<MapScreen> {
             icon: BitmapDescriptor.defaultMarker,
             position: _initialPosition,
           ),
+          Marker(
+            markerId: MarkerId("_airportLocation"),
+            icon: BitmapDescriptor.defaultMarker,
+            position: _dhakaAirportPosition,
+          ),
         },
       ),
     );
