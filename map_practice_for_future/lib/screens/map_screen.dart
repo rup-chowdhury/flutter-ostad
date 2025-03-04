@@ -13,7 +13,6 @@ class _MapScreenState extends State<MapScreen> {
       LatLng(23.838405415619437, 90.3595992615412);
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(initialCameraPosition: CameraPosition(target: _initialPosition, zoom: 13)),
