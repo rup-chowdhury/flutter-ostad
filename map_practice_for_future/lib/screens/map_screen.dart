@@ -15,7 +15,19 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(initialCameraPosition: CameraPosition(target: _initialPosition, zoom: 13)),
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: _initialPosition,
+          zoom: 13,
+        ),
+        markers: {
+          Marker(
+            markerId: MarkerId("_currentLocation"),
+            icon: BitmapDescriptor.defaultMarker,
+            position: _initialPosition,
+          ),
+        },
+      ),
     );
   }
 }
