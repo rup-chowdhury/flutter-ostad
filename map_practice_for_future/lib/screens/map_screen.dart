@@ -51,5 +51,7 @@ class _MapScreenState extends State<MapScreen> {
     } else {
       return;
     }
+    _permissionGranted = await _locationController.hasPermission();
+    
   }
 }
