@@ -60,5 +60,16 @@ class _MapScreenState extends State<MapScreen> {
         return;
       }
     }
+
+    _locationController.onLocationChanged
+        .listen((LocationData currentLocation) {
+      if (currentLocation.latitude != null &&
+          currentLocation.longitude != null) {
+        setState(() {
+          _currentPosition = LatLng(currentLocation.latitude!, currentLocation.longitude!);
+        print(_currentPosition);
+        });
+      }
+    });
   }
 }
