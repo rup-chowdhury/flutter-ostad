@@ -52,6 +52,8 @@ class _MapScreenState extends State<MapScreen> {
       return;
     }
     _permissionGranted = await _locationController.hasPermission();
-    
+    if(_permissionGranted == PermissionStatus.denied){
+      _permissionGranted = await _locationController.requestPermission();
+    }
   }
 }
