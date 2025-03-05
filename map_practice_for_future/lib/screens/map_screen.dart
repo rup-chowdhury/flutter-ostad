@@ -46,5 +46,6 @@ class _MapScreenState extends State<MapScreen> {
     PermissionStatus _permissionGranted;
 
 
+    _serviceEnabled = await _locationController.serviceEnabled();
   }
 }
