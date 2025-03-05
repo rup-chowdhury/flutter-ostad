@@ -39,6 +39,6 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> getLocationUpdate() async {
-    
+    bool _serviceEnabled;
   }
 }
