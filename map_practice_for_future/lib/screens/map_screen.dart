@@ -28,24 +28,28 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: _initialPosition,
-          zoom: 13,
-        ),
-        markers: {
-          Marker(
-            markerId: MarkerId("_currentLocation"),
-            icon: BitmapDescriptor.defaultMarker,
-            position: _initialPosition,
-          ),
-          Marker(
-            markerId: MarkerId("_airportLocation"),
-            icon: BitmapDescriptor.defaultMarker,
-            position: _dhakaAirportPosition,
-          ),
-        },
-      ),
+      body: _currentPosition == null
+          ? const Center(
+              child: Text('Loading.....'),
+            )
+          : GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: _initialPosition,
+                zoom: 13,
+              ),
+              markers: {
+                Marker(
+                  markerId: MarkerId("_currentLocation"),
+                  icon: BitmapDescriptor.defaultMarker,
+                  position: _initialPosition,
+                ),
+                Marker(
+                  markerId: MarkerId("_airportLocation"),
+                  icon: BitmapDescriptor.defaultMarker,
+                  position: _dhakaAirportPosition,
+                ),
+              },
+            ),
     );
   }
 
@@ -72,8 +76,9 @@ class _MapScreenState extends State<MapScreen> {
       if (currentLocation.latitude != null &&
           currentLocation.longitude != null) {
         setState(() {
-          _currentPosition = LatLng(currentLocation.latitude!, currentLocation.longitude!);
-        print(_currentPosition);
+          _currentPosition =
+              LatLng(currentLocation.latitude!, currentLocation.longitude!);
+          print(_currentPosition);
         });
       }
     });
