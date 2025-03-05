@@ -20,6 +20,12 @@ class _MapScreenState extends State<MapScreen> {
   LatLng? _currentPosition = null;
 
   @override
+  void initState() {
+    super.initState();
+    getLocationUpdate();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
