@@ -17,6 +17,8 @@ class _MapScreenState extends State<MapScreen> {
   static const LatLng _dhakaAirportPosition =
       LatLng(23.851995216355434, 90.40838517263411);
 
+  LatLng? _currentPosition = null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
