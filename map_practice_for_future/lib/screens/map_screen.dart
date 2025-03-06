@@ -30,7 +30,13 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       body: _currentPosition == null
           ? const Center(
-              child: Text('Loading.....'),
+              child: Text(
+                'Loading.....',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              ),
             )
           : GoogleMap(
               initialCameraPosition: CameraPosition(
