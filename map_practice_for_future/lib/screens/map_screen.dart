@@ -45,6 +45,11 @@ class _MapScreenState extends State<MapScreen> {
               ),
               markers: {
                 Marker(
+                  markerId: MarkerId("_currentLocation"),
+                  icon: BitmapDescriptor.defaultMarker,
+                  position: _currentPosition!,
+                ),
+                Marker(
                   markerId: MarkerId("_sourceLocation"),
                   icon: BitmapDescriptor.defaultMarker,
                   position: _initialPosition,
