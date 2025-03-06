@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -16,6 +18,9 @@ class _MapScreenState extends State<MapScreen> {
       LatLng(23.838405415619437, 90.3595992615412);
   static const LatLng _dhakaAirportPosition =
       LatLng(23.851995216355434, 90.40838517263411);
+
+  final Completer<GoogleMapController> _mapController =
+      Completer<GoogleMapController>();
 
   LatLng? _currentPosition = null;
 
