@@ -71,6 +71,15 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  Future<void> _cameraToPosition(LatLng position) async {
+    final GoogleMapController controller = await _mapController.future;
+    CameraPosition _newCameraPosition =
+        CameraPosition(target: position, zoom: 13);
+    await controller.animateCamera(
+      CameraUpdate.newCameraPosition(_newCameraPosition),
+    );
+  }
+
   Future<void> getLocationUpdate() async {
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
