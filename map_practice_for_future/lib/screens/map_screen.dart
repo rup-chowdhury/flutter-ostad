@@ -106,6 +106,7 @@ class _MapScreenState extends State<MapScreen> {
           _currentPosition =
               LatLng(currentLocation.latitude!, currentLocation.longitude!);
           print(_currentPosition);
+          _cameraToPosition(_currentPosition!);
         });
       }
     });
