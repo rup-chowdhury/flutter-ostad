@@ -45,12 +45,12 @@ class _MapScreenState extends State<MapScreen> {
               ),
               markers: {
                 Marker(
-                  markerId: MarkerId("_currentLocation"),
+                  markerId: MarkerId("_sourceLocation"),
                   icon: BitmapDescriptor.defaultMarker,
                   position: _initialPosition,
                 ),
                 Marker(
-                  markerId: MarkerId("_airportLocation"),
+                  markerId: MarkerId("_destinationLocation"),
                   icon: BitmapDescriptor.defaultMarker,
                   position: _dhakaAirportPosition,
                 ),
