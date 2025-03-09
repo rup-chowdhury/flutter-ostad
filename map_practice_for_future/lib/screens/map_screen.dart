@@ -116,6 +116,6 @@ class _MapScreenState extends State<MapScreen> {
   Future<List<LatLng>> getPolylinePoints() async {
     List<LatLng> polyLineCoordinates = [];
     PolylinePoints polylinePoints = PolylinePoints();
-    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates()
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates();
   }
 }
