@@ -26,7 +26,7 @@ class _MapScreenState extends State<MapScreen> {
 
   LatLng? _currentPosition = null;
 
-  Map<PolylineId, Polyline> polyline = {};
+  Map<PolylineId, Polyline> polylines = {};
 
   @override
   void initState() {
@@ -77,7 +77,7 @@ class _MapScreenState extends State<MapScreen> {
                   position: _dhakaAirportPosition,
                 ),
               },
-              polylines: Set<Polyline>.of(polyline.values),
+              polylines: Set<Polyline>.of(polylines.values),
             ),
     );
   }
