@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:map_practice_for_future/values.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -116,6 +117,13 @@ class _MapScreenState extends State<MapScreen> {
   Future<List<LatLng>> getPolylinePoints() async {
     List<LatLng> polyLineCoordinates = [];
     PolylinePoints polylinePoints = PolylinePoints();
-    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates();
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+        googleApiKey: GOOGLE_MAPS_API_KEY,
+        request: PolylineRequest(
+            origin: PointLatLng(
+                _initialPosition.latitude, _initialPosition.longitude),
+            destination: PointLatLng(_dhakaAirportPosition.latitude,
+                _dhakaAirportPosition.longitude),
+            mode: TravelMode.driving));
   }
 }
