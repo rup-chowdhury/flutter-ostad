@@ -34,7 +34,7 @@ class _MapScreenState extends State<MapScreen> {
     getLocationUpdate().then((_) => {
           getPolylinePoints().then(
             (coordinates) => {
-              print(coordinates),
+              generatePolylineFromPoints(coordinates),
             },
           ),
         });
@@ -54,6 +54,8 @@ class _MapScreenState extends State<MapScreen> {
               ),
             )
           : GoogleMap(
+        onLongPress: ,
+        onTap: (argument) => drawPolyline(),
               onMapCreated: ((GoogleMapController controller) =>
                   _mapController.complete(controller)),
               initialCameraPosition: CameraPosition(
@@ -83,12 +85,17 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> _cameraToPosition(LatLng position) async {
+
     final GoogleMapController controller = await _mapController.future;
     CameraPosition _newCameraPosition =
         CameraPosition(target: position, zoom: 13);
     await controller.animateCamera(
       CameraUpdate.newCameraPosition(_newCameraPosition),
     );
+    // setState(() {
+    // generatePolylineFromPoints(getPolylinePoints() as List<LatLng>);
+    // });
+
   }
 
   Future<void> getLocationUpdate() async {
@@ -130,7 +137,7 @@ class _MapScreenState extends State<MapScreen> {
         googleApiKey: GOOGLE_MAPS_API_KEY,
         request: PolylineRequest(
             origin: PointLatLng(
-                _initialPosition.latitude, _initialPosition.longitude),
+                _currentPosition!.latitude, _currentPosition!.longitude),
             destination: PointLatLng(_dhakaAirportPosition.latitude,
                 _dhakaAirportPosition.longitude),
             mode: TravelMode.driving));
@@ -142,5 +149,30 @@ class _MapScreenState extends State<MapScreen> {
       print(result.errorMessage);
     }
     return polyLineCoordinates;
+  }
+
+  void generatePolylineFromPoints(List<LatLng> polylineCoordinates) async {
+    PolylineId id = PolylineId("poly1");
+    Polyline polyline = Polyline(
+      polylineId: id,
+      color: Colors.blue,
+      points: polylineCoordinates,
+      width: 8,
+    );
+    setState(() {
+      polylines[id] = polyline;
+    });
+  }
+
+  void drawPolyline() {
+    setState(() {
+      getLocationUpdate().then((_) => {
+        getPolylinePoints().then(
+              (coordinates) => {
+            generatePolylineFromPoints(coordinates),
+          },
+        ),
+      });
+    });
   }
 }
