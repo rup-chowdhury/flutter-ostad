@@ -26,10 +26,18 @@ class _MapScreenState extends State<MapScreen> {
 
   LatLng? _currentPosition = null;
 
+  
+
   @override
   void initState() {
     super.initState();
-    getLocationUpdate();
+    getLocationUpdate().then((_) => {
+          getPolylinePoints().then(
+            (coordinates) => {
+              print(coordinates),
+            },
+          ),
+        });
   }
 
   @override
@@ -125,7 +133,7 @@ class _MapScreenState extends State<MapScreen> {
             destination: PointLatLng(_dhakaAirportPosition.latitude,
                 _dhakaAirportPosition.longitude),
             mode: TravelMode.driving));
-    if(result.points.isNotEmpty){
+    if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {
         polyLineCoordinates.add(LatLng(point.latitude, point.longitude));
       });
