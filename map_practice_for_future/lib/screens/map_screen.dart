@@ -54,7 +54,6 @@ class _MapScreenState extends State<MapScreen> {
               ),
             )
           : GoogleMap(
-        onLongPress: ,
         onTap: (argument) => drawPolyline(),
               onMapCreated: ((GoogleMapController controller) =>
                   _mapController.complete(controller)),
