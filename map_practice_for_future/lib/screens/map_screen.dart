@@ -114,5 +114,6 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<List<LatLng>> getPolylinePoints() async {
+    List<LatLng> polyLineCoordinates = [];
   }
 }
