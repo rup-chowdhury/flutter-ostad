@@ -125,5 +125,13 @@ class _MapScreenState extends State<MapScreen> {
             destination: PointLatLng(_dhakaAirportPosition.latitude,
                 _dhakaAirportPosition.longitude),
             mode: TravelMode.driving));
+    if(result.points.isNotEmpty){
+      result.points.forEach((PointLatLng point) {
+        polyLineCoordinates.add(LatLng(point.latitude, point.longitude));
+      });
+    } else {
+      print(result.errorMessage);
+    }
+    return polyLineCoordinates;
   }
 }
