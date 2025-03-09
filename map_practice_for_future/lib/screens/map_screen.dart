@@ -17,29 +17,27 @@ class _MapScreenState extends State<MapScreen> {
   Location _locationController = new Location();
 
   static const LatLng _initialPosition =
-  LatLng(23.838405415619437, 90.3595992615412);
+      LatLng(23.838405415619437, 90.3595992615412);
   static const LatLng _dhakaAirportPosition =
-  LatLng(23.851995216355434, 90.40838517263411);
+      LatLng(23.851995216355434, 90.40838517263411);
 
   final Completer<GoogleMapController> _mapController =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
 
   LatLng? _currentPosition = null;
 
-  Map<PolygonId, Polyline> polyline = {};
+  Map<PolylineId, Polyline> polyline = {};
 
   @override
   void initState() {
     super.initState();
-    getLocationUpdate().then((_) =>
-    {
-      getPolylinePoints().then(
-            (coordinates) =>
-        {
-          print(coordinates),
-        },
-      ),
-    });
+    getLocationUpdate().then((_) => {
+          getPolylinePoints().then(
+            (coordinates) => {
+              print(coordinates),
+            },
+          ),
+        });
   }
 
   @override
@@ -47,47 +45,47 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       body: _currentPosition == null
           ? const Center(
-        child: Text(
-          'Loading.....',
-          style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 18),
-        ),
-      )
+              child: Text(
+                'Loading.....',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              ),
+            )
           : GoogleMap(
-        onMapCreated: ((GoogleMapController controller) =>
-            _mapController.complete(controller)),
-        initialCameraPosition: CameraPosition(
-          target: _initialPosition,
-          zoom: 13,
-        ),
-        markers: {
-          Marker(
-            markerId: MarkerId("_currentLocation"),
-            icon: BitmapDescriptor.defaultMarker,
-            position: _currentPosition!,
-          ),
-          Marker(
-            markerId: MarkerId("_sourceLocation"),
-            icon: BitmapDescriptor.defaultMarker,
-            position: _initialPosition,
-          ),
-          Marker(
-            markerId: MarkerId("_destinationLocation"),
-            icon: BitmapDescriptor.defaultMarker,
-            position: _dhakaAirportPosition,
-          ),
-        },
-        polylines: Set<Polyline>.of(polyline.values),
-      ),
+              onMapCreated: ((GoogleMapController controller) =>
+                  _mapController.complete(controller)),
+              initialCameraPosition: CameraPosition(
+                target: _initialPosition,
+                zoom: 13,
+              ),
+              markers: {
+                Marker(
+                  markerId: MarkerId("_currentLocation"),
+                  icon: BitmapDescriptor.defaultMarker,
+                  position: _currentPosition!,
+                ),
+                Marker(
+                  markerId: MarkerId("_sourceLocation"),
+                  icon: BitmapDescriptor.defaultMarker,
+                  position: _initialPosition,
+                ),
+                Marker(
+                  markerId: MarkerId("_destinationLocation"),
+                  icon: BitmapDescriptor.defaultMarker,
+                  position: _dhakaAirportPosition,
+                ),
+              },
+              polylines: Set<Polyline>.of(polyline.values),
+            ),
     );
   }
 
   Future<void> _cameraToPosition(LatLng position) async {
     final GoogleMapController controller = await _mapController.future;
     CameraPosition _newCameraPosition =
-    CameraPosition(target: position, zoom: 13);
+        CameraPosition(target: position, zoom: 13);
     await controller.animateCamera(
       CameraUpdate.newCameraPosition(_newCameraPosition),
     );
