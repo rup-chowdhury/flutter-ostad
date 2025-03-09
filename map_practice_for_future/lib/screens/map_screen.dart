@@ -26,7 +26,7 @@ class _MapScreenState extends State<MapScreen> {
 
   LatLng? _currentPosition = null;
 
-  
+  Map<PolygonId, Polyline> polyline = {};
 
   @override
   void initState() {
