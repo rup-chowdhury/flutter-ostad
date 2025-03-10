@@ -67,7 +67,7 @@ class _MapScreenState extends State<MapScreen> {
               markers: {
                 Marker(
                   markerId: MarkerId("_currentLocation"),
-                  icon: BitmapDescriptor.defaultMarker,
+                  icon: BitmapDescriptor.defaultMarkerWithHue(184),
                   position: _currentPosition!,
                 ),
                 Marker(
