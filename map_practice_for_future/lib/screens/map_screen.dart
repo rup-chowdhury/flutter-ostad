@@ -81,6 +81,8 @@ class _MapScreenState extends State<MapScreen> {
                   markerId: MarkerId("_destinationLocation"),
                   icon: BitmapDescriptor.defaultMarker,
                   position: _dhakaAirportPosition,
+                  draggable: true,
+                  onDragEnd: setDestination,
                 ),
               },
               polylines: Set<Polyline>.of(polylines.values),
