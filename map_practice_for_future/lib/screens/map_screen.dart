@@ -18,7 +18,7 @@ class _MapScreenState extends State<MapScreen> {
 
   static const LatLng _initialPosition =
       LatLng(23.838405415619437, 90.3595992615412);
-  static const LatLng _dhakaAirportPosition =
+  LatLng _dhakaAirportPosition =
       LatLng(23.851995216355434, 90.40838517263411);
 
   final Completer<GoogleMapController> _mapController =
