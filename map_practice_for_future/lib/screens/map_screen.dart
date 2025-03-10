@@ -181,4 +181,9 @@ class _MapScreenState extends State<MapScreen> {
       });
     });
   }
+
+  void setDestination(LatLng destination) {
+    _dhakaAirportPosition = destination;
+    getPolylinePoints();
+  }
 }
