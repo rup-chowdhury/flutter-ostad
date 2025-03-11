@@ -1,12 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_google_places/flutter_google_places.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_google_places_hoc081098/flutter_google_places_hoc081098.dart';
+import 'package:flutter_google_places_hoc081098/src/places_autocomplete_field.dart';
+import 'package:flutter_google_places_hoc081098/src/flutter_google_places.dart';
+import 'package:flutter_google_places_hoc081098/src/places_autocomplete_form_field.dart';
+import 'package:flutter_google_places_hoc081098/google_maps_webservice_places.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_webservice/places.dart';
+// import 'package:flutter_google_maps_webservices/places.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'dart:ui' as ui;
 import 'package:txapita/helpers/constants.dart';
 import 'package:txapita/helpers/style.dart';
-import 'package:txapita/providers/app_state.dart';
+import 'package:map_practice_for_future/providers/app_state.dart';
 import 'package:txapita/providers/user.dart';
 
 class DestinationSelectionWidget extends StatelessWidget {
@@ -19,12 +28,12 @@ class DestinationSelectionWidget extends StatelessWidget {
       builder: (BuildContext context, myscrollController) {
         return Container(
           decoration: BoxDecoration(
-              color: white,
+              color: Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               boxShadow: [
                 BoxShadow(
-                    color: grey.withOpacity(.8),
+                    color: Colors.grey.withOpacity(.8),
                     offset: Offset(3, 2),
                     blurRadius: 7)
               ]),
@@ -34,25 +43,28 @@ class DestinationSelectionWidget extends StatelessWidget {
               Icon(
                 Icons.remove,
                 size: 40,
-                color: grey,
+                color: Colors.grey,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 child: Container(
-                  color: grey.withOpacity(.3),
+                  color: Colors.grey.withOpacity(.3),
                   child: TextField(
                     onTap: () async {
                       SharedPreferences preferences =
                       await SharedPreferences.getInstance();
-                      Prediction p = await PlacesAutocomplete.show(
+                      Prediction pol;
+                      pol = (await PlacesAutocomplete.show(
                           context: context,
-                          apiKey: GOOGLE_MAPS_API_KEY,
-                          mode: Mode.overlay, // Mode.fullscreen
+                          apiKey: "AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg",
+                          language: "en", // Mode.fullscreen
                           // language: "pt",
                           components: [
-                            new Component(Component.country,
-                                preferences.getString(COUNTRY))
-                          ]);
+                            Component(Component.country, "bd"),
+                          ]
+                      )
+                      ) as Prediction;
+
                       PlacesDetailsResponse detail =
                       await places.getDetailsByPlaceId(p.placeId);
                       double lat = detail.result.geometry.location.lat;
