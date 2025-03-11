@@ -53,10 +53,17 @@ class _MapScreenState extends State<MapScreen> {
               ),
             )
           : GoogleMap(
-        onLongPress: (LatLng destiny) {
-          setDestination(destiny);
-        },
-        onTap: (argument) => drawPolyline(),
+              myLocationEnabled: true,
+              myLocationButtonEnabled: true,
+              trafficEnabled: true,
+              mapType: MapType.hybrid,
+              buildingsEnabled: false,
+              compassEnabled: true,
+              mapToolbarEnabled: true,
+              onLongPress: (LatLng destiny) {
+                setDestination(destiny);
+              },
+              onTap: (argument) => drawPolyline(),
               onMapCreated: ((GoogleMapController controller) =>
                   _mapController.complete(controller)),
               initialCameraPosition: CameraPosition(
@@ -68,7 +75,6 @@ class _MapScreenState extends State<MapScreen> {
                   markerId: MarkerId("_currentLocation"),
                   icon: BitmapDescriptor.defaultMarkerWithHue(184),
                   position: _currentPosition!,
-
                 ),
                 // Marker(
                 //   markerId: MarkerId("_sourceLocation"),
@@ -90,7 +96,6 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> _cameraToPosition(LatLng position) async {
-
     final GoogleMapController controller = await _mapController.future;
     CameraPosition _newCameraPosition =
         CameraPosition(target: position, zoom: 13);
@@ -100,7 +105,6 @@ class _MapScreenState extends State<MapScreen> {
     // setState(() {
     // generatePolylineFromPoints(getPolylinePoints() as List<LatLng>);
     // });
-
   }
 
   Future<void> getLocationUpdate() async {
@@ -172,12 +176,12 @@ class _MapScreenState extends State<MapScreen> {
   void drawPolyline() {
     setState(() {
       getLocationUpdate().then((_) => {
-        getPolylinePoints().then(
+            getPolylinePoints().then(
               (coordinates) => {
-            generatePolylineFromPoints(coordinates),
-          },
-        ),
-      });
+                generatePolylineFromPoints(coordinates),
+              },
+            ),
+          });
     });
   }
 

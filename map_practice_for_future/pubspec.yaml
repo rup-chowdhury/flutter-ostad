@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.6.0
+  sdk: '>=3.0.0-dev <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -38,6 +38,12 @@ dependencies:
   google_maps_flutter: ^2.10.1
   location: ^8.0.0
   flutter_polyline_points: ^2.1.0
+#  flutter_google_places: any
+#  flutter_google_maps_webservices: any
+  provider: any
+  shared_preferences: any
+  rxdart: any
+
 
 dev_dependencies:
   flutter_test:
