@@ -40,6 +40,9 @@ dependencies:
   flutter_polyline_points: ^2.1.0
 #  flutter_google_places: any
 #  flutter_google_maps_webservices: any
+  firebase_core: any
+  firebase_auth: any
+  firebase_messaging: any
   provider: any
   shared_preferences: any
   rxdart: any
