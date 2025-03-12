@@ -43,6 +43,7 @@ dependencies:
   firebase_core: any
   firebase_auth: any
   firebase_messaging: any
+  cloud_firestore: any
   provider: any
   shared_preferences: any
   rxdart: any
