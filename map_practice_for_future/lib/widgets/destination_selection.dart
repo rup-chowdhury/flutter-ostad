@@ -68,7 +68,7 @@ class DestinationSelectionWidget extends StatelessWidget {
                       )!;
 
                       PlacesDetailsResponse detail =
-                      await places.getDetailsByPlaceId(pol.placeId);
+                      await places.getDetailsByPlaceId(pol.placeId!);
                       double lat = detail.result.geometry!.location.lat;
                       double lng = detail.result.geometry!.location.lng;
                       appState.changeRequestedDestination(
