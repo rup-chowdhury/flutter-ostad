@@ -41,7 +41,7 @@ dependencies:
 #  flutter_google_places: any
 #  flutter_google_maps_webservices: any
   firebase_core: any
-  firebase_auth: any
+#  firebase_auth: 5.1.2
   firebase_messaging: any
   cloud_firestore: any
   provider: any
