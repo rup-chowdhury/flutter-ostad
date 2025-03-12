@@ -14,12 +14,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:ui' as ui;
 
-import 'package:txapita/helpers/constants.dart';
-import 'package:txapita/helpers/style.dart';
+import 'package:map_practice_for_future/helpers/constants.dart';
 import 'package:map_practice_for_future/providers/app_state.dart';
-import 'package:txapita/providers/user.dart';
+
 
 class DestinationSelectionWidget extends StatelessWidget {
+  const DestinationSelectionWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     AppStateProvider appState = Provider.of<AppStateProvider>(context);
@@ -64,15 +65,15 @@ class DestinationSelectionWidget extends StatelessWidget {
                             Component(Component.country, "bd"),
                           ]
                       )
-                      ) as Prediction;
+                      )!;
 
                       PlacesDetailsResponse detail =
                       await places.getDetailsByPlaceId(pol.placeId);
-                      double lat = detail.result.geometry.location.lat;
-                      double lng = detail.result.geometry.location.lng;
+                      double lat = detail.result.geometry!.location.lat;
+                      double lng = detail.result.geometry!.location.lng;
                       appState.changeRequestedDestination(
-                          reqDestination: pol.description, lat: lat, lng: lng);
-                      appState.updateDestination(destination: pol.description);
+                          reqDestination: pol.description!, lat: lat, lng: lng);
+                      appState.updateDestination(destination: pol.description!);
                       LatLng coordinates = LatLng(lat, lng);
                       appState.setDestination(coordinates: coordinates);
                       appState.addPickupMarker(appState.center);
@@ -90,12 +91,12 @@ class DestinationSelectionWidget extends StatelessWidget {
                         height: 10,
                         child: Icon(
                           Icons.location_on,
-                          color: primary,
+                          color: Colors.teal,
                         ),
                       ),
                       hintText: "Where to go?",
                       hintStyle: TextStyle(
-                          color: black,
+                          color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
                       border: InputBorder.none,
@@ -109,7 +110,7 @@ class DestinationSelectionWidget extends StatelessWidget {
                   backgroundColor: Colors.deepOrange[300],
                   child: Icon(
                     Icons.home,
-                    color: white,
+                    color: Colors.white,
                   ),
                 ),
                 title: Text("Home"),
@@ -120,7 +121,7 @@ class DestinationSelectionWidget extends StatelessWidget {
                   backgroundColor: Colors.deepOrange[300],
                   child: Icon(
                     Icons.work,
-                    color: white,
+                    color: Colors.white,
                   ),
                 ),
                 title: Text("Work"),
@@ -131,7 +132,7 @@ class DestinationSelectionWidget extends StatelessWidget {
                   backgroundColor: Colors.grey.withOpacity(0.18),
                   child: Icon(
                     Icons.history,
-                    color: primary,
+                    color: Colors.teal,
                   ),
                 ),
                 title: Text("Recent location"),
@@ -142,7 +143,7 @@ class DestinationSelectionWidget extends StatelessWidget {
                   backgroundColor: Colors.grey.withOpacity(.18),
                   child: Icon(
                     Icons.history,
-                    color: primary,
+                    color: Colors.teal,
                   ),
                 ),
                 title: Text("Recent location"),
