@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:ui' as ui;
+
 import 'package:txapita/helpers/constants.dart';
 import 'package:txapita/helpers/style.dart';
 import 'package:map_practice_for_future/providers/app_state.dart';
@@ -66,12 +67,12 @@ class DestinationSelectionWidget extends StatelessWidget {
                       ) as Prediction;
 
                       PlacesDetailsResponse detail =
-                      await places.getDetailsByPlaceId(p.placeId);
+                      await places.getDetailsByPlaceId(pol.placeId);
                       double lat = detail.result.geometry.location.lat;
                       double lng = detail.result.geometry.location.lng;
                       appState.changeRequestedDestination(
-                          reqDestination: p.description, lat: lat, lng: lng);
-                      appState.updateDestination(destination: p.description);
+                          reqDestination: pol.description, lat: lat, lng: lng);
+                      appState.updateDestination(destination: pol.description);
                       LatLng coordinates = LatLng(lat, lng);
                       appState.setDestination(coordinates: coordinates);
                       appState.addPickupMarker(appState.center);
