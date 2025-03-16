@@ -28,21 +28,20 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: homeScaffoldKey,
-      appBar: AppBar(
-        title: const Text("Google Search Places"),
-      ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition: initialCameraPosition,
-            markers: markersList,
-            mapType: MapType.normal,
-            onMapCreated: (GoogleMapController controller) {
-              googleMapController = controller;
-            },
-          ),
-          ElevatedButton(onPressed: _handlePressButton, child: const Text("Search Places"))
-        ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            GoogleMap(
+              initialCameraPosition: initialCameraPosition,
+              markers: markersList,
+              mapType: MapType.normal,
+              onMapCreated: (GoogleMapController controller) {
+                googleMapController = controller;
+              },
+            ),
+            ElevatedButton(onPressed: _handlePressButton, child: const Text("Search Places"))
+          ],
+        ),
       ),
     );
   }

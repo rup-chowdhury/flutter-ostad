@@ -1,19 +1,31 @@
 import 'dart:async';
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:map_practice_for_future/screens/search_places_screen.dart';
 import 'package:map_practice_for_future/values.dart';
+import 'package:google_maps_webservice/places.dart' as pl;
+import 'package:google_api_headers/google_api_headers.dart';
 
 class MapScreen extends StatefulWidget {
+  const MapScreen({Key? key}) : super(key: key);
+
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
 
+  const kGoogleApiKey = 'AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg';
+  final homeScaffoldKey = GlobalKey<ScaffoldState>();
+
 class _MapScreenState extends State<MapScreen> {
-  Location _locationController = new Location();
+  Location _locationController = Location();
+
+
+  Set<Marker> markersList = {};
 
   static const LatLng _initialPosition =
       LatLng(23.838405415619437, 90.3595992615412);
@@ -22,12 +34,16 @@ class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _mapController =
       Completer<GoogleMapController>();
 
+  late GoogleMapController googleMapController;
+
   LatLng? _currentPosition = null;
 
   late TextEditingController destinationTextEditingController =
       TextEditingController();
 
   Map<PolylineId, Polyline> polylines = {};
+
+  final Mode _mode = Mode.overlay;
 
   @override
   void initState() {
@@ -64,6 +80,7 @@ class _MapScreenState extends State<MapScreen> {
                 TextField(
                   controller: destinationTextEditingController,
                   onTap: () {
+                    _handlePressButton();
                     // _addRoute(_startLocation, _endLocation);
                   },
                   decoration: const InputDecoration(
@@ -97,6 +114,65 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  Future<void> _handlePressButton() async {
+    pl.Prediction? p = await PlacesAutocomplete.show(
+        context: context,
+        apiKey: kGoogleApiKey,
+        onError: onError,
+        mode: _mode,
+        language: 'en',
+        strictbounds: false,
+        types: [""],
+        decoration: InputDecoration(
+            hintText: 'Search',
+            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide(color: Colors.white))),
+        components: [pl.Component(pl.Component.country,"bd"),pl.Component(pl.Component.country,"bd")]);
+
+
+    displayPrediction(p!,homeScaffoldKey.currentState);
+  }
+
+  void onError(pl.PlacesAutocompleteResponse response){
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      content: AwesomeSnackbarContent(
+        title: 'Message',
+        message: response.errorMessage!,
+        contentType: ContentType.failure,
+      ),
+    ));
+
+    // homeScaffoldKey.currentState!.showSnackBar(SnackBar(content: Text(response.errorMessage!)));
+  }
+
+  Future<void> displayPrediction(pl.Prediction p, ScaffoldState? currentState) async {
+
+    pl.GoogleMapsPlaces places = pl.GoogleMapsPlaces(
+        apiKey: kGoogleApiKey,
+        apiHeaders: await const GoogleApiHeaders().getHeaders()
+    );
+
+    pl.PlacesDetailsResponse detail = await places.getDetailsByPlaceId(p.placeId!);
+
+    final lat = detail.result.geometry!.location.lat;
+    final lng = detail.result.geometry!.location.lng;
+
+    markersList.clear();
+    markersList.add(Marker(markerId: const MarkerId("0"),position: LatLng(lat, lng),infoWindow: InfoWindow(title: detail.result.name)));
+
+    setState(() {});
+
+    googleMapController.animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
+
+    print(detail.result.geometry!.location as LatLng);
+    setDestination(detail.result.geometry!.location as LatLng);
+
+  }
+
+
   GoogleMap buildGoogleMap() {
     return GoogleMap(
       myLocationEnabled: true,
@@ -110,8 +186,11 @@ class _MapScreenState extends State<MapScreen> {
         setDestination(destiny);
       },
       onTap: (argument) => drawPolyline(),
-      onMapCreated: ((GoogleMapController controller) =>
-          _mapController.complete(controller)),
+      onMapCreated: (GoogleMapController controller){
+
+          _mapController.complete(controller);
+          googleMapController = controller;
+      },
       initialCameraPosition: CameraPosition(
         target: _initialPosition,
         zoom: 13,
@@ -178,7 +257,7 @@ class _MapScreenState extends State<MapScreen> {
           _currentPosition =
               LatLng(currentLocation.latitude!, currentLocation.longitude!);
           print(_currentPosition);
-          _cameraToPosition(_currentPosition!);
+          // _cameraToPosition(_currentPosition!);
         });
       }
     });
