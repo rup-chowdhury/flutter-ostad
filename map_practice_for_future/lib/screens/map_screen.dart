@@ -166,8 +166,14 @@ class _MapScreenState extends State<MapScreen> {
 
     googleMapController.animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
 
-    print(detail.result.geometry!.location as LatLng);
-    setDestination(detail.result.geometry!.location as LatLng);
+    print('Checking..............');
+    print(detail);
+    print(detail.result);
+    print(detail.result.geometry);
+    print(detail.result.geometry!.location);
+    LatLng locToLatLng = LatLng(detail.result.geometry!.location.lat, detail.result.geometry!.location.lng);
+    setDestination(locToLatLng);
+    drawPolyline();
 
   }
 
