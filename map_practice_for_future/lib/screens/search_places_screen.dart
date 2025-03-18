@@ -6,7 +6,7 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:google_api_headers/google_api_headers.dart';
 
 class SearchPlacesScreen extends StatefulWidget {
-  const SearchPlacesScreen({Key? key}) : super(key: key);
+  const SearchPlacesScreen({super.key});
 
   @override
   State<SearchPlacesScreen> createState() => _SearchPlacesScreenState();
@@ -16,7 +16,8 @@ const kGoogleApiKey = 'AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg';
 final homeScaffoldKey = GlobalKey<ScaffoldState>();
 
 class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
-  static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(37.42796, -122.08574), zoom: 14.0);
+  static const CameraPosition initialCameraPosition =
+      CameraPosition(target: LatLng(37.42796, -122.08574), zoom: 14.0);
 
   Set<Marker> markersList = {};
 
@@ -39,7 +40,9 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
                 googleMapController = controller;
               },
             ),
-            ElevatedButton(onPressed: _handlePressButton, child: const Text("Search Places"))
+            ElevatedButton(
+                onPressed: _handlePressButton,
+                child: const Text("Search Places"))
           ],
         ),
       ),
@@ -57,15 +60,17 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
         types: [""],
         decoration: InputDecoration(
             hintText: 'Search',
-            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide(color: Colors.white))),
-        components: [Component(Component.country,"bd"),Component(Component.country,"bd")]);
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide(color: Colors.white))),
+        components: [
+          Component(Component.country, "bd")
+        ]);
 
-
-    displayPrediction(p!,homeScaffoldKey.currentState);
+    displayPrediction(p!, homeScaffoldKey.currentState);
   }
 
-  void onError(PlacesAutocompleteResponse response){
-
+  void onError(PlacesAutocompleteResponse response) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       elevation: 0,
       behavior: SnackBarBehavior.floating,
@@ -80,12 +85,11 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
     // homeScaffoldKey.currentState!.showSnackBar(SnackBar(content: Text(response.errorMessage!)));
   }
 
-  Future<void> displayPrediction(Prediction p, ScaffoldState? currentState) async {
-
+  Future<void> displayPrediction(
+      Prediction p, ScaffoldState? currentState) async {
     GoogleMapsPlaces places = GoogleMapsPlaces(
-      apiKey: kGoogleApiKey,
-      apiHeaders: await const GoogleApiHeaders().getHeaders()
-    );
+        apiKey: kGoogleApiKey,
+        apiHeaders: await const GoogleApiHeaders().getHeaders());
 
     PlacesDetailsResponse detail = await places.getDetailsByPlaceId(p.placeId!);
 
@@ -93,11 +97,14 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
     final lng = detail.result.geometry!.location.lng;
 
     markersList.clear();
-    markersList.add(Marker(markerId: const MarkerId("0"),position: LatLng(lat, lng),infoWindow: InfoWindow(title: detail.result.name)));
+    markersList.add(Marker(
+        markerId: const MarkerId("0"),
+        position: LatLng(lat, lng),
+        infoWindow: InfoWindow(title: detail.result.name)));
 
     setState(() {});
 
-     googleMapController.animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
-
+    googleMapController
+        .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
   }
 }

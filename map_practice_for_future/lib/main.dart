@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:map_practice_for_future/screens/home_screen.dart';
-import 'package:map_practice_for_future/screens/map_screen.dart';
 
 void main() {
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   // const MyApp({super.key});
 
   // This widget is the root of your application.

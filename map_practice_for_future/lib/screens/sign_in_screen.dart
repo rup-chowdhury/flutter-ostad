@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:map_practice_for_future/screens/home_screen.dart';
 import 'package:map_practice_for_future/screens/map_screen.dart';
 
 
@@ -47,7 +46,7 @@ class SignInScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16), // Gap before login button
-            Container(
+            SizedBox(
               height: 56,
               width: 240,
               child: ElevatedButton(

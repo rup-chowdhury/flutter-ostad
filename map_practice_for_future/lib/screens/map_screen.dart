@@ -6,7 +6,6 @@ import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:map_practice_for_future/screens/search_places_screen.dart';
 import 'package:map_practice_for_future/values.dart';
 import 'package:google_maps_webservice/places.dart' as pl;
 import 'package:google_api_headers/google_api_headers.dart';
@@ -22,21 +21,21 @@ class MapScreen extends StatefulWidget {
   final homeScaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MapScreenState extends State<MapScreen> {
-  Location _locationController = Location();
-
-
-  Set<Marker> markersList = {};
+  final Location _locationController = Location();
 
   static const LatLng _initialPosition =
       LatLng(23.838405415619437, 90.3595992615412);
   LatLng _dhakaAirportPosition = LatLng(23.851995216355434, 90.40838517263411);
+
+  Set<Marker> markersList = {};
+
 
   final Completer<GoogleMapController> _mapController =
       Completer<GoogleMapController>();
 
   late GoogleMapController googleMapController;
 
-  LatLng? _currentPosition = null;
+  LatLng? _currentPosition;
 
   late TextEditingController destinationTextEditingController =
       TextEditingController();
@@ -175,6 +174,11 @@ class _MapScreenState extends State<MapScreen> {
 
   GoogleMap buildGoogleMap() {
     return GoogleMap(
+
+      initialCameraPosition: CameraPosition(
+        target: _initialPosition,
+        zoom: 13,
+      ),
       myLocationEnabled: true,
       myLocationButtonEnabled: true,
       trafficEnabled: true,
@@ -187,15 +191,9 @@ class _MapScreenState extends State<MapScreen> {
       },
       onTap: (argument) => drawPolyline(),
       onMapCreated: (GoogleMapController controller){
-
           _mapController.complete(controller);
           googleMapController = controller;
       },
-      initialCameraPosition: CameraPosition(
-        target: _initialPosition,
-        zoom: 13,
-      ),
-      markers: {
         Marker(
           markerId: MarkerId("_currentLocation"),
           icon: BitmapDescriptor.defaultMarkerWithHue(184),
@@ -221,10 +219,10 @@ class _MapScreenState extends State<MapScreen> {
 
   Future<void> _cameraToPosition(LatLng position) async {
     final GoogleMapController controller = await _mapController.future;
-    CameraPosition _newCameraPosition =
+    CameraPosition newCameraPosition =
         CameraPosition(target: position, zoom: 13);
     await controller.animateCamera(
-      CameraUpdate.newCameraPosition(_newCameraPosition),
+      CameraUpdate.newCameraPosition(newCameraPosition),
     );
     // setState(() {
     // generatePolylineFromPoints(getPolylinePoints() as List<LatLng>);
@@ -232,19 +230,19 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> getLocationUpdate() async {
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
 
-    _serviceEnabled = await _locationController.serviceEnabled();
-    if (_serviceEnabled) {
-      _serviceEnabled = await _locationController.requestService();
+    serviceEnabled = await _locationController.serviceEnabled();
+    if (serviceEnabled) {
+      serviceEnabled = await _locationController.requestService();
     } else {
       return;
     }
-    _permissionGranted = await _locationController.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await _locationController.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
+    permissionGranted = await _locationController.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await _locationController.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) {
         return;
       }
     }
@@ -281,9 +279,9 @@ class _MapScreenState extends State<MapScreen> {
         PointLatLng(
             _dhakaAirportPosition.latitude, _dhakaAirportPosition.longitude));
     if (result.points.isNotEmpty) {
-      result.points.forEach((PointLatLng point) {
+      for (var point in result.points) {
         polyLineCoordinates.add(LatLng(point.latitude, point.longitude));
-      });
+      }
     } else {
       print(result.errorMessage);
     }

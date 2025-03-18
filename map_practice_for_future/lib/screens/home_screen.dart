@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:map_practice_for_future/screens/sign_in_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,10 +48,6 @@ class HomeScreen extends StatelessWidget {
                       // Navigate to sign in screen
                       Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
                     },
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black.withOpacity(0.2), // Button color
                       padding:
@@ -57,6 +55,10 @@ class HomeScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
+                    ),
+                    child: Text(
+                      'Sign in',
+                      style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ),
                   SizedBox(height: 20), // Spacing
