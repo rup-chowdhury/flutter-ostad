@@ -194,6 +194,9 @@ class _MapScreenState extends State<MapScreen> {
           _mapController.complete(controller);
           googleMapController = controller;
       },
+      markers:
+      {
+      ...markersList,
         Marker(
           markerId: MarkerId("_currentLocation"),
           icon: BitmapDescriptor.defaultMarkerWithHue(184),
