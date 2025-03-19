@@ -326,4 +326,15 @@ class _MapScreenState extends State<MapScreen> {
     _dhakaAirportPosition = destination;
     getPolylinePoints();
   }
+
+  @override
+  void dispose() {
+    _mapController;
+    destinationTextEditingController;
+    googleMapController;
+    _locationController;
+    // TODO: implement dispose
+    super.dispose();
+  }
 }
+
