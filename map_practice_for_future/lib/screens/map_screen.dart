@@ -17,8 +17,8 @@ class MapScreen extends StatefulWidget {
   State<MapScreen> createState() => _MapScreenState();
 }
 
-  const kGoogleApiKey = 'AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg';
-  final homeScaffoldKey = GlobalKey<ScaffoldState>();
+const kGoogleApiKey = 'AIzaSyA3KP1kyVmShHUoei0xZhy0J6RNUiHiEBg';
+final homeScaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MapScreenState extends State<MapScreen> {
   final Location _locationController = Location();
@@ -28,7 +28,6 @@ class _MapScreenState extends State<MapScreen> {
   LatLng _dhakaAirportPosition = LatLng(23.851995216355434, 90.40838517263411);
 
   Set<Marker> markersList = {};
-
 
   final Completer<GoogleMapController> _mapController =
       Completer<GoogleMapController>();
@@ -109,24 +108,28 @@ class _MapScreenState extends State<MapScreen> {
 
   Future<void> _handlePressButton() async {
     pl.Prediction? p = await PlacesAutocomplete.show(
-        context: context,
-        apiKey: kGoogleApiKey,
-        onError: onError,
-        mode: _mode,
-        language: 'en',
-        strictbounds: false,
-        types: [""],
-        decoration: InputDecoration(
-            hintText: 'Search',
-            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide(color: Colors.white))),
-        components: [pl.Component(pl.Component.country,"bd"),pl.Component(pl.Component.country,"bd")]);
+      context: context,
+      apiKey: kGoogleApiKey,
+      onError: onError,
+      mode: _mode,
+      language: 'en',
+      strictbounds: false,
+      types: [""],
+      decoration: InputDecoration(
+          hintText: 'Search',
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.white))),
+      components: [
+        pl.Component(pl.Component.country, "bd"),
+        pl.Component(pl.Component.country, "bd")
+      ],
+    );
 
-
-    displayPrediction(p!,homeScaffoldKey.currentState);
+    displayPrediction(p!, homeScaffoldKey.currentState);
   }
 
-  void onError(pl.PlacesAutocompleteResponse response){
-
+  void onError(pl.PlacesAutocompleteResponse response) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       elevation: 0,
       behavior: SnackBarBehavior.floating,
@@ -141,41 +144,43 @@ class _MapScreenState extends State<MapScreen> {
     // homeScaffoldKey.currentState!.showSnackBar(SnackBar(content: Text(response.errorMessage!)));
   }
 
-  Future<void> displayPrediction(pl.Prediction p, ScaffoldState? currentState) async {
-
+  Future<void> displayPrediction(
+      pl.Prediction p, ScaffoldState? currentState) async {
     pl.GoogleMapsPlaces places = pl.GoogleMapsPlaces(
         apiKey: kGoogleApiKey,
-        apiHeaders: await const GoogleApiHeaders().getHeaders()
-    );
+        apiHeaders: await const GoogleApiHeaders().getHeaders());
 
-    pl.PlacesDetailsResponse detail = await places.getDetailsByPlaceId(p.placeId!);
+    pl.PlacesDetailsResponse detail =
+        await places.getDetailsByPlaceId(p.placeId!);
 
     final lat = detail.result.geometry!.location.lat;
     final lng = detail.result.geometry!.location.lng;
 
     markersList.clear();
-    markersList.add(Marker(markerId: const MarkerId("0"),position: LatLng(lat, lng),infoWindow: InfoWindow(title: detail.result.name)));
+    markersList.add(Marker(
+        markerId: const MarkerId("0"),
+        position: LatLng(lat, lng),
+        infoWindow: InfoWindow(title: detail.result.name)));
 
     destinationTextEditingController.text = detail.result.name;
     setState(() {});
 
-    googleMapController.animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
+    googleMapController
+        .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
 
     print('Checking..............');
     print(detail);
     print(detail.result);
     print(detail.result.geometry);
     print(detail.result.geometry!.location);
-    LatLng locToLatLng = LatLng(detail.result.geometry!.location.lat, detail.result.geometry!.location.lng);
+    LatLng locToLatLng = LatLng(detail.result.geometry!.location.lat,
+        detail.result.geometry!.location.lng);
     setDestination(locToLatLng);
     drawPolyline();
-
   }
-
 
   GoogleMap buildGoogleMap() {
     return GoogleMap(
-
       initialCameraPosition: CameraPosition(
         target: _initialPosition,
         zoom: 13,
@@ -191,13 +196,12 @@ class _MapScreenState extends State<MapScreen> {
         setDestination(destiny);
       },
       onTap: (argument) => drawPolyline(),
-      onMapCreated: (GoogleMapController controller){
-          _mapController.complete(controller);
-          googleMapController = controller;
+      onMapCreated: (GoogleMapController controller) {
+        _mapController.complete(controller);
+        googleMapController = controller;
       },
-      markers:
-      {
-      ...markersList,
+      markers: {
+        ...markersList,
         Marker(
           markerId: MarkerId("_currentLocation"),
           icon: BitmapDescriptor.defaultMarkerWithHue(184),
@@ -332,4 +336,3 @@ class _MapScreenState extends State<MapScreen> {
     super.dispose();
   }
 }
-
