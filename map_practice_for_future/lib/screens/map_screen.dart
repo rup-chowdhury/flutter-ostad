@@ -104,12 +104,6 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
       ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // DestinationSelectionWidget();
-        },
-        child: const Icon(Icons.home),
-      ),
     );
   }
 
