@@ -162,6 +162,7 @@ class _MapScreenState extends State<MapScreen> {
     markersList.clear();
     markersList.add(Marker(markerId: const MarkerId("0"),position: LatLng(lat, lng),infoWindow: InfoWindow(title: detail.result.name)));
 
+    destinationTextEditingController.text = detail.result.name;
     setState(() {});
 
     googleMapController.animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
