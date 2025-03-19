@@ -59,17 +59,18 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
-        _currentPosition == null
-            ? const Center(
-                child: Text(
-                  'Loading.....',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
-                ),
-              )
-            : buildGoogleMap(),
+        // _currentPosition == null
+        //     ? const Center(
+        //         child: Text(
+        //           'Loading.....',
+        //           style: TextStyle(
+        //               color: Colors.black,
+        //               fontWeight: FontWeight.bold,
+        //               fontSize: 18),
+        //         ),
+        //       )
+        //     :
+        buildGoogleMap(),
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
