@@ -286,7 +286,10 @@ class _MapScreenState extends State<MapScreen> {
         GOOGLE_MAPS_API_KEY,
         PointLatLng(_currentPosition!.latitude, _currentPosition!.longitude),
         PointLatLng(
-            _dhakaAirportPosition.latitude, _dhakaAirportPosition.longitude));
+            _dhakaAirportPosition.latitude, _dhakaAirportPosition.longitude),
+        optimizeWaypoints: true,
+    avoidHighways: false,
+    travelMode: TravelMode.walking);
     if (result.points.isNotEmpty) {
       for (var point in result.points) {
         polyLineCoordinates.add(LatLng(point.latitude, point.longitude));
