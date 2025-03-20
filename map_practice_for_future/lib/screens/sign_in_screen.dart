@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:map_practice_for_future/screens/map_screen.dart';
+import 'package:map_practice_for_future/screens/sign_up_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -8,24 +9,23 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF5F4F5),
-      body: Stack(
-        children: [
-          // Background Image
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/home_background.png'),
-                // Update with your image
-                fit: BoxFit.cover,
-              ),
+      body: Stack(children: [
+        // Background Image
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/home_background.png'),
+              // Update with your image
+              fit: BoxFit.cover,
             ),
           ),
-          // Overlay
-          Container(
-            color: Colors
-                .cyanAccent.withOpacity(0.1), // Adding a dark overlay for better text visibility
-          ),
-          Column(
+        ),
+        // Overlay
+        Container(
+          color: Colors.cyanAccent.withOpacity(
+              0.1), // Adding a dark overlay for better text visibility
+        ),
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
@@ -45,10 +45,7 @@ class SignInScreen extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    stops: [
-                      0.2,
-                      0.3
-                    ],
+                    stops: [0.2, 0.3],
                     colors: [
                       Color.fromARGB(255, 190, 238, 248),
                       Colors.white,
@@ -64,19 +61,18 @@ class SignInScreen extends StatelessWidget {
                         height: 60,
                         width: 60,
                         padding: EdgeInsets.all(12),
-                        child: Image.asset('assets/images/sign_in_logo.png.png'),
+                        child:
+                            Image.asset('assets/images/sign_in_logo.png.png'),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(200, 255, 255, 255),
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.cyanAccent.shade100,
-                              blurRadius: 15,
-                              offset: Offset(2, 5),
-
-                            )
-                          ]
-                        ),
+                            color: Color.fromARGB(200, 255, 255, 255),
+                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.cyanAccent.shade100,
+                                blurRadius: 15,
+                                offset: Offset(2, 5),
+                              )
+                            ]),
                       ),
                       SizedBox(
                         height: 8,
@@ -88,19 +84,22 @@ class SignInScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 16), // Gap between title and first input
+                      SizedBox(height: 16),
+                      // Gap between title and first input
                       _buildTextField(
                         hint: 'Email ID',
                         icon: Icons.email,
                         inputType: TextInputType.emailAddress,
                       ),
-                      SizedBox(height: 16), // Gap between inputs
+                      SizedBox(height: 16),
+                      // Gap between inputs
                       _buildTextField(
                         hint: 'Password',
                         icon: Icons.lock,
                         isObscured: true,
                       ),
-                      SizedBox(height: 16), // Gap between inputs
+                      SizedBox(height: 16),
+                      // Gap between inputs
                       Align(
                         alignment: Alignment.centerRight,
                         child: Text(
@@ -112,7 +111,8 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 16), // Gap before login button
+                      SizedBox(height: 16),
+                      // Gap before login button
                       SizedBox(
                         height: 40,
                         width: 340,
@@ -126,7 +126,6 @@ class SignInScreen extends StatelessWidget {
                             // Navigator.push(context, MaterialPageRoute(builder: (context) => TransformLatLng()));
                           },
                           style: ElevatedButton.styleFrom(
-
                             elevation: 5,
                             backgroundColor: Colors.black87,
                             // padding: EdgeInsets.symmetric(vertical: 16),
@@ -136,11 +135,15 @@ class SignInScreen extends StatelessWidget {
                           ),
                           child: Text(
                             'Sign In',
-                            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400),
                           ),
                         ),
                       ),
-                      SizedBox(height: 16), // Gap before OR text
+                      SizedBox(height: 16),
+                      // Gap before OR text
                       Text(
                         'OR',
                         style: TextStyle(
@@ -149,11 +152,20 @@ class SignInScreen extends StatelessWidget {
                           color: Colors.grey,
                         ),
                       ),
-                      SizedBox(height: 16), // Gap before Google login button
-                      Text(
-                        'Don\'t have an account? Sign Up',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 20),
+                      SizedBox(height: 16),
+                      // Gap before Google login button
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()));
+                        },
+                        child: Text(
+                          'Don\'t have an account? Sign Up',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ],
                   ),
@@ -162,8 +174,7 @@ class SignInScreen extends StatelessWidget {
             ),
           ],
         ),
-        ]
-      ),
+      ]),
     );
   }
 
