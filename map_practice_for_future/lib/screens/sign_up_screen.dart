@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:map_practice_for_future/screens/map_screen.dart';
+import 'package:map_practice_for_future/screens/sign_in_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -56,7 +57,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -135,7 +136,7 @@ class SignUpScreen extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            'Sign In',
+                            'Sign Up',
                             style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400),
                           ),
                         ),
@@ -150,10 +151,18 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 16), // Gap before Google login button
-                      Text(
-                        'Don\'t have an account? Sign Up',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 20),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignInScreen()));
+                        },
+                        child: Text(
+                          'Already have an account? Sign In',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ],
                   ),

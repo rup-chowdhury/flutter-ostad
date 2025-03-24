@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094342320799",
+    "project_id": "roadsafetymist-ac008",
+    "storage_bucket": "roadsafetymist-ac008.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094342320799:android:d2c854a9ff0f2dae4438aa",
+        "android_client_info": {
+          "package_name": "com.example.map_practice_for_future"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9fxpbLiFylafXwLIYxtsZSPX5X6KLx3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

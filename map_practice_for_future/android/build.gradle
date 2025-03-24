@@ -45,7 +45,9 @@ tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
 
-//dependencies {
+dependencies {
 //    classpath 'com.android.tools.build:gradle:7.4.1'  // Ensure correct version
 //    classpath 'dev.flutter:flutter-gradle-plugin:1.0.0'  // Make sure this exists
-//}
+//      id 'com.google.gms.google-services' version '4.4.2' apply false
+//      classpath 'com.google.gms.google-services4.4.2'
+}
