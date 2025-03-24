@@ -176,27 +176,4 @@ class SignInScreen extends StatelessWidget {
       ]),
     );
   }
-
-  Widget _buildTextField({
-    required String hint,
-    required IconData icon,
-    TextInputType? inputType,
-    bool isObscured = false,
-    bool isPasswordField = false,
-  }) {
-    return TextField(
-      keyboardType: inputType,
-      obscureText: isObscured,
-      decoration: InputDecoration(
-        hintText: hint,
-        prefixIcon: Icon(icon),
-        filled: true,
-        fillColor: Color.fromARGB(100, 222, 222, 222),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide.none,
-        ),
-      ),
-    );
-  }
 }
