@@ -44,6 +44,7 @@ dependencies:
 
   cloud_firestore: ^5.6.5
   firebase_auth: ^5.5.1
+  firebase_storage: ^12.4.4
   #  flutter_google_maps_webservices: any
 #  firebase_core: any
 #  firebase_auth: any
