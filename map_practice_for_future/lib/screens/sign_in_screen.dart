@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:map_practice_for_future/screens/map_screen.dart';
 import 'package:map_practice_for_future/screens/sign_up_screen.dart';
+import 'package:map_practice_for_future/widgets/build_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -86,19 +87,17 @@ class SignInScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 16),
                       // Gap between title and first input
-                      _buildTextField(
-                        hint: 'Email ID',
-                        icon: Icons.email,
-                        inputType: TextInputType.emailAddress,
+                      BuildTextField(
+                        hintText: 'Email ID',
+                        isPasswordField: false,
+                        icon: Icon(Icons.email),
                       ),
                       SizedBox(height: 16),
-                      // Gap between inputs
-                      _buildTextField(
-                        hint: 'Password',
-                        icon: Icons.lock,
-                        isObscured: true,
+                      BuildTextField(
+                        hintText: 'Password',
+                        isPasswordField: true,
+                        icon: Icon(Icons.lock),
                       ),
-                      SizedBox(height: 16),
                       // Gap between inputs
                       Align(
                         alignment: Alignment.centerRight,
@@ -183,6 +182,7 @@ class SignInScreen extends StatelessWidget {
     required IconData icon,
     TextInputType? inputType,
     bool isObscured = false,
+    bool isPasswordField = false,
   }) {
     return TextField(
       keyboardType: inputType,
