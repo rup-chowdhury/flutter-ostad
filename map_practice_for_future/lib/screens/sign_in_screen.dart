@@ -160,10 +160,20 @@ class SignInScreen extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) => SignUpScreen()));
                         },
-                        child: Text(
-                          'Don\'t have an account? Sign Up',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Don\'t have an account? ',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                              Text(
+                              ' Sign Up',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 20, color: Colors.blue),
+                            ),
+                          ],
                         ),
                       ),
                     ],
