@@ -12,31 +12,31 @@
   {
     "id": "extensive-injury-accidents-in-mirpur12-mor",
     "fillColor": "orange",
-    "fillOpacity": 0.4,
+    "fillOpacity": 0.6,
     "centerLat": 23.827890458890693,
     "centerLng": 90.36406172529641,
     "radius": 7,
     "strokeColor": "orange",
-    "strokeWidth": 0
+    "strokeWidth": 3
   },
   {
     "id": "minor-injury-accidents-in-mirpur12-mor",
     "fillColor": "green",
-    "fillOpacity": 0.5,
+    "fillOpacity": 0.6,
     "centerLat": 23.82792480908795,
     "centerLng": 90.36390615718047,
     "radius": 7,
     "strokeColor": "green",
-    "strokeWidth": 0
+    "strokeWidth": 3
   },
   {
     "id": "vehicle-collision-accidents-in-mirpur12-mor",
     "fillColor": "yellow",
-    "fillOpacity": 0.5,
+    "fillOpacity": 0.6,
     "centerLat": 23.827910087575948,
     "centerLng": 90.36395443694059,
     "radius": 7,
     "strokeColor": "yellow",
-    "strokeWidth": 0
+    "strokeWidth": 3
   }
 ]
