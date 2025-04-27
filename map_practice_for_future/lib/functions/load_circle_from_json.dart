@@ -20,7 +20,9 @@ Future <Set<Circle>> loadCirclesFromJson() async {
           circleId: CircleId(circleInfo.id),
           center: LatLng(circleInfo.centerLat, circleInfo.centerLng),
           radius: circleInfo.radius,
-          // fillColor: _color
+          fillColor: _colorFromString(circleInfo.fillColor).withOpacity(circleInfo.fillOpacity),
+          strokeColor: _colorFromString(circleInfo.strokeColor),
+          strokeWidth: circleInfo.strokeWidth,
       ),
     );
   }
