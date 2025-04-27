@@ -38,5 +38,25 @@
     "radius": 7,
     "strokeColor": "yellow",
     "strokeWidth": 3
+  },
+  {
+    "id": "vehicle-collision-accidents-in-mirpur12-to-ceramic-mor",
+    "fillColor": "yellow",
+    "fillOpacity": 0.6,
+    "centerLat": 23.82930200885709,
+    "centerLng": 90.36407363335663,
+    "radius": 7,
+    "strokeColor": "yellow",
+    "strokeWidth": 3
+  },
+  {
+    "id": "minor-injury-accidents-in-mirpur12-to-ceramic-mor",
+    "fillColor": "green",
+    "fillOpacity": 0.6,
+    "centerLat": 23.82928725800097,
+    "centerLng": 90.36395972405104,
+    "radius": 7,
+    "strokeColor": "green",
+    "strokeWidth": 3
   }
 ]
