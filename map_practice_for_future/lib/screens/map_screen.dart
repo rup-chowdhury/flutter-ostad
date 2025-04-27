@@ -28,6 +28,7 @@ class _MapScreenState extends State<MapScreen> {
   LatLng _dhakaAirportPosition = LatLng(23.851995216355434, 90.40838517263411);
 
   Set<Marker> markersList = {};
+  Set<Circle> _circles = {};
 
   final Completer<GoogleMapController> _mapController =
       Completer<GoogleMapController>();
