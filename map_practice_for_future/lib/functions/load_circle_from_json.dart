@@ -39,7 +39,7 @@ Color _colorFromString(String color){
     case 'yellow':
       return Colors.yellow;
     case 'orange':
-      return Colors.blue;
+      return Colors.orange;
     default:
       return Colors.black;
   }
