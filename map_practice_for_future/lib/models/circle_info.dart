@@ -22,7 +22,7 @@ class CircleInfo {
     return CircleInfo(
       id: json['id'],
       fillColor: json['fillColor'],
-      fillOpacity: (json['fillOpacity'] ?? 0.5).toDouble(),
+      fillOpacity: (json['fillOpacity'] ?? 1).toDouble(),
       centerLat: json['centerLat'].toDouble(),
       centerLng: json['centerLng'].toDouble(),
       radius: json['radius'].toDouble(),
