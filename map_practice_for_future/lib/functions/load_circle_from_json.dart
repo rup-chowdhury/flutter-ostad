@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_practice_for_future/models/circle_info.dart';
@@ -25,4 +26,19 @@ Future <Set<Circle>> loadCirclesFromJson() async {
   }
 
   return circles;
+}
+
+Color _colorFromString(String color){
+  switch (color.toLowerCase()) {
+    case 'red':
+      return Colors.red;
+    case 'green':
+      return Colors.green;
+    case 'yellow':
+      return Colors.yellow;
+    case 'orange':
+      return Colors.blue;
+    default:
+      return Colors.black;
+  }
 }
