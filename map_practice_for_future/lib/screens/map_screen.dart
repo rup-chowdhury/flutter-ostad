@@ -6,6 +6,7 @@ import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:map_practice_for_future/functions/load_circle_from_json.dart';
 import 'package:map_practice_for_future/values.dart';
 import 'package:google_maps_webservice/places.dart' as pl;
 import 'package:google_api_headers/google_api_headers.dart';
@@ -54,6 +55,12 @@ class _MapScreenState extends State<MapScreen> {
             },
           ),
         });
+
+    loadCirclesFromJson().then((loadedCircles) => {
+      setState(() {
+        _circles = loadedCircles;
+      })
+    });
   }
 
   @override
