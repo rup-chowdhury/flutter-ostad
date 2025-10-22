@@ -12,7 +12,8 @@ class TaskModel {
         this.description,
         this.status,
         this.email,
-        this.createdDate});
+        this.createdDate}
+      );
 
   TaskModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
