@@ -10,6 +10,7 @@ class Urls {
   static const String progressTaskList = '$_baseUrl/listTaskByStatus/Progress';
   static const String taskStatusCount = '$_baseUrl/taskStatusCount';
   static const String updateProfile = '$_baseUrl/ProfileUpdate';
+  static const String profileDetails = '$_baseUrl/ProfileDetails';
 
 
   static String sendOTPtoEmail(String email) =>
