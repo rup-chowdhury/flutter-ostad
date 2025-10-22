@@ -1,4 +1,5 @@
 class TaskStatusModel {
+
   String? sId;
   int? sum;
 
