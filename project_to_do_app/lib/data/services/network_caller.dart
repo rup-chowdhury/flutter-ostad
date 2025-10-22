@@ -84,7 +84,8 @@ class NetworkCaller {
             statusCode: response.statusCode,
             errorMessage: 'Unauthenticated!'
         );
-      } else {
+      }
+      else {
         return NetworkResponse(
           isSuccess: false,
           statusCode: response.statusCode,
