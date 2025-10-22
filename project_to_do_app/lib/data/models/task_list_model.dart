@@ -11,7 +11,8 @@ class TaskListModel {
       taskList = <TaskModel>[];
       json['data'].forEach((v) {
         taskList!.add(TaskModel.fromJson(v));
-      });
+      }
+      );
     }
   }
 }
