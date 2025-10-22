@@ -26,7 +26,7 @@ class TaskManagerApp extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColor.themeColor,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         fixedSize: Size.fromWidth(double.maxFinite),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8)

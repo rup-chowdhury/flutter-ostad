@@ -150,7 +150,8 @@ class _TaskCardState extends State<TaskCard> {
 
     if(response.isSuccess){
       widget.onRefreshList();
-    }else{
+    }
+    else{
       _changeStatusInProgress = false;
       setState(() {});
       showSnackBarMessage(context, response.errorMessage);

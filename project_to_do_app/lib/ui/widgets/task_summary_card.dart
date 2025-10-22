@@ -21,8 +21,8 @@ class TaskSummaryCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("$count", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),),
-              SizedBox(height: 4,),
-              Text(title, style: TextStyle(color: Colors.grey),)
+              const SizedBox(height: 4,),
+              Text(title, style: const TextStyle(color: Colors.grey),)
             ],
           ),
         ),
