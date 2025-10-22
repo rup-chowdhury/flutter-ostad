@@ -66,4 +66,5 @@ class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
     _getCanceledTaskListInProgress = false;
     setState(() {});
   }
+
 }

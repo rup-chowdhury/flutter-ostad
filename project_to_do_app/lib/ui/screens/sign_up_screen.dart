@@ -158,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         children: [
           RichText(
             text: TextSpan(
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
@@ -167,7 +167,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 children: [
                   TextSpan(
                       text: "Sign In",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColor.themeColor,
                       ),
                       recognizer: TapGestureRecognizer()..onTap = _onTapSignIn),
@@ -221,7 +221,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _onTapSignIn() {
-    //TODO: action for pressing Sign up button
     Navigator.pop(context);
   }
 

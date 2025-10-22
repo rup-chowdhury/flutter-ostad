@@ -66,4 +66,5 @@ class _CompletedTaskScreenState extends State<CompletedTaskScreen> {
     _getCompleteTaskListInProgress = false;
     setState(() {});
   }
+
 }

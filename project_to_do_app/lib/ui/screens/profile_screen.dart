@@ -172,7 +172,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } else {
       showSnackBarMessage(context, response.errorMessage);
     }
-
   }
 
   Widget _buildPhotoPicker(){

@@ -35,6 +35,7 @@ class AuthController {
     if(userEncodedData == null){
       return null;
     }
+
     UserModel userModel = UserModel.fromJson(jsonDecode(userEncodedData));
     userData = userModel;
     return userModel;
