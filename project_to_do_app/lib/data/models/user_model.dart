@@ -16,7 +16,8 @@ class UserModel {
         this.firstName,
         this.lastName,
         this.mobile,
-        this.createdDate});
+        this.createdDate}
+      );
 
   UserModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
