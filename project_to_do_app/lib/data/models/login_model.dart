@@ -11,5 +11,6 @@ class LoginModel {
     status = json['status'];
     data = json['data'] != null ? UserModel.fromJson(json['data']) : null;
     token = json['token'];
+
   }
 }
