@@ -1,0 +1,1 @@
+ G:\\Code\\flutter-ostad\\map_practice_for_future\\.dart_tool\\flutter_build\\2e6a78f333d1e4b5065db7ee9d3843c7\\native_assets.yaml: 

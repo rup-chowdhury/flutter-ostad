@@ -1,0 +1,36 @@
+<variant
+    name="release"
+    package="com.example.map_practice_for_future"
+    minSdkVersion="21"
+    targetSdkVersion="35"
+    shrinking="true"
+    mergedManifest="G:\Code\flutter-ostad\map_practice_for_future\build\app\intermediates\merged_manifest\release\AndroidManifest.xml"
+    proguardFiles="G:\Code\flutter-ostad\map_practice_for_future\build\app\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.1.0;D:\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro"
+    partialResultsDir="G:\Code\flutter-ostad\map_practice_for_future\build\app\intermediates\lint_vital_partial_results\release\out"
+    desugaredMethodsFiles="C:\Users\USER\.gradle\caches\transforms-3\af1f17dad1a3dfeacf8cdc0ed8677f79\transformed\D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src\main\AndroidManifest.xml"
+        javaDirectories="src\main\java;src\release\java;src\main\kotlin;src\release\kotlin"
+        resDirectories="src\main\res;src\release\res"
+        assetsDirectories="src\main\assets;src\release\assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <manifestPlaceholders>
+    <placeholder
+        name="applicationName"
+        value="android.app.Application" />
+  </manifestPlaceholders>
+  <mainArtifact
+      classOutputs="G:\Code\flutter-ostad\map_practice_for_future\build\app\intermediates\javac\release\classes;G:\Code\flutter-ostad\map_practice_for_future\build\app\tmp\kotlin-classes\release;G:\Code\flutter-ostad\map_practice_for_future\build\app\kotlinToolingMetadata;G:\Code\flutter-ostad\map_practice_for_future\build\app\intermediates\compile_and_runtime_not_namespaced_r_class_jar\release\R.jar"
+      applicationId="com.example.map_practice_for_future"
+      generatedSourceFolders="G:\Code\flutter-ostad\map_practice_for_future\build\app\generated\ap_generated_sources\release\out"
+      generatedResourceFolders="G:\Code\flutter-ostad\map_practice_for_future\build\app\generated\res\resValues\release"
+      desugaredMethodsFiles="C:\Users\USER\.gradle\caches\transforms-3\af1f17dad1a3dfeacf8cdc0ed8677f79\transformed\D8BackportedDesugaredMethods.txt">
+  </mainArtifact>
+</variant>

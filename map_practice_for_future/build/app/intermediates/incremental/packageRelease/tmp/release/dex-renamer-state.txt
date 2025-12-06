@@ -1,0 +1,4 @@
+#Thu Mar 20 12:11:23 BDT 2025
+base.0=G\:\\Code\\flutter-ostad\\map_practice_for_future\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
